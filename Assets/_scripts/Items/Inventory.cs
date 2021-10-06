@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
                 GO.transform.Find("ItemType").GetComponent<UnityEngine.UI.Text>().text = item.itemType;
                 GO.transform.Find("ItemTier").GetComponent<UnityEngine.UI.Text>().text = "T" + item.itemTier.ToString();
                 GO.transform.Find("ItemLevel").GetComponent<UnityEngine.UI.Text>().text = item.itemLevel.ToString();
-                GO.transform.parent = this.inventoryPanel.transform;
+                GO.transform.SetParent(this.inventoryPanel.transform);
             }
             smthChanged = false;
         }
