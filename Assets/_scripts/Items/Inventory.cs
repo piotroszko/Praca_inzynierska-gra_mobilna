@@ -7,6 +7,13 @@ public class Inventory : MonoBehaviour
     public List<IItem> itemList = new List<IItem>();
     bool smthChanged = true;
     public GameObject itemPrefab;
+
+    public GameObject itemInfo;
+
+    private int index = 0;
+    public int nextItemIndex {
+        get { index++; return index; }
+    }
     public GameObject inventoryPanel;
     void Awake() {
         DontDestroyOnLoad(this.gameObject);
@@ -14,7 +21,8 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.itemList.Add(new BasicCollar());
+        this.itemList.Add(new BasicCollar(nextItemIndex));
+        
     }
 
     // Update is called once per frame
@@ -28,12 +36,14 @@ public class Inventory : MonoBehaviour
             }
             foreach(IItem item in itemList) {
                 GameObject GO = Instantiate(itemPrefab);
+                GO.transform.GetComponent<InventorySlot>().setItemFromIItem(item);
+                /*
                 GO.transform.Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "*";
                 GO.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
                 //GO.transform.Find("Modified").GetComponent<UnityEngine.UI.Text>()
                 GO.transform.Find("ItemType").GetComponent<UnityEngine.UI.Text>().text = item.itemType;
                 GO.transform.Find("ItemTier").GetComponent<UnityEngine.UI.Text>().text = "T" + item.itemTier.ToString();
-                GO.transform.Find("ItemLevel").GetComponent<UnityEngine.UI.Text>().text = item.itemLevel.ToString();
+                GO.transform.Find("ItemLevel").GetComponent<UnityEngine.UI.Text>().text = item.itemLevel.ToString();*/
                 GO.transform.SetParent(this.inventoryPanel.transform);
             }
             smthChanged = false;

@@ -8,6 +8,7 @@ public interface IItem
   int itemTier { get; set; }
   int itemLevel { get; set; }
   string itemRarity {get; set;}
+  int itemIndex {get; set;}
 
   string itemName {get;}
   string itemType {get;}

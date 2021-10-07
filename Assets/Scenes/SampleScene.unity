@@ -1148,6 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 4667082828529377458, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
+  itemInfo: {fileID: 1024436768}
   inventoryPanel: {fileID: 670386649}
 --- !u!1 &835258828
 GameObject:
@@ -1465,6 +1466,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969052789}
   m_CullTransparentMesh: 1
+--- !u!1 &1024436768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2964305373985756546, guid: b093bcb313245be4caff69e9f2a84e5e, type: 3}
+  m_PrefabInstance: {fileID: 8842426704860121965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1025354151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,6 +2416,10 @@ PrefabInstance:
       value: TemplateItem
       objectReference: {fileID: 0}
     - target: {fileID: 4667082828529377458, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667082828529377458, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
       propertyPath: m_TagString
       value: InventoryItem
       objectReference: {fileID: 0}
@@ -2497,7 +2507,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4667082828529377463, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6041474598243555286, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
+    - {fileID: 3594023568184458963, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
 --- !u!224 &6979722892752165255 stripped
 RectTransform:

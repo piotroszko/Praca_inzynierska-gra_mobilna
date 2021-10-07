@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BasicCollar : IItem
 {
+    public BasicCollar (int index){
+        this.itemIndex = index;
+    }
     public bool stackable () {
-        return true;
+        return false;
     }
     public int itemTier { 
         get{ 
@@ -20,6 +23,15 @@ public class BasicCollar : IItem
         set{
 
         } 
+    }
+    private int index = 0;
+    public int itemIndex { 
+        get { 
+            return index;
+        }
+        set {
+            index = value;
+        }
     }
     public string itemRarity {
         get{ 
