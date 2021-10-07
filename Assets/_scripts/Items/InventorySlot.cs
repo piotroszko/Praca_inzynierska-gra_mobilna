@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
 {
-    private IItem myItemObject;
+    protected IItem myItemObject;
+    protected GameObject itemInfoGameObject;
 
     private bool sble;
     public bool stackable {get { return sble;} 
@@ -87,11 +88,13 @@ public class InventorySlot : MonoBehaviour
     }
     public void ItemClick () {
         Debug.Log("Item clicked with index:" + this.itemIndex.ToString() );
+        this.itemInfoGameObject.GetComponent<ItemInfoManager>().SetItemInfo(this.myItemObject);
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.itemInfoGameObject  = GameObject.FindWithTag("ItemInfo");
     }
     // Update is called once per frame
     void Update()
