@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InventoryPanel
   - InventoryItem
+  - ItemInfo
   layers:
   - Default
   - TransparentFX
