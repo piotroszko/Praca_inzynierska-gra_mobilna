@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+/.idea.Praca_inzynierska-gra_mobilna.iml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\piotr\Desktop\Nauka\Angular\frontend\Praca_inzynierska-gra_mobilna\.idea\.idea.Praca_inzynierska-gra_mobilna\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
