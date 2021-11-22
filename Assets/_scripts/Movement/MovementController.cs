@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
@@ -8,12 +9,15 @@ public class MovementController : MonoBehaviour
     private Rigidbody2D rb;
     bool isOnGround = true;
     private float timeAllowNextJump = 0f;
-
+    private Animator anim;
+    private bool finishReadyCheck = false;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -31,7 +35,9 @@ public class MovementController : MonoBehaviour
         
         Flip();
         Jump();
-        
+       // RunningAnimation();
+
+
     }
 
     
@@ -68,4 +74,29 @@ public class MovementController : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
+
+    //not working
+    void RunningAnimation()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (finishReadyCheck == false)
+            {
+                anim.SetBool("ready", true);
+                finishReadyCheck = true;
+            }
+            else
+            {
+                anim.SetBool("ready", false);
+                anim.SetBool("run", true);
+            }
+        }
+        else
+        {
+            anim.SetBool("ready", false);
+            anim.SetBool("run", false);
+            
+        }
+    }
+    
 }
