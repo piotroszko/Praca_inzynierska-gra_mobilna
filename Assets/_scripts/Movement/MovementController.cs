@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
     private Vector2 move;
     private Rigidbody2D rb;
     bool isOnGround = true;
+    private float timeAllowNextJump = 0f;
 
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class MovementController : MonoBehaviour
     {
         //Giving velocity + dont need y
         rb.velocity = new Vector2(move.x * speed * Time.deltaTime, rb.velocity.y);
+        
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class MovementController : MonoBehaviour
         
         Flip();
         Jump();
+        
     }
 
     
@@ -42,10 +45,13 @@ public class MovementController : MonoBehaviour
     //Jumping
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && isOnGround == true)
+        if (Input.GetButtonDown("Jump") && isOnGround == true && Time.time > timeAllowNextJump)
         {
-            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isOnGround = false;
+            Debug.Log(isOnGround);
+            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            timeAllowNextJump = Time.time + 1f;  
+            
         }
     }
 
