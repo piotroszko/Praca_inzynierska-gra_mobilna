@@ -11,7 +11,7 @@ public class MovementController : MonoBehaviour
     private float timeAllowNextJump = 0f;
     private Animator anim;
     private bool finishReadyCheck = false;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class MovementController : MonoBehaviour
     {
         //Giving velocity + dont need y
         rb.velocity = new Vector2(move.x * speed * Time.deltaTime, rb.velocity.y);
-        
+
     }
 
     // Update is called once per frame
@@ -32,22 +32,24 @@ public class MovementController : MonoBehaviour
     {
         //Getting inputs
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
         Flip();
         Jump();
-       // RunningAnimation();
+        RunningAnimation();
 
 
     }
 
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground") {    //blocking infinitive jumping
+        if (collision.gameObject.tag == "Ground")
+        {
+            //blocking infinitive jumping
             isOnGround = true;
         }
     }
-    
+
     //Jumping
     void Jump()
     {
@@ -56,20 +58,20 @@ public class MovementController : MonoBehaviour
             isOnGround = false;
             Debug.Log(isOnGround);
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            timeAllowNextJump = Time.time + 1f;  
-            
+            timeAllowNextJump = Time.time + 1f;
+
         }
     }
 
     //Method for flipping
     void Flip()
     {
-        if (Input.GetAxisRaw("Horizontal") < 0 )
+        if (Input.GetAxisRaw("Horizontal") < 0)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
-            
+
         }
-        else if(Input.GetAxisRaw("Horizontal") > 0)
+        else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
@@ -78,25 +80,16 @@ public class MovementController : MonoBehaviour
     //not working
     void RunningAnimation()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            if (finishReadyCheck == false)
-            {
-                anim.SetBool("ready", true);
-                finishReadyCheck = true;
-            }
-            else
-            {
-                anim.SetBool("ready", false);
-                anim.SetBool("run", true);
-            }
+            
+            anim.SetBool("run", true);
+
         }
         else
         {
-            anim.SetBool("ready", false);
             anim.SetBool("run", false);
-            
         }
+
     }
-    
 }
