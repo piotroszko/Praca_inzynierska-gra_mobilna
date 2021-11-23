@@ -7,6 +7,7 @@ public class MenuIconManager : MonoBehaviour
   public GameObject menuCanvas;
   public GameObject inventoryView;
   public GameObject iventoryUpgrade;
+  public GameObject InGameMenuCanvas;
   // Start is called before the first frame update
   void Start()
   {
@@ -17,6 +18,7 @@ public class MenuIconManager : MonoBehaviour
     if (selectedView == "back")
     {
       this.menuCanvas.SetActive(false);
+      this.InGameMenuCanvas.SetActive(true);
     }
     else if (selectedView == "inventory")
     {
