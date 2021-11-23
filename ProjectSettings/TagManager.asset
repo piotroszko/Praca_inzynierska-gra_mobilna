@@ -8,6 +8,7 @@ TagManager:
   - InventoryItem
   - ItemInfo
   - Ground
+  - Spikes
   layers:
   - Default
   - TransparentFX

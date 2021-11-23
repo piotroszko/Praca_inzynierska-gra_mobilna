@@ -10,7 +10,6 @@ public class MovementController : MonoBehaviour
     bool isOnGround = true;
     private float timeAllowNextJump = 0f;
     private Animator anim;
-    private bool finishReadyCheck = false;
 
 
     // Start is called before the first frame update
@@ -39,7 +38,6 @@ public class MovementController : MonoBehaviour
 
 
     }
-
 
     void OnCollisionEnter2D(Collision2D collision)
     {
