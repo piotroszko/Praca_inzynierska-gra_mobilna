@@ -8,6 +8,9 @@ public class DamageTaken : MonoBehaviour
     [SerializeField] float force = 1.0f;
     private float gravityValue = -9.81f;
     private Rigidbody2D rb;
+
+    public Health health;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,7 @@ public class DamageTaken : MonoBehaviour
     {
         if (hit.gameObject.tag == "Spikes")
         {
-            Debug.Log("You take 5 damage");
+            health.Damage(5);
             rb.AddForce(Vector2.up * gravityValue * force * -0.75f, ForceMode2D.Impulse);
         }
             
