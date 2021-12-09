@@ -9,6 +9,7 @@ TagManager:
   - ItemInfo
   - Ground
   - Spikes
+  - PlayerManager
   layers:
   - Default
   - TransparentFX
