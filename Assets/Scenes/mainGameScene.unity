@@ -6292,6 +6292,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f48f1bb72fe487418be932d1a21466f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodes:
+  - ID: 0
+    row: 1
+    pos: 1
+    nodeName: Test skill
+    desc: Testowy opis skilla
+  nodesOwned: 
 --- !u!114 &831198395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10230,7 +10237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1418960288
 Transform:
   m_ObjectHideFlags: 0
