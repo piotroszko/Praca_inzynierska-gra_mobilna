@@ -27,6 +27,12 @@ public class TreeViewManager : MonoBehaviour
     else
       this.pointsValue.GetComponent<UnityEngine.UI.Text>().text = "0";
   }
+  public void unlockNode(int id)
+  {
+    statsPlayManager.nodesOwned.Add(id);
+    updatePoints();
+    updateTree();
+  }
   void OnEnable()
   {
     findPlayerManager();
@@ -36,19 +42,26 @@ public class TreeViewManager : MonoBehaviour
   }
   void updateTree()
   {
+    int points = this.statsPlayManager.getAmountOfPointsOwned();
     foreach (GameObject node in this.allNodes)
     {
       if (this.statsPlayManager.nodesOwned.Exists(y => y == node.GetComponent<TreeNode>().ID))
       {
         node.GetComponent<Image>().sprite = nodeTaken;
+        node.GetComponent<TreeNode>().isUnlockable = false;
       }
       else if (node.GetComponent<TreeNode>().requiredNodesIds.Length == 0 || isListContainesOtherList(this.statsPlayManager.nodesOwned, node.GetComponent<TreeNode>().requiredNodesIds))
       {
         node.GetComponent<Image>().sprite = nodeAvaiable;
+        if (points > 0)
+          node.GetComponent<TreeNode>().isUnlockable = true;
+        else
+          node.GetComponent<TreeNode>().isUnlockable = false;
       }
       else
       {
         node.GetComponent<Image>().sprite = nodeNotAvaiable;
+        node.GetComponent<TreeNode>().isUnlockable = false;
       }
     }
   }

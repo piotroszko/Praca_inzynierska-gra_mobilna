@@ -10,6 +10,8 @@ public class TreeNode : MonoBehaviour
   public string nodeName = "";
   public string description = "";
   public int[] requiredNodesIds;
+  [HideInInspector]
+  public bool isUnlockable = false;
   void Start()
   {
     this.nodeView = GameObject.FindWithTag("NodeView").GetComponent<NodeView>();
@@ -18,7 +20,7 @@ public class TreeNode : MonoBehaviour
 
   void OnNodeClick()
   {
-    this.nodeView.setView(nodeName, description);
+    this.nodeView.setView(this.nodeName, this.description, this.ID, this.isUnlockable);
   }
   void Update()
   {
