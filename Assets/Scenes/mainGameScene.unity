@@ -575,8 +575,8 @@ GameObject:
   - component: {fileID: 73447496}
   - component: {fileID: 73447495}
   m_Layer: 0
-  m_Name: Row2Node3
-  m_TagString: Untagged
+  m_Name: 3
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,8 +908,8 @@ GameObject:
   - component: {fileID: 101535989}
   - component: {fileID: 101535988}
   m_Layer: 0
-  m_Name: Row2Node1
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3007,8 +3007,8 @@ GameObject:
   - component: {fileID: 469187208}
   - component: {fileID: 469187207}
   m_Layer: 0
-  m_Name: Row4Node1
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3286,8 +3286,8 @@ GameObject:
   - component: {fileID: 498528653}
   - component: {fileID: 498528652}
   m_Layer: 0
-  m_Name: Row3Node3
-  m_TagString: Untagged
+  m_Name: 3
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4055,8 +4055,8 @@ GameObject:
   - component: {fileID: 604741249}
   - component: {fileID: 604741248}
   m_Layer: 0
-  m_Name: Row1Node5
-  m_TagString: Untagged
+  m_Name: 5
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4292,8 +4292,8 @@ GameObject:
   - component: {fileID: 620707117}
   - component: {fileID: 620707116}
   m_Layer: 0
-  m_Name: Row1Node4
-  m_TagString: Untagged
+  m_Name: 4
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4413,8 +4413,8 @@ GameObject:
   - component: {fileID: 622884010}
   - component: {fileID: 622884009}
   m_Layer: 0
-  m_Name: Row5Node1
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4534,8 +4534,8 @@ GameObject:
   - component: {fileID: 647276876}
   - component: {fileID: 647276875}
   m_Layer: 0
-  m_Name: Row2Node4
-  m_TagString: Untagged
+  m_Name: 4
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5058,8 +5058,8 @@ GameObject:
   - component: {fileID: 669979888}
   - component: {fileID: 669979887}
   m_Layer: 0
-  m_Name: Row3Node1
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6293,12 +6293,97 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodes:
-  - ID: 0
+  - ID: 1
     row: 1
     pos: 1
     nodeName: Test skill
     desc: Testowy opis skilla
-  nodesOwned: 
+    requiredNodesIds: 
+  - ID: 2
+    row: 1
+    pos: 2
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 
+  - ID: 3
+    row: 1
+    pos: 3
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 
+  - ID: 4
+    row: 1
+    pos: 4
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 
+  - ID: 5
+    row: 1
+    pos: 5
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 
+  - ID: 6
+    row: 2
+    pos: 1
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0100000002000000
+  - ID: 7
+    row: 2
+    pos: 2
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0200000003000000
+  - ID: 8
+    row: 2
+    pos: 3
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0300000004000000
+  - ID: 9
+    row: 2
+    pos: 4
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0400000005000000
+  - ID: 10
+    row: 3
+    pos: 1
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0600000007000000
+  - ID: 11
+    row: 3
+    pos: 2
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0700000008000000
+  - ID: 12
+    row: 3
+    pos: 3
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0800000009000000
+  - ID: 13
+    row: 4
+    pos: 1
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0a0000000b000000
+  - ID: 14
+    row: 4
+    pos: 2
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0b0000000c000000
+  - ID: 15
+    row: 5
+    pos: 1
+    nodeName: Test skill
+    desc: Testowy opis skilla
+    requiredNodesIds: 0d0000000e000000
+  nodesOwned: 01000000
 --- !u!114 &831198395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7015,8 +7100,8 @@ GameObject:
   - component: {fileID: 912231339}
   - component: {fileID: 912231338}
   m_Layer: 0
-  m_Name: Row2Node2
-  m_TagString: Untagged
+  m_Name: 2
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7536,8 +7621,8 @@ GameObject:
   - component: {fileID: 983160666}
   - component: {fileID: 983160665}
   m_Layer: 0
-  m_Name: Row1Node2
-  m_TagString: Untagged
+  m_Name: 2
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8686,8 +8771,8 @@ GameObject:
   - component: {fileID: 1197293108}
   - component: {fileID: 1197293107}
   m_Layer: 0
-  m_Name: Row1Node3
-  m_TagString: Untagged
+  m_Name: 3
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9837,8 +9922,8 @@ GameObject:
   - component: {fileID: 1364508008}
   - component: {fileID: 1364508007}
   m_Layer: 0
-  m_Name: Row1Node1
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10268,6 +10353,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97cc0c706544d54ea6a5b88d065c72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsValue: {fileID: 1721360559}
+  firstRow: {fileID: 1337322311}
+  secondRow: {fileID: 341269243}
+  thirdRow: {fileID: 30886501}
+  fourthRow: {fileID: 517854473}
+  fifthRow: {fileID: 774370170}
+  nodeAvaiable: {fileID: 21300000, guid: 9c63042a3e038b242ab36b3f04c8f606, type: 3}
+  nodeNotAvaiable: {fileID: 21300000, guid: d36fe4c32b0f0b84fb0356becfc8209f, type: 3}
+  nodeTaken: {fileID: 21300000, guid: f3bdc6dd88904a94f854fb5151fd7e1a, type: 3}
 --- !u!1 &1424884786
 GameObject:
   m_ObjectHideFlags: 0
@@ -10839,8 +10933,8 @@ GameObject:
   - component: {fileID: 1587197833}
   - component: {fileID: 1587197832}
   m_Layer: 0
-  m_Name: Row4Node2
-  m_TagString: Untagged
+  m_Name: 2
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11908,8 +12002,8 @@ GameObject:
   - component: {fileID: 1773793244}
   - component: {fileID: 1773793243}
   m_Layer: 0
-  m_Name: Row3Node2
-  m_TagString: Untagged
+  m_Name: 2
+  m_TagString: TreeNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

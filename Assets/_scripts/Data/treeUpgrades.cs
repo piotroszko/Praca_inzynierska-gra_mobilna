@@ -6,16 +6,21 @@ using System;
 public class treeUpgrades : MonoBehaviour
 {
   [Serializable]
-  private class TreeNode
+  public class TreeNode
   {
     public int ID;
     public int row;
     public int pos;
     public string nodeName;
     public string desc;
+    public int[] requiredNodesIds;
   }
-  [SerializeField] private TreeNode[] nodes;
+  [SerializeField] public TreeNode[] nodes;
   public List<int> nodesOwned = new List<int>();
+  public int getAmountOfPointsOwned()
+  {
+    return this.gameObject.GetComponent<CharacterValues>().level - nodesOwned.Count;
+  }
 
   void Start()
   {

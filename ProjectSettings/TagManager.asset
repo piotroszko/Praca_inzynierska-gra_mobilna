@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Spikes
   - PlayerManager
+  - TreeNode
   layers:
   - Default
   - TransparentFX
