@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 public class treeUpgrades : MonoBehaviour
-{
+{/*
   [Serializable]
   public class TreeNode
   {
@@ -15,7 +15,7 @@ public class treeUpgrades : MonoBehaviour
     public string desc;
     public int[] requiredNodesIds;
   }
-  [SerializeField] public TreeNode[] nodes;
+  [SerializeField] public TreeNode[] nodes;*/
   public List<int> nodesOwned = new List<int>();
   public int getAmountOfPointsOwned()
   {

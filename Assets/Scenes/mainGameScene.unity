@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 73447497}
   - component: {fileID: 73447496}
   - component: {fileID: 73447495}
+  - component: {fileID: 73447498}
   m_Layer: 0
   m_Name: 3
   m_TagString: TreeNode
@@ -683,6 +684,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73447493}
   m_CullTransparentMesh: 1
+--- !u!114 &73447498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73447493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 8
+  nodeName: 3232ada
+  description: dada
+  requiredNodesIds: 0300000004000000
 --- !u!1 &77538760
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +924,7 @@ GameObject:
   - component: {fileID: 101535990}
   - component: {fileID: 101535989}
   - component: {fileID: 101535988}
+  - component: {fileID: 101535991}
   m_Layer: 0
   m_Name: 1
   m_TagString: TreeNode
@@ -1016,6 +1034,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101535986}
   m_CullTransparentMesh: 1
+--- !u!114 &101535991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101535986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 6
+  nodeName: 3123
+  description: asda
+  requiredNodesIds: 0100000002000000
 --- !u!1 &109771587
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,6 +3040,7 @@ GameObject:
   - component: {fileID: 469187209}
   - component: {fileID: 469187208}
   - component: {fileID: 469187207}
+  - component: {fileID: 469187210}
   m_Layer: 0
   m_Name: 1
   m_TagString: TreeNode
@@ -3115,6 +3150,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469187205}
   m_CullTransparentMesh: 1
+--- !u!114 &469187210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469187205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 13
+  nodeName: 32ada
+  description: dad
+  requiredNodesIds: 0a0000000b000000
 --- !u!1 &481712028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,6 +3336,7 @@ GameObject:
   - component: {fileID: 498528654}
   - component: {fileID: 498528653}
   - component: {fileID: 498528652}
+  - component: {fileID: 498528655}
   m_Layer: 0
   m_Name: 3
   m_TagString: TreeNode
@@ -3394,6 +3446,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498528650}
   m_CullTransparentMesh: 1
+--- !u!114 &498528655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498528650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 12
+  nodeName: 323ad
+  description: adasd
+  requiredNodesIds: 0800000009000000
 --- !u!1 &504835174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,6 +4122,7 @@ GameObject:
   - component: {fileID: 604741250}
   - component: {fileID: 604741249}
   - component: {fileID: 604741248}
+  - component: {fileID: 604741251}
   m_Layer: 0
   m_Name: 5
   m_TagString: TreeNode
@@ -4163,6 +4232,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604741246}
   m_CullTransparentMesh: 1
+--- !u!114 &604741251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604741246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 5
+  nodeName: dszd
+  description: czcz
+  requiredNodesIds: 
 --- !u!1 &610968348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,6 +4376,7 @@ GameObject:
   - component: {fileID: 620707118}
   - component: {fileID: 620707117}
   - component: {fileID: 620707116}
+  - component: {fileID: 620707119}
   m_Layer: 0
   m_Name: 4
   m_TagString: TreeNode
@@ -4400,6 +4486,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620707114}
   m_CullTransparentMesh: 1
+--- !u!114 &620707119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620707114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 4
+  nodeName: dasdscxzxz
+  description: czcz
+  requiredNodesIds: 
 --- !u!1 &622884007
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,6 +4514,7 @@ GameObject:
   - component: {fileID: 622884011}
   - component: {fileID: 622884010}
   - component: {fileID: 622884009}
+  - component: {fileID: 622884012}
   m_Layer: 0
   m_Name: 1
   m_TagString: TreeNode
@@ -4521,6 +4624,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622884007}
   m_CullTransparentMesh: 1
+--- !u!114 &622884012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622884007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 15
+  nodeName: xcz
+  description: ce
+  requiredNodesIds: 0d0000000e000000
 --- !u!1 &647276873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,6 +4652,7 @@ GameObject:
   - component: {fileID: 647276877}
   - component: {fileID: 647276876}
   - component: {fileID: 647276875}
+  - component: {fileID: 647276878}
   m_Layer: 0
   m_Name: 4
   m_TagString: TreeNode
@@ -4642,6 +4762,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647276873}
   m_CullTransparentMesh: 1
+--- !u!114 &647276878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647276873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 9
+  nodeName: 2332
+  description: dada
+  requiredNodesIds: 0400000005000000
 --- !u!1 &652128363
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,6 +5193,7 @@ GameObject:
   - component: {fileID: 669979889}
   - component: {fileID: 669979888}
   - component: {fileID: 669979887}
+  - component: {fileID: 669979890}
   m_Layer: 0
   m_Name: 1
   m_TagString: TreeNode
@@ -5166,6 +5303,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669979885}
   m_CullTransparentMesh: 1
+--- !u!114 &669979890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669979885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 10
+  nodeName: 232da
+  description: dada
+  requiredNodesIds: 0600000007000000
 --- !u!1 &670386649
 GameObject:
   m_ObjectHideFlags: 0
@@ -6292,98 +6445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f48f1bb72fe487418be932d1a21466f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodes:
-  - ID: 1
-    row: 1
-    pos: 1
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 
-  - ID: 2
-    row: 1
-    pos: 2
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 
-  - ID: 3
-    row: 1
-    pos: 3
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 
-  - ID: 4
-    row: 1
-    pos: 4
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 
-  - ID: 5
-    row: 1
-    pos: 5
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 
-  - ID: 6
-    row: 2
-    pos: 1
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0100000002000000
-  - ID: 7
-    row: 2
-    pos: 2
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0200000003000000
-  - ID: 8
-    row: 2
-    pos: 3
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0300000004000000
-  - ID: 9
-    row: 2
-    pos: 4
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0400000005000000
-  - ID: 10
-    row: 3
-    pos: 1
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0600000007000000
-  - ID: 11
-    row: 3
-    pos: 2
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0700000008000000
-  - ID: 12
-    row: 3
-    pos: 3
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0800000009000000
-  - ID: 13
-    row: 4
-    pos: 1
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0a0000000b000000
-  - ID: 14
-    row: 4
-    pos: 2
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0b0000000c000000
-  - ID: 15
-    row: 5
-    pos: 1
-    nodeName: Test skill
-    desc: Testowy opis skilla
-    requiredNodesIds: 0d0000000e000000
-  nodesOwned: 01000000
+  nodesOwned: 0100000002000000
 --- !u!114 &831198395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7099,6 +7161,7 @@ GameObject:
   - component: {fileID: 912231340}
   - component: {fileID: 912231339}
   - component: {fileID: 912231338}
+  - component: {fileID: 912231341}
   m_Layer: 0
   m_Name: 2
   m_TagString: TreeNode
@@ -7208,6 +7271,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912231336}
   m_CullTransparentMesh: 1
+--- !u!114 &912231341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912231336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 7
+  nodeName: 323
+  description: dad
+  requiredNodesIds: 0200000003000000
 --- !u!1 &914393434
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,6 +7699,7 @@ GameObject:
   - component: {fileID: 983160667}
   - component: {fileID: 983160666}
   - component: {fileID: 983160665}
+  - component: {fileID: 983160668}
   m_Layer: 0
   m_Name: 2
   m_TagString: TreeNode
@@ -7729,6 +7809,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983160663}
   m_CullTransparentMesh: 1
+--- !u!114 &983160668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983160663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
+  nodeName: T2
+  description: dada
+  requiredNodesIds: 
 --- !u!1 &994911216
 GameObject:
   m_ObjectHideFlags: 0
@@ -8770,6 +8866,7 @@ GameObject:
   - component: {fileID: 1197293109}
   - component: {fileID: 1197293108}
   - component: {fileID: 1197293107}
+  - component: {fileID: 1197293110}
   m_Layer: 0
   m_Name: 3
   m_TagString: TreeNode
@@ -8879,6 +8976,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197293105}
   m_CullTransparentMesh: 1
+--- !u!114 &1197293110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197293105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 3
+  nodeName: ada
+  description: dad
+  requiredNodesIds: 
 --- !u!1 &1212434658
 GameObject:
   m_ObjectHideFlags: 0
@@ -9921,6 +10034,7 @@ GameObject:
   - component: {fileID: 1364508009}
   - component: {fileID: 1364508008}
   - component: {fileID: 1364508007}
+  - component: {fileID: 1364508010}
   m_Layer: 0
   m_Name: 1
   m_TagString: TreeNode
@@ -10030,6 +10144,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364508005}
   m_CullTransparentMesh: 1
+--- !u!114 &1364508010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364508005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
+  nodeName: Test
+  description: t1
+  requiredNodesIds: 
 --- !u!1 &1403668068
 GameObject:
   m_ObjectHideFlags: 0
@@ -10354,14 +10484,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsValue: {fileID: 1721360559}
-  firstRow: {fileID: 1337322311}
-  secondRow: {fileID: 341269243}
-  thirdRow: {fileID: 30886501}
-  fourthRow: {fileID: 517854473}
-  fifthRow: {fileID: 774370170}
   nodeAvaiable: {fileID: 21300000, guid: 9c63042a3e038b242ab36b3f04c8f606, type: 3}
   nodeNotAvaiable: {fileID: 21300000, guid: d36fe4c32b0f0b84fb0356becfc8209f, type: 3}
   nodeTaken: {fileID: 21300000, guid: f3bdc6dd88904a94f854fb5151fd7e1a, type: 3}
+  tree: {fileID: 23623429}
+  allNodes: []
 --- !u!1 &1424884786
 GameObject:
   m_ObjectHideFlags: 0
@@ -10932,6 +11059,7 @@ GameObject:
   - component: {fileID: 1587197834}
   - component: {fileID: 1587197833}
   - component: {fileID: 1587197832}
+  - component: {fileID: 1587197835}
   m_Layer: 0
   m_Name: 2
   m_TagString: TreeNode
@@ -11041,6 +11169,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587197830}
   m_CullTransparentMesh: 1
+--- !u!114 &1587197835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587197830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 14
+  nodeName: 2aeda
+  description: 32a3
+  requiredNodesIds: 0b0000000c000000
 --- !u!1 &1596011214
 GameObject:
   m_ObjectHideFlags: 0
@@ -11675,9 +11819,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1700091705}
+  - component: {fileID: 1700091706}
   m_Layer: 0
   m_Name: NodeView
-  m_TagString: Untagged
+  m_TagString: NodeView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11698,6 +11843,20 @@ Transform:
   m_Father: {fileID: 1418960288}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700091706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700091704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2bc5f12526e704ebed2ea1cb64e12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 209515362}
+  desc: {fileID: 84891719}
 --- !u!1 &1712509469
 GameObject:
   m_ObjectHideFlags: 0
@@ -12001,6 +12160,7 @@ GameObject:
   - component: {fileID: 1773793245}
   - component: {fileID: 1773793244}
   - component: {fileID: 1773793243}
+  - component: {fileID: 1773793246}
   m_Layer: 0
   m_Name: 2
   m_TagString: TreeNode
@@ -12110,6 +12270,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773793241}
   m_CullTransparentMesh: 1
+--- !u!114 &1773793246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773793241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecae3ce45e593041ab5f8b506bfc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 11
+  nodeName: 23ad
+  description: dada
+  requiredNodesIds: 0700000008000000
 --- !u!1 &1783911983
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ TagManager:
   - Spikes
   - PlayerManager
   - TreeNode
+  - NodeView
   layers:
   - Default
   - TransparentFX
