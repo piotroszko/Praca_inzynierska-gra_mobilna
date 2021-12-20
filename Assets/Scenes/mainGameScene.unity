@@ -788,8 +788,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8
-  nodeName: 3232ada
-  description: dada
+  nodeName: Wiecej zdrowia!
+  description: "Zwieksza ilo\u015B\u0107 punkt\xF3w \"Zdrowie\" o 5 pkt."
   requiredNodesIds: 0300000004000000
   isUnlockable: 0
 --- !u!1 &77538760
@@ -984,7 +984,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ade3c0aa603ef7845a8777b86d2a241e, type: 3}
-    m_FontSize: 60
+    m_FontSize: 38
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -1139,8 +1139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6
-  nodeName: 3123
-  description: asda
+  nodeName: "Wiecej si\u0142y!"
+  description: "Zwieksza ilo\u015B\u0107 punkt\xF3w \"Si\u0142a\" o 5 pkt."
   requiredNodesIds: 0100000002000000
   isUnlockable: 0
 --- !u!1 &109771587
@@ -1885,8 +1885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 498.4607, y: 268.23102}
-  m_SizeDelta: {x: 480.9214, y: 135.5379}
+  m_AnchoredPosition: {x: 508.77368, y: 218.72894}
+  m_SizeDelta: {x: 501.5474, y: 234.5421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209515364
 MonoBehaviour:
@@ -1910,7 +1910,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ade3c0aa603ef7845a8777b86d2a241e, type: 3}
-    m_FontSize: 84
+    m_FontSize: 57
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 10
@@ -3403,8 +3403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13
-  nodeName: 32ada
-  description: dad
+  nodeName: Nie teraz!
+  description: "Niewra\u017Cliwo\u015B\u0107 po otrzymaniu obra\u017Ce\u0144 od pu\u0142apek
+    zostaje wyd\u0142u\u017Cona do 2 sek."
   requiredNodesIds: 0a0000000b000000
   isUnlockable: 0
 --- !u!1 &481712028
@@ -3700,8 +3701,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12
-  nodeName: 323ad
-  description: adasd
+  nodeName: "Szybko\u015B\u0107!"
+  description: "Zwieksza szanse na uzyskanie lepszych statystyk \"szybko\u015B\u0107
+    ataku\" i \"predko\u015B\u0107 poruszania\" na przedmiotach"
   requiredNodesIds: 0800000009000000
   isUnlockable: 0
 --- !u!1 &504835174
@@ -4562,8 +4564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5
-  nodeName: dszd
-  description: czcz
+  nodeName: Szybciutko
+  description: "Zwieksza predko\u015B\u0107 poruszania o 20%"
   requiredNodesIds: 
   isUnlockable: 0
 --- !u!1 &610968348
@@ -4817,8 +4819,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4
-  nodeName: dasdscxzxz
-  description: czcz
+  nodeName: Paw! Paw!
+  description: "Zwieksza szybko\u015B\u0107 atak\xF3w o 20%"
   requiredNodesIds: 
   isUnlockable: 0
 --- !u!1 &622884007
@@ -4956,8 +4958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15
-  nodeName: xcz
-  description: ce
+  nodeName: Chic! Chic!
+  description: "Odblokowanie pozwala wykona\u0107 podw\xF3jny skok"
   requiredNodesIds: 0d0000000e000000
   isUnlockable: 0
 --- !u!1 &625973889
@@ -5174,8 +5176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9
-  nodeName: 2332
-  description: dada
+  nodeName: "Wiecej szybko\u015Bci!"
+  description: "Zwieksza ilo\u015B\u0107 punkt\xF3w \"Szybko\u015B\u0107\" o 5 pkt."
   requiredNodesIds: 0400000005000000
   isUnlockable: 0
 --- !u!1 &648961878
@@ -5795,8 +5797,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
-  nodeName: 232da
-  description: dada
+  nodeName: "Si\u0142a!"
+  description: "Zwieksza szanse na uzyskanie lepszych statystyk \"obra\u017Cenia\"
+    i \"obrona\" na przedmiotach"
   requiredNodesIds: 0600000007000000
   isUnlockable: 0
 --- !u!1 &670386649
@@ -7990,8 +7993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7
-  nodeName: 323
-  description: dad
+  nodeName: "Wiecej odporno\u015Bci!"
+  description: "Zwieksza ilo\u015B\u0107 punkt\xF3w \"Odporno\u015Bci\" o 5 pkt."
   requiredNodesIds: 0200000003000000
   isUnlockable: 0
 --- !u!1 &914393434
@@ -8529,8 +8532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
-  nodeName: T2
-  description: dada
+  nodeName: "Wytrzyma\u0142a wiewi\xF3rka"
+  description: "Obni\u017Ca otrzymywane obra\u017Cenia od atak\xF3w przeciwnik\xF3w
+    20%"
   requiredNodesIds: 
   isUnlockable: 0
 --- !u!1 &994911216
@@ -9808,8 +9812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
-  nodeName: ada
-  description: dad
+  nodeName: "Wiecej kasztan\xF3w!"
+  description: "Zwieksza ilo\u015B\u0107 otrzymywanych kasztan\xF3w o 50%"
   requiredNodesIds: 
   isUnlockable: 0
 --- !u!1 &1212434658
@@ -11056,8 +11060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
-  nodeName: Test
-  description: t1
+  nodeName: Silniej!
+  description: "Zwieksza podstawowe obra\u017Cenia zadawane przez wiewi\xF3rke o
+    20%"
   requiredNodesIds: 
   isUnlockable: 0
 --- !u!1 &1403668068
@@ -11352,7 +11357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1418960288
 Transform:
   m_ObjectHideFlags: 0
@@ -12082,8 +12087,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14
-  nodeName: 2aeda
-  description: 32a3
+  nodeName: "Wiewi\xF3rka paj\u0105k"
+  description: "Odblokowanie pozwala na poruszanie si\u0119 po scianach przez 1.5
+    sek"
   requiredNodesIds: 0b0000000c000000
   isUnlockable: 0
 --- !u!1 &1596011214
@@ -13264,8 +13270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11
-  nodeName: 23ad
-  description: dada
+  nodeName: "Wytrzyma\u0142e \u0142apki"
+  description: "Zmniejszenie obra\u017Ce\u0144 od pu\u0142apek o 50%"
   requiredNodesIds: 0700000008000000
   isUnlockable: 0
 --- !u!1 &1783911983
