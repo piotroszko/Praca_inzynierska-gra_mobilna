@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemInfoManager : MonoBehaviour
 {
+  ItemsIcons iconScript;
   // Start is called before the first frame update
   void Start()
   {
-
+    findPlayerManager();
   }
 
   // Update is called once per frame
@@ -17,6 +19,16 @@ public class ItemInfoManager : MonoBehaviour
   }
   public void SetItemInfo(IItem item)
   {
+    if (this.iconScript.itemsIcons.Exists(x => x.itemID == item.itemIconID))
+    {
+      this.gameObject.transform.Find("ItemImage").GetComponent<Image>().sprite =
+      this.iconScript.itemsIcons.Find(x => x.itemID == item.itemIconID).itemIcon;
+    }
+    else
+    {
+      this.gameObject.transform.Find("ItemImage").GetComponent<Image>().sprite =
+      this.iconScript.defaultIcon;
+    }
     string rarity = "";
     switch (item.itemRarity)
     {
@@ -55,5 +67,10 @@ public class ItemInfoManager : MonoBehaviour
     this.gameObject.transform.Find("ItemTitle").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
     this.gameObject.transform.Find("ItemTags").GetComponent<UnityEngine.UI.Text>().text = type + " - " + rarity + " - " + item.secondItemType;
     this.gameObject.transform.Find("ItemDesc").GetComponent<UnityEngine.UI.Text>().text = dmgSpd + item.itemDesc;
+
+  }
+  private void findPlayerManager()
+  {
+    this.iconScript = GameObject.FindWithTag("PlayerManager").GetComponent<ItemsIcons>();
   }
 }
