@@ -9,6 +9,7 @@ public interface IItem
   int itemLevel { get; set; }
   int itemRarity { get; set; }
   int itemIndex { get; set; }
+  int itemIconID { get; set; }
 
   string itemName { get; }
   string itemType { get; }

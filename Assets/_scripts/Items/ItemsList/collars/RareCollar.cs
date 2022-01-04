@@ -92,4 +92,5 @@ public class RareCollar : IItem, IItemCollar
   public string itemType { get { return "Collar"; } }
   public string secondItemType { get { return ""; } }
   public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
+  public int itemIconID { get { return 2; } set { } }
 }
