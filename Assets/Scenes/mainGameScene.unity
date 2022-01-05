@@ -5308,6 +5308,7 @@ GameObject:
   - component: {fileID: 670386650}
   - component: {fileID: 670386652}
   - component: {fileID: 670386651}
+  - component: {fileID: 670386653}
   m_Layer: 5
   m_Name: Panel
   m_TagString: InventoryPanel
@@ -5375,6 +5376,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &670386653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670386649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66d451e30081404499438d04d21f9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &681130985
 GameObject:
   m_ObjectHideFlags: 0
@@ -14189,7 +14202,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6041474598243555286, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
     - {fileID: 3594023568184458963, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c1bdec6953e2b24fa91bd4e8fec6829, type: 3}
 --- !u!224 &6979722892752165255 stripped

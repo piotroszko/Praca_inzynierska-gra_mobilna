@@ -134,7 +134,6 @@ public class InventorySlot : MonoBehaviour
   }
   public void ItemClick()
   {
-    Debug.Log("Item clicked with index:" + this.itemIndex.ToString());
     this.itemInfoGameObject.GetComponent<ItemInfoManager>().SetItemInfo(this.myItemObject);
 
   }
