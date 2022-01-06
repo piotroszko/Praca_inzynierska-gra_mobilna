@@ -12,6 +12,8 @@ TagManager:
   - PlayerManager
   - TreeNode
   - NodeView
+  - UpgradeInventory
+  - UpgradeItem
   layers:
   - Default
   - TransparentFX
