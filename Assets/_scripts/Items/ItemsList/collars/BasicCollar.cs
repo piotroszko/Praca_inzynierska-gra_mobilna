@@ -17,6 +17,14 @@ public class BasicCollar : IItem, IItemCollar
     PossibleValues ps = new PossibleValues();
     this._damage = ((ps.maxDamage - ps.minDamage) * damageFactor) + ps.minDamage;
     this._speed = ((ps.maxSpeed - ps.minSpeed) * speedFactor) + ps.minSpeed;
+
+    List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
+    upgradeItem.Add(new ItemUpgrade(0, 20, 20));
+
+    List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
+    upgradeItem.Add(new ItemUpgrade(10, 20, 20));
+
+    UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
   }
   public float _damage;
   public float _speed;
@@ -93,4 +101,16 @@ public class BasicCollar : IItem, IItemCollar
   public string secondItemType { get { return ""; } }
   public string itemDesc { get { return "Najbardziej podstawowa obroża"; } }
   public int itemIconID { get { return 0; } set { } }
+  UpgradeInfo _upgradeInfo;
+  public UpgradeInfo upgradeInfo
+  {
+    get
+    {
+      return _upgradeInfo;
+    }
+    set
+    {
+      _upgradeInfo = value;
+    }
+  }
 }

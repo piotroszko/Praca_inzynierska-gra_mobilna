@@ -20,4 +20,37 @@ public interface IItemCollar
 {
   float damage { get; set; }
   float speed { get; set; }
+  UpgradeInfo upgradeInfo { get; set; }
+}
+public class UpgradeInfo
+{
+  public List<ItemUpgrade> upgradesTypeItem;
+  public List<ItemUpgrade> upgradesTypeMoney;
+
+  public int boughtTypeItem = 0;
+  public int boughtTypeMoney = 0;
+
+  public UpgradeInfo()
+  {
+    this.upgradesTypeItem = new List<ItemUpgrade>();
+    this.upgradesTypeMoney = new List<ItemUpgrade>();
+  }
+  public UpgradeInfo(List<ItemUpgrade> _upgradesTypeItem, List<ItemUpgrade> _upgradesTypeMoney)
+  {
+    this.upgradesTypeItem = _upgradesTypeItem;
+    this.upgradesTypeMoney = _upgradesTypeMoney;
+  }
+}
+public class ItemUpgrade
+{
+  public int upgradeCost = 0; //amount of money for upgrade (stay 0 if items)
+  public int upgradeToStat1 = 0;
+  public int upgradeToStat2 = 0;
+
+  public ItemUpgrade(int upgradeCost, int upgradeToStat1, int upgradeToStat2)
+  {
+    this.upgradeCost = upgradeCost;
+    this.upgradeToStat1 = upgradeToStat1;
+    this.upgradeToStat2 = upgradeToStat2;
+  }
 }
