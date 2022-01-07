@@ -62,13 +62,13 @@ public class UpgradeSlot : MonoBehaviour
     }
   }
 
-  private string name;
+  private string nameSlot;
   public string itemName
   {
-    get { return name; }
+    get { return nameSlot; }
     set
     {
-      name = value;
+      nameSlot = value;
       this.gameObject.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = value;
     }
   }

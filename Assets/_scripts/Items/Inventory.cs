@@ -6,7 +6,6 @@ public class Inventory : MonoBehaviour
 {
   public List<IItem> itemList = new List<IItem>();
   bool smthChanged = true;
-  bool isOnEnableFirst = false;
   public GameObject itemPrefab;
 
   public GameObject itemInfo;

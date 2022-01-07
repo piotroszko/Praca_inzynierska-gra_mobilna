@@ -62,13 +62,13 @@ public class InventorySlot : MonoBehaviour
     }
   }
 
-  private string name;
+  private string nameItem;
   public string itemName
   {
-    get { return name; }
+    get { return nameItem; }
     set
     {
-      name = value;
+      nameItem = value;
       this.gameObject.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = value;
     }
   }
