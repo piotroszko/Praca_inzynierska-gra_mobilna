@@ -14,10 +14,6 @@ public class UpgradeSlot : MonoBehaviour
     set
     {
       sble = value;
-      if (value == false)
-      {
-        this.gameObject.transform.Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "*";
-      }
     }
   }
   private int index;
@@ -134,13 +130,13 @@ public class UpgradeSlot : MonoBehaviour
   }
   public void ItemClick()
   {
-    this.itemInfoGameObject.GetComponent<ItemInfoManager>().SetItemInfo(this.myItemObject);
+    this.itemInfoGameObject.GetComponent<UpgradeInfoManager>().SetItemInfo(this.myItemObject);
 
   }
   // Start is called before the first frame update
   void Start()
   {
-    this.itemInfoGameObject = GameObject.FindWithTag("ItemInfo");
+    this.itemInfoGameObject = GameObject.FindWithTag("UpgradeInfo");
   }
   // Update is called once per frame
   void Update()

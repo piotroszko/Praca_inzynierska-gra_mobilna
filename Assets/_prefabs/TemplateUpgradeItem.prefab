@@ -146,7 +146,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ade3c0aa603ef7845a8777b86d2a241e, type: 3}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 6
@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 8028642927004103164}
   - component: {fileID: 8028642927004103167}
   - component: {fileID: 5783720324713103758}
+  - component: {fileID: -6285114934009237501}
   m_Layer: 5
   m_Name: TemplateUpgradeItem
   m_TagString: UpgradeItem
@@ -361,8 +362,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+      - m_Target: {fileID: -6285114934009237501}
+        m_TargetAssemblyTypeName: UpgradeSlot, Assembly-CSharp
         m_MethodName: ItemClick
         m_Mode: 1
         m_Arguments:
@@ -373,6 +374,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &-6285114934009237501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028642927004103161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2309b922f12bf9d4796c3f2468727d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8028642927579452026
 GameObject:
   m_ObjectHideFlags: 0
