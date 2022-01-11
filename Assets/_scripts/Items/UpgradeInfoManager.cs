@@ -74,9 +74,8 @@ public class UpgradeInfoManager : MonoBehaviour
       SetStat(option1s2, "Obrażenia:", CalculateUpgrade(collar.upgradeInfo, collar.damage, true, true),
       "Szybkość ataku:", CalculateUpgrade(collar.upgradeInfo, collar.speed, true, false));
 
-      //Potrzebny fix, out of index
-      // SetStat(option2s2, "Obrażenia:", CalculateUpgrade(collar.upgradeInfo, collar.damage, false, true),
-      // "Szybkość ataku:", CalculateUpgrade(collar.upgradeInfo, collar.speed, false, false));
+      SetStat(option2s2, "Obrażenia:", CalculateUpgrade(collar.upgradeInfo, collar.damage, false, true),
+      "Szybkość ataku:", CalculateUpgrade(collar.upgradeInfo, collar.speed, false, false));
 
     }
     this.gameObject.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = item.itemName;

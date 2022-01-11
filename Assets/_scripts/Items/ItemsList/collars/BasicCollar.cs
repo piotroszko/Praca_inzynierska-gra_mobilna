@@ -22,7 +22,7 @@ public class BasicCollar : IItem, IItemCollar
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeItem.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;
