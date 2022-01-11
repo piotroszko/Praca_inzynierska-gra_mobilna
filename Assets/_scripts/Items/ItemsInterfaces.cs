@@ -40,6 +40,11 @@ public class UpgradeInfo
     this.upgradesTypeItem = _upgradesTypeItem;
     this.upgradesTypeMoney = _upgradesTypeMoney;
   }
+
+  public override string ToString()
+  {
+    return "Index b item: " + this.boughtTypeItem.ToString() + " , Index b money:" + boughtTypeMoney.ToString();
+  }
 }
 public class ItemUpgrade
 {
