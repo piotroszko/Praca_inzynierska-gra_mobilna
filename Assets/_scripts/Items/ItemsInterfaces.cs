@@ -16,10 +16,16 @@ public interface IItem
   string secondItemType { get; }
   string itemDesc { get; }
 }
-public interface IItemCollar
+public interface IItemWeapon
 {
   float damage { get; set; }
-  float speed { get; set; }
+  float attackSpeed { get; set; }
+  UpgradeInfo upgradeInfo { get; set; }
+}
+public interface IItemArmor
+{
+  float defense { get; set; }
+  float movementSpeed { get; set; }
   UpgradeInfo upgradeInfo { get; set; }
 }
 public class UpgradeInfo

@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RareCollar : IItem, IItemArmor
+public class LegendarySeed : IItem, IItemWeapon
 {
   class PossibleValues
   {
-    public float minDefense = 9;
-    public float maxDefense = 15;
+    public float minDamage = 9;
+    public float maxDamage = 15;
 
-    public float minMovementSpeed = 5;
-    public float maxMovementSpeed = 10;
+    public float minAttackSpeed = 5;
+    public float maxAttackSpeed = 10;
   }
-  public RareCollar(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
+  public LegendarySeed(float damageFactor = 0.5f, float attackSpeedFactor = 0.5f)
   {
     PossibleValues ps = new PossibleValues();
-    this.defense = ((ps.maxDefense - ps.minDefense) * defenseFactor) + ps.minDefense;
-    this.movementSpeed = ((ps.maxMovementSpeed - ps.minMovementSpeed) * movementSpeedFactor) + ps.minMovementSpeed;
+    this.damage = ((ps.maxDamage - ps.minDamage) * damageFactor) + ps.minDamage;
+    this.attackSpeed = ((ps.maxAttackSpeed - ps.minAttackSpeed) * attackSpeedFactor) + ps.minAttackSpeed;
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
@@ -27,28 +27,28 @@ public class RareCollar : IItem, IItemArmor
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;
   }
-  public float _defense;
-  public float _movementSpeed;
-  public float defense
+  public float _damage;
+  public float _attackSpeed;
+  public float damage
   {
     get
     {
-      return _defense;
+      return _damage;
     }
     set
     {
-      this._defense = value;
+      this._damage = value;
     }
   }
-  public float movementSpeed
+  public float attackSpeed
   {
     get
     {
-      return _movementSpeed;
+      return _attackSpeed;
     }
     set
     {
-      this._movementSpeed = value;
+      this._attackSpeed = value;
     }
   }
   public bool stackable()
@@ -74,7 +74,7 @@ public class RareCollar : IItem, IItemArmor
       itemLevel = value;
     }
   }
-  private int index = 2;
+  private int index = 3;
   public int itemIndex
   {
     get
@@ -90,18 +90,18 @@ public class RareCollar : IItem, IItemArmor
   {
     get
     {
-      return 2;
+      return 3;
     }
     set
     {
 
     }
   }
-  public string itemName { get { return "Rzadka obroża"; } }
-  public string itemType { get { return "Collar"; } }
+  public string itemName { get { return "Legendarne nasiono"; } }
+  public string itemType { get { return "Seed"; } }
   public string secondItemType { get { return ""; } }
   public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
-  public int itemIconID { get { return 2; } set { } }
+  public int itemIconID { get { return 23; } set { } }
 
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo

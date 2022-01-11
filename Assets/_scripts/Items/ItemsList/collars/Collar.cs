@@ -2,52 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collar : IItem, IItemCollar
+public class Collar : IItem, IItemArmor
 {
   class PossibleValues
   {
-    public float minDamage = 5;
-    public float maxDamage = 5;
+    public float minDefense = 9;
+    public float maxDefense = 15;
 
-    public float minSpeed = 2;
-    public float maxSpeed = 2;
+    public float minMovementSpeed = 5;
+    public float maxMovementSpeed = 10;
   }
-  public Collar(float damageFactor = 0.5f, float speedFactor = 0.5f)
+  public Collar(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
   {
     PossibleValues ps = new PossibleValues();
-    this.damage = ((ps.maxDamage - ps.minDamage) * damageFactor) + ps.minDamage;
-    this.speed = ((ps.maxSpeed - ps.minSpeed) * speedFactor) + ps.minSpeed;
+    this.defense = ((ps.maxDefense - ps.minDefense) * defenseFactor) + ps.minDefense;
+    this.movementSpeed = ((ps.maxMovementSpeed - ps.minMovementSpeed) * movementSpeedFactor) + ps.minMovementSpeed;
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeItem.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
+    this.upgradeInfo = uInfo;
   }
-  public float _damage;
-  public float _speed;
-  public float damage
+  public float _defense;
+  public float _movementSpeed;
+  public float defense
   {
     get
     {
-      return _damage;
+      return _defense;
     }
     set
     {
-      this._damage = value;
+      this._defense = value;
     }
   }
-  public float speed
+  public float movementSpeed
   {
     get
     {
-      return _speed;
+      return _movementSpeed;
     }
     set
     {
-      this._speed = value;
+      this._movementSpeed = value;
     }
   }
 

@@ -58,15 +58,21 @@ public class ItemInfoManager : MonoBehaviour
         type = "";
         break;
     }
-    string dmgSpd = "";
-    if (item is IItemCollar)
+    string statDesc = "";
+    if (item is IItemWeapon)
     {
-      IItemCollar collar = item as IItemCollar;
-      dmgSpd = "Obrażenia: " + collar.damage.ToString() + System.Environment.NewLine + "Szybkość ataku: " + collar.speed.ToString() + System.Environment.NewLine + System.Environment.NewLine;
+      Debug.Log("Broń");
+      IItemWeapon weapon = item as IItemWeapon;
+      statDesc = "Obrażenia: " + weapon.damage.ToString() + System.Environment.NewLine + "Szybkość ataku: " + weapon.attackSpeed.ToString() + System.Environment.NewLine + System.Environment.NewLine;
+    }
+    if (item is IItemArmor)
+    {
+      IItemArmor armor = item as IItemArmor;
+      statDesc = "Obrona: " + armor.defense.ToString() + System.Environment.NewLine + "Szybkość poruszania " + armor.movementSpeed.ToString() + System.Environment.NewLine + System.Environment.NewLine;
     }
     this.gameObject.transform.Find("ItemTitle").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
     this.gameObject.transform.Find("ItemTags").GetComponent<UnityEngine.UI.Text>().text = type + " - " + rarity + " - " + item.secondItemType;
-    this.gameObject.transform.Find("ItemDesc").GetComponent<UnityEngine.UI.Text>().text = dmgSpd + item.itemDesc;
+    this.gameObject.transform.Find("ItemDesc").GetComponent<UnityEngine.UI.Text>().text = statDesc + item.itemDesc;
 
   }
   private void findPlayerManager()

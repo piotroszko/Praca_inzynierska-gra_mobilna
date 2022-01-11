@@ -54,6 +54,15 @@ public class UpgradeInfoManager : MonoBehaviour
       case "Collar":
         type = "Obroża";
         break;
+      case "Seed":
+        type = "Nasiono";
+        break;
+      case "Coat":
+        type = "Kubrak";
+        break;
+      case "Chestnut":
+        type = "Żolądź";
+        break;
       default:
         type = "";
         break;
@@ -66,16 +75,28 @@ public class UpgradeInfoManager : MonoBehaviour
     GameObject option2 = this.gameObject.transform.Find("Select2").gameObject;
     GameObject option2s1 = option2.transform.Find("Stats1").gameObject;
     GameObject option2s2 = option2.transform.Find("Stats2").gameObject;
-    if (item is IItemCollar)
+    if (item is IItemWeapon)
     {
-      IItemCollar collar = item as IItemCollar;
-      SetStat(option1s1, "Obrażenia:", collar.damage.ToString(), "Szybkość ataku:", collar.speed.ToString());
-      SetStat(option2s1, "Obrażenia:", collar.damage.ToString(), "Szybkość ataku:", collar.speed.ToString());
-      SetStat(option1s2, "Obrażenia:", CalculateUpgrade(collar.upgradeInfo, collar.damage, true, true),
-      "Szybkość ataku:", CalculateUpgrade(collar.upgradeInfo, collar.speed, true, false));
+      IItemWeapon weapon = item as IItemWeapon;
+      SetStat(option1s1, "Obrażenia:", weapon.damage.ToString(), "Szybkość ataku:", weapon.attackSpeed.ToString());
+      SetStat(option2s1, "Obrażenia:", weapon.damage.ToString(), "Szybkość ataku:", weapon.attackSpeed.ToString());
+      SetStat(option1s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, weapon.damage, true, true),
+      "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, weapon.attackSpeed, true, false));
 
-      SetStat(option2s2, "Obrażenia:", CalculateUpgrade(collar.upgradeInfo, collar.damage, false, true),
-      "Szybkość ataku:", CalculateUpgrade(collar.upgradeInfo, collar.speed, false, false));
+      SetStat(option2s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, weapon.damage, false, true),
+      "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, weapon.attackSpeed, false, false));
+
+    }
+    else if (item is IItemArmor)
+    {
+      IItemArmor armor = item as IItemArmor;
+      SetStat(option1s1, "Obrona:", armor.defense.ToString(), "Szybkość poruszania:", armor.movementSpeed.ToString());
+      SetStat(option2s1, "Obrona:", armor.defense.ToString(), "Szybkość poruszania:", armor.movementSpeed.ToString());
+      SetStat(option1s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, armor.defense, true, true),
+      "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, armor.movementSpeed, true, false));
+
+      SetStat(option2s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, armor.defense, false, true),
+      "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, armor.movementSpeed, false, false));
 
     }
     this.gameObject.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = item.itemName;

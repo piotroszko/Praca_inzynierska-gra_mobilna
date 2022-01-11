@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RareCollar : IItem, IItemArmor
+public class Coat : IItem, IItemArmor
 {
   class PossibleValues
   {
@@ -12,7 +12,7 @@ public class RareCollar : IItem, IItemArmor
     public float minMovementSpeed = 5;
     public float maxMovementSpeed = 10;
   }
-  public RareCollar(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
+  public Coat(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
   {
     PossibleValues ps = new PossibleValues();
     this.defense = ((ps.maxDefense - ps.minDefense) * defenseFactor) + ps.minDefense;
@@ -51,6 +51,7 @@ public class RareCollar : IItem, IItemArmor
       this._movementSpeed = value;
     }
   }
+
   public bool stackable()
   {
     return false;
@@ -74,7 +75,7 @@ public class RareCollar : IItem, IItemArmor
       itemLevel = value;
     }
   }
-  private int index = 2;
+  private int index = 1;
   public int itemIndex
   {
     get
@@ -90,18 +91,18 @@ public class RareCollar : IItem, IItemArmor
   {
     get
     {
-      return 2;
+      return 1;
     }
     set
     {
 
     }
   }
-  public string itemName { get { return "Rzadka obroża"; } }
-  public string itemType { get { return "Collar"; } }
+  public string itemName { get { return "Kubrak"; } }
+  public string itemType { get { return "Coat"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
-  public int itemIconID { get { return 2; } set { } }
+  public string itemDesc { get { return "Zapewnia najbardziej podstawowe statstyki"; } }
+  public int itemIconID { get { return 11; } set { } }
 
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo
