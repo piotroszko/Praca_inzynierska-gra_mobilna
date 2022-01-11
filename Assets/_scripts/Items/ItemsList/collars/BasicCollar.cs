@@ -25,6 +25,7 @@ public class BasicCollar : IItem, IItemCollar
     upgradeItem.Add(new ItemUpgrade(10, 20, 20));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
+    this.upgradeInfo = uInfo;
   }
   public float _damage;
   public float _speed;
