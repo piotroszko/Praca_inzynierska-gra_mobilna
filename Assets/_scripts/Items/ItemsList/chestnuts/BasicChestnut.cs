@@ -101,7 +101,7 @@ public class BasicChestnut : IItem, IItemWeapon
   public string itemType { get { return "Chestnut"; } }
   public string secondItemType { get { return ""; } }
   public string itemDesc { get { return "Najbardziej podstawowa obroża"; } }
-  public int itemIconID { get { return 20; } set { } }
+  public int itemIconID { get { return 30; } set { } }
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo
   {

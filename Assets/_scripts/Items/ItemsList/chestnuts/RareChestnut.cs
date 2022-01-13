@@ -101,7 +101,7 @@ public class RareChestnut : IItem, IItemWeapon
   public string itemType { get { return "Chestnut"; } }
   public string secondItemType { get { return ""; } }
   public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
-  public int itemIconID { get { return 22; } set { } }
+  public int itemIconID { get { return 32; } set { } }
 
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo

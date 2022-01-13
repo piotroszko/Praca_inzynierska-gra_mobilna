@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class UpgradeInfoManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class UpgradeInfoManager : MonoBehaviour
   public void ShowPopup()
   {
     this.popup.SetActive(true);
+    if (currentItem != null)
+      this.popup.GetComponent<UpgradePopup>().SetItems(GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().itemList.Where(x => x.itemName == this.currentItem.itemName && x != this.currentItem).ToList());
   }
   public void SetItemInfo(IItem item)
   {

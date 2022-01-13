@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
   void Start()
   {
     this.itemList.Add(new BasicCollar(nextItemIndex));
-
+    this.itemList.Add(new BasicCollar(nextItemIndex));
   }
   void Update()
   {

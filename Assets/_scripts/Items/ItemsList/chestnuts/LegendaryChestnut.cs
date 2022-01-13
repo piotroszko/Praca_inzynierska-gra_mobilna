@@ -101,7 +101,7 @@ public class LegendaryChestnut : IItem, IItemWeapon
   public string itemType { get { return "Chestnut"; } }
   public string secondItemType { get { return ""; } }
   public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
-  public int itemIconID { get { return 23; } set { } }
+  public int itemIconID { get { return 33; } set { } }
 
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo
