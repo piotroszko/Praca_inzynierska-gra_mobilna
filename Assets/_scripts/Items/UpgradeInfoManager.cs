@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UpgradeInfoManager : MonoBehaviour
 {
   ItemsIcons iconScript;
+  IItem currentItem;
+  public GameObject popup;
   // Start is called before the first frame update
   void Start()
   {
@@ -17,8 +19,13 @@ public class UpgradeInfoManager : MonoBehaviour
   {
 
   }
+  public void ShowPopup()
+  {
+    this.popup.SetActive(true);
+  }
   public void SetItemInfo(IItem item)
   {
+    this.currentItem = item;
     if (this.iconScript.itemsIcons.Exists(x => x.itemID == item.itemIconID))
     {
       this.gameObject.transform.Find("ItemIcon").GetComponent<Image>().sprite =
@@ -67,7 +74,6 @@ public class UpgradeInfoManager : MonoBehaviour
         type = "";
         break;
     }
-    string dmgSpd = "";
     GameObject option1 = this.gameObject.transform.Find("Select1").gameObject;
     GameObject option1s1 = option1.transform.Find("Stats1").gameObject;
     GameObject option1s2 = option1.transform.Find("Stats2").gameObject;
@@ -75,6 +81,7 @@ public class UpgradeInfoManager : MonoBehaviour
     GameObject option2 = this.gameObject.transform.Find("Select2").gameObject;
     GameObject option2s1 = option2.transform.Find("Stats1").gameObject;
     GameObject option2s2 = option2.transform.Find("Stats2").gameObject;
+
     if (item is IItemWeapon)
     {
       IItemWeapon weapon = item as IItemWeapon;
@@ -85,6 +92,7 @@ public class UpgradeInfoManager : MonoBehaviour
 
       SetStat(option2s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, weapon.damage, false, true),
       "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, weapon.attackSpeed, false, false));
+      SetMoneyCost(weapon.upgradeInfo, option2);
 
     }
     else if (item is IItemArmor)
@@ -97,9 +105,27 @@ public class UpgradeInfoManager : MonoBehaviour
 
       SetStat(option2s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, armor.defense, false, true),
       "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, armor.movementSpeed, false, false));
-
+      SetMoneyCost(armor.upgradeInfo, option2);
     }
     this.gameObject.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
+
+  }
+  void SetMoneyCost(UpgradeInfo upInfo, GameObject select2)
+  {
+    if (upInfo.boughtTypeMoney < upInfo.upgradesTypeMoney.Count)
+    {
+      select2.transform.Find("ValueCost").GetComponent<UnityEngine.UI.Text>().text = upInfo.upgradesTypeMoney[upInfo.boughtTypeMoney].upgradeCost.ToString();
+      GameObject PlayerManager = GameObject.FindWithTag("PlayerManager");
+      CharacterValues statsPlayManager = PlayerManager.GetComponent<CharacterValues>();
+      if (statsPlayManager.money >= upInfo.upgradesTypeMoney[upInfo.boughtTypeMoney].upgradeCost)
+      {
+        select2.transform.Find("UpgradeBtn2").GetComponent<Button>().interactable = true;
+      }
+      else
+      {
+        select2.transform.Find("UpgradeBtn2").GetComponent<Button>().interactable = false;
+      }
+    }
 
   }
   string CalculateUpgrade(UpgradeInfo upInfo, float currentV, bool itemUpgrade, bool firstStat)

@@ -7,6 +7,8 @@ public class CharacterValues : MonoBehaviour
   public int level = 1;
   public int experience = 0;
 
+  public int money = 0;
+
   public int pointsHealth = 0;
   public int pointsDefense = 0;
   public int pointsSpeed = 0;
