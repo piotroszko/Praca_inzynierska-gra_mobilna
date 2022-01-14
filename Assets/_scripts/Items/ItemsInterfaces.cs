@@ -63,6 +63,7 @@ public class UpgradeInfo
         sum = sum + upgradesTypeItem[i].upgradeToStat2 / 100;
       }
     }
+    return sum;
   }
   public float sumTypeMoney(bool forStat1)
   {
@@ -81,6 +82,7 @@ public class UpgradeInfo
         sum = sum + upgradesTypeMoney[i].upgradeToStat2 / 100;
       }
     }
+    return sum;
   }
 
   public override string ToString()
