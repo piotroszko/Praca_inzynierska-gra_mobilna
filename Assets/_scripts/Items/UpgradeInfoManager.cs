@@ -8,7 +8,9 @@ public class UpgradeInfoManager : MonoBehaviour
 {
   ItemsIcons iconScript;
   IItem currentItem;
+  IItem itemInUpgrade;
   public GameObject popup;
+  public GameObject checkmark;
   // Start is called before the first frame update
   void Start()
   {
@@ -20,6 +22,18 @@ public class UpgradeInfoManager : MonoBehaviour
   {
 
   }
+  public void SetUseInUpgrade(IItem itemInUpgrade)
+  {
+    this.itemInUpgrade = itemInUpgrade;
+    this.checkmark.SetActive(true);
+    GameObject.Find("UpgradeBtn1").GetComponent<Button>().interactable = true;
+  }
+  public void ClearUseInUpgrade()
+  {
+    this.itemInUpgrade = null;
+    this.checkmark.SetActive(false);
+    GameObject.Find("UpgradeBtn1").GetComponent<Button>().interactable = false;
+  }
   public void ShowPopup()
   {
     this.popup.SetActive(true);
@@ -28,6 +42,7 @@ public class UpgradeInfoManager : MonoBehaviour
   }
   public void SetItemInfo(IItem item)
   {
+    ClearUseInUpgrade();
     this.currentItem = item;
     if (this.iconScript.itemsIcons.Exists(x => x.itemID == item.itemIconID))
     {

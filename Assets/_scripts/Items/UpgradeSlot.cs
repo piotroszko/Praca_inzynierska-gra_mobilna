@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpgradeSlot : MonoBehaviour
 {
-  protected IItem myItemObject;
+  public IItem myItemObject;
   protected GameObject itemInfoGameObject;
 
   private bool sble;
@@ -132,6 +132,10 @@ public class UpgradeSlot : MonoBehaviour
   {
     this.itemInfoGameObject.GetComponent<UpgradeInfoManager>().SetItemInfo(this.myItemObject);
 
+  }
+  public void ItemUpgradeClick()
+  {
+    GameObject.Find("Popup").GetComponent<UpgradePopup>().SelectToUse(this.myItemObject);
   }
   // Start is called before the first frame update
   void Start()

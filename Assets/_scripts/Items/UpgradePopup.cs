@@ -21,9 +21,10 @@ public class UpgradePopup : MonoBehaviour
       GO.transform.SetParent(this.itemsPanel.transform);
     }
   }
-  public void SelectToUse(GameObject self)
+  public void SelectToUse(IItem selectedItem)
   {
-
+    GameObject.FindWithTag("UpgradeInfo").GetComponent<UpgradeInfoManager>().SetUseInUpgrade(selectedItem);
+    this.gameObject.SetActive(false);
   }
   public void ClosePopup()
   {
