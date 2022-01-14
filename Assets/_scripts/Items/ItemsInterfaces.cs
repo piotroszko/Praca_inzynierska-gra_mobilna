@@ -32,9 +32,9 @@ public class UpgradeInfo
 {
   public List<ItemUpgrade> upgradesTypeItem;
   public List<ItemUpgrade> upgradesTypeMoney;
+  public int boughtTypeItem = 0; //wskazuje idex upgradu ktory jest teraz do kupienia (poprzednie kupione)
+  public int boughtTypeMoney = 0; //wskazuje idex upgradu ktory jest teraz do kupienia (poprzednie kupione)
 
-  public int boughtTypeItem = 0;
-  public int boughtTypeMoney = 0;
 
   public UpgradeInfo()
   {
@@ -45,6 +45,42 @@ public class UpgradeInfo
   {
     this.upgradesTypeItem = _upgradesTypeItem;
     this.upgradesTypeMoney = _upgradesTypeMoney;
+  }
+  public float sumTypeItem(bool forStat1)
+  {
+    float sum = 0f;
+    if (forStat1)
+    {
+      for (int i = 0; i < this.boughtTypeItem; i++)
+      {
+        sum = sum + upgradesTypeItem[i].upgradeToStat1 / 100;
+      }
+    }
+    else
+    {
+      for (int i = 0; i < this.boughtTypeItem; i++)
+      {
+        sum = sum + upgradesTypeItem[i].upgradeToStat2 / 100;
+      }
+    }
+  }
+  public float sumTypeMoney(bool forStat1)
+  {
+    float sum = 0f;
+    if (forStat1)
+    {
+      for (int i = 0; i < this.boughtTypeItem; i++)
+      {
+        sum = sum + upgradesTypeMoney[i].upgradeToStat1 / 100;
+      }
+    }
+    else
+    {
+      for (int i = 0; i < this.boughtTypeItem; i++)
+      {
+        sum = sum + upgradesTypeMoney[i].upgradeToStat2 / 100;
+      }
+    }
   }
 
   public override string ToString()
