@@ -7,7 +7,16 @@ public class CharacterValues : MonoBehaviour
   public int level = 1;
   public int experience = 0;
 
-  public int money = 0;
+  public int _money = 100;
+  public int money
+  {
+    get { return _money; }
+    set
+    {
+      _money = value;
+      GameObject.FindWithTag("MoneyValueText").GetComponent<UnityEngine.UI.Text>().text = _money.ToString();
+    }
+  }
 
   public int pointsHealth = 0;
   public int pointsDefense = 0;
