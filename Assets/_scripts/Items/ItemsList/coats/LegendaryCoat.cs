@@ -100,7 +100,6 @@ public class LegendaryCoat : IItem, IItemArmor
   public string itemName { get { return "Legendarny kubrak"; } }
   public string itemType { get { return "Coat"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
   public int itemIconID { get { return 13; } set { } }
 
   UpgradeInfo _upgradeInfo;

@@ -101,7 +101,6 @@ public class Seed : IItem, IItemWeapon
   public string itemName { get { return "Nasiono"; } }
   public string itemType { get { return "Seed"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia najbardziej podstawowe statstyki"; } }
   public int itemIconID { get { return 21; } set { } }
 
   UpgradeInfo _upgradeInfo;

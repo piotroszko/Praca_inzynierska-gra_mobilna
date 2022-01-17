@@ -101,7 +101,6 @@ public class Coat : IItem, IItemArmor
   public string itemName { get { return "Kubrak"; } }
   public string itemType { get { return "Coat"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia najbardziej podstawowe statstyki"; } }
   public int itemIconID { get { return 11; } set { } }
 
   UpgradeInfo _upgradeInfo;

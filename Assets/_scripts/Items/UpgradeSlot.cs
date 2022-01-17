@@ -126,7 +126,6 @@ public class UpgradeSlot : MonoBehaviour
     this.itemName = item.itemName;
     this.itemType = item.itemType;
     this.secondItemType = item.secondItemType;
-    this.itemDesc = item.itemDesc;
   }
   public void ItemClick()
   {

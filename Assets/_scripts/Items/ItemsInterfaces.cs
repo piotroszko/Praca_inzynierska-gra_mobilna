@@ -14,7 +14,6 @@ public interface IItem
   string itemName { get; }
   string itemType { get; }
   string secondItemType { get; }
-  string itemDesc { get; }
 }
 public interface IItemWeapon
 {

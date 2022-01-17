@@ -100,7 +100,6 @@ public class RareCollar : IItem, IItemArmor
   public string itemName { get { return "Rzadka obroża"; } }
   public string itemType { get { return "Collar"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
   public int itemIconID { get { return 2; } set { } }
 
   UpgradeInfo _upgradeInfo;

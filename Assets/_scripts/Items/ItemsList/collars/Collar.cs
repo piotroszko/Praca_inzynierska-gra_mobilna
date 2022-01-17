@@ -101,7 +101,6 @@ public class Collar : IItem, IItemArmor
   public string itemName { get { return "Obroża"; } }
   public string itemType { get { return "Collar"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia najbardziej podstawowe statstyki"; } }
   public int itemIconID { get { return 1; } set { } }
 
   UpgradeInfo _upgradeInfo;

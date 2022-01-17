@@ -101,7 +101,6 @@ public class Chestnut : IItem, IItemWeapon
   public string itemName { get { return "Żolądź"; } }
   public string itemType { get { return "Chestnut"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia najbardziej podstawowe statstyki"; } }
   public int itemIconID { get { return 31; } set { } }
 
   UpgradeInfo _upgradeInfo;

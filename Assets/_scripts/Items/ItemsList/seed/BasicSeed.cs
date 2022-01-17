@@ -100,7 +100,6 @@ public class BasicSeed : IItem, IItemWeapon
   public string itemName { get { return "Podstawowe nasiono"; } }
   public string itemType { get { return "Seed"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Najbardziej podstawowa obroża"; } }
   public int itemIconID { get { return 20; } set { } }
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo

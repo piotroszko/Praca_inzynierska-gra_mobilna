@@ -100,7 +100,6 @@ public class BasicCollar : IItem, IItemArmor
   public string itemName { get { return "Podstawowa obroża"; } }
   public string itemType { get { return "Collar"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Najbardziej podstawowa obroża"; } }
   public int itemIconID { get { return 0; } set { } }
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo

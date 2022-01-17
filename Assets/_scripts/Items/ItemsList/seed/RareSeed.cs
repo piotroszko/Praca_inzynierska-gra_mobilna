@@ -100,7 +100,6 @@ public class RareSeed : IItem, IItemWeapon
   public string itemName { get { return "Rzadkie nasiono"; } }
   public string itemType { get { return "Seed"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
   public int itemIconID { get { return 22; } set { } }
 
   UpgradeInfo _upgradeInfo;

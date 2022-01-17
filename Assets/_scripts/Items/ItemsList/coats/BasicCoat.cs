@@ -100,7 +100,6 @@ public class BasicCoat : IItem, IItemArmor
   public string itemName { get { return "Podstawowy kubrak"; } }
   public string itemType { get { return "Coat"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Najbardziej podstawowa obroża"; } }
   public int itemIconID { get { return 10; } set { } }
   UpgradeInfo _upgradeInfo;
   public UpgradeInfo upgradeInfo

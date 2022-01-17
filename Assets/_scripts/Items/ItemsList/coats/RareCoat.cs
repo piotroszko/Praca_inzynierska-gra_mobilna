@@ -100,7 +100,6 @@ public class RareCoat : IItem, IItemArmor
   public string itemName { get { return "Rzadki kubrak"; } }
   public string itemType { get { return "Coat"; } }
   public string secondItemType { get { return ""; } }
-  public string itemDesc { get { return "Zapewnia niestandardowe statystyki"; } }
   public int itemIconID { get { return 12; } set { } }
 
   UpgradeInfo _upgradeInfo;

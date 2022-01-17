@@ -54,6 +54,12 @@ public class ItemInfoManager : MonoBehaviour
       case "Collar":
         type = "Obroża";
         break;
+      case "Seed":
+        type = "Nasiono";
+        break;
+      case "Coat":
+        type = "Kubraczek";
+        break;
       default:
         type = "";
         break;
@@ -72,7 +78,7 @@ public class ItemInfoManager : MonoBehaviour
     }
     this.gameObject.transform.Find("ItemTitle").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
     this.gameObject.transform.Find("ItemTags").GetComponent<UnityEngine.UI.Text>().text = type + " - " + rarity + " - " + item.secondItemType;
-    this.gameObject.transform.Find("ItemDesc").GetComponent<UnityEngine.UI.Text>().text = statDesc + item.itemDesc;
+    this.gameObject.transform.Find("ItemDesc").GetComponent<UnityEngine.UI.Text>().text = statDesc;
 
   }
   private void findPlayerManager()
