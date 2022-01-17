@@ -16,7 +16,6 @@ public class InventorySlot : MonoBehaviour
       sble = value;
       if (value == false)
       {
-        this.gameObject.transform.Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "*";
       }
     }
   }

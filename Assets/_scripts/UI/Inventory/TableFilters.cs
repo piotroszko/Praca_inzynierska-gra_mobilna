@@ -1,52 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TableFilters : MonoBehaviour
 {
-  private int amount = 0;
-  private int amountState
-  {
-    get { return amount; }
-    set
-    {
-      amount = value;
-      if (value == 0)
-      {
-        this.gameObject.transform.Find("Amount").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDefault();
-      }
-      else if (value == 1)
-      {
-        this.gameObject.transform.Find("Amount").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
-      }
-      else if (value == 2)
-      {
-        this.gameObject.transform.Find("Amount").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDown();
-      }
-    }
-  }
-  private int mod = 0;
-  private int modState
-  {
-    get { return mod; }
-    set
-    {
-      mod = value;
-      if (value == 0)
-      {
-        this.gameObject.transform.Find("Modified").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDefault();
-      }
-      else if (value == 1)
-      {
-        this.gameObject.transform.Find("Modified").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
-      }
-      else if (value == 2)
-      {
-        this.gameObject.transform.Find("Modified").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDown();
-      }
-    }
-  }
   private int nameFilter = 0;
+  protected Inventory invComp;
+
   private int nameState
   {
     get { return nameFilter; }
@@ -60,10 +21,14 @@ public class TableFilters : MonoBehaviour
       else if (value == 1)
       {
         this.gameObject.transform.Find("ItemName").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
+        this.invComp.itemList.OrderBy(x => x.itemName);
+        this.invComp.RefreshInventory();
       }
       else if (value == 2)
       {
         this.gameObject.transform.Find("ItemName").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDown();
+        this.invComp.itemList.OrderByDescending(x => x.itemName);
+        this.invComp.RefreshInventory();
       }
     }
   }
@@ -81,10 +46,14 @@ public class TableFilters : MonoBehaviour
       else if (value == 1)
       {
         this.gameObject.transform.Find("ItemType").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
+        this.invComp.itemList.OrderBy(x => x.itemType);
+        this.invComp.RefreshInventory();
       }
       else if (value == 2)
       {
         this.gameObject.transform.Find("ItemType").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDown();
+        this.invComp.itemList.OrderByDescending(x => x.itemType);
+        this.invComp.RefreshInventory();
       }
     }
   }
@@ -102,10 +71,14 @@ public class TableFilters : MonoBehaviour
       else if (value == 1)
       {
         this.gameObject.transform.Find("ItemLevel").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
+        this.invComp.itemList.OrderBy(x => x.itemLevel);
+        this.invComp.RefreshInventory();
       }
       else if (value == 2)
       {
         this.gameObject.transform.Find("ItemLevel").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDown();
+        this.invComp.itemList.OrderByDescending(x => x.itemLevel);
+        this.invComp.RefreshInventory();
       }
     }
   }
@@ -123,64 +96,24 @@ public class TableFilters : MonoBehaviour
       else if (value == 1)
       {
         this.gameObject.transform.Find("ItemTier").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
+        this.invComp.itemList.OrderBy(x => x.itemTier);
+        this.invComp.RefreshInventory();
       }
       else if (value == 2)
       {
         this.gameObject.transform.Find("ItemTier").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setDown();
+        this.invComp.itemList.OrderByDescending(x => x.itemTier);
+        this.invComp.RefreshInventory();
       }
     }
   }
   //this.gameObject.transform.Find("Amount").transform.Find("FilterIndicator").GetComponent<FilterIndicator>().setUp();
   public void ChangeFilter(string filterName)
   {
-    if (filterName == "amount")
-    {
-      if (this.amountState == 0 || this.amountState == 2)
-      {
-        this.amountState = 1;
-        this.modState = 0;
-        this.nameState = 0;
-        this.typeState = 0;
-        this.levelState = 0;
-        this.tierState = 0;
-      }
-      else
-      {
-        this.amountState = 2;
-        this.modState = 0;
-        this.nameState = 0;
-        this.typeState = 0;
-        this.levelState = 0;
-        this.tierState = 0;
-      }
-    }
-    else if (filterName == "mod")
-    {
-      if (this.modState == 0 || this.modState == 2)
-      {
-        this.amountState = 0;
-        this.modState = 1;
-        this.nameState = 0;
-        this.typeState = 0;
-        this.levelState = 0;
-        this.tierState = 0;
-      }
-      else
-      {
-        this.amountState = 0;
-        this.modState = 2;
-        this.nameState = 0;
-        this.typeState = 0;
-        this.levelState = 0;
-        this.tierState = 0;
-      }
-    }
-    else if (filterName == "name")
+    if (filterName == "name")
     {
       if (this.nameState == 0 || this.nameState == 2)
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 1;
         this.typeState = 0;
         this.levelState = 0;
@@ -188,8 +121,6 @@ public class TableFilters : MonoBehaviour
       }
       else
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 2;
         this.typeState = 0;
         this.levelState = 0;
@@ -200,8 +131,6 @@ public class TableFilters : MonoBehaviour
     {
       if (this.typeState == 0 || this.typeState == 2)
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 0;
         this.typeState = 1;
         this.levelState = 0;
@@ -209,8 +138,6 @@ public class TableFilters : MonoBehaviour
       }
       else
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 0;
         this.typeState = 2;
         this.levelState = 0;
@@ -221,8 +148,6 @@ public class TableFilters : MonoBehaviour
     {
       if (this.levelState == 0 || this.levelState == 2)
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 0;
         this.typeState = 0;
         this.levelState = 1;
@@ -230,8 +155,6 @@ public class TableFilters : MonoBehaviour
       }
       else
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 0;
         this.typeState = 0;
         this.levelState = 2;
@@ -242,8 +165,6 @@ public class TableFilters : MonoBehaviour
     {
       if (this.tierState == 0 || this.tierState == 2)
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 0;
         this.typeState = 0;
         this.levelState = 0;
@@ -251,8 +172,6 @@ public class TableFilters : MonoBehaviour
       }
       else
       {
-        this.amountState = 0;
-        this.modState = 0;
         this.nameState = 0;
         this.typeState = 0;
         this.levelState = 0;
@@ -263,7 +182,7 @@ public class TableFilters : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-
+    this.invComp = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
   }
 
   // Update is called once per frame
