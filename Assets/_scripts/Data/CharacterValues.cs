@@ -14,7 +14,9 @@ public class CharacterValues : MonoBehaviour
     set
     {
       _money = value;
-      GameObject.FindWithTag("MoneyValueText").GetComponent<UnityEngine.UI.Text>().text = _money.ToString();
+      GameObject text = GameObject.FindWithTag("MoneyValueText");
+      if (text.activeSelf)
+        text.GetComponent<UnityEngine.UI.Text>().text = _money.ToString();
     }
   }
 
