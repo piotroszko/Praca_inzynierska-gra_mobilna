@@ -11,11 +11,6 @@ public class Inventory : MonoBehaviour
 
   public GameObject itemInfo;
 
-  private int index = 0;
-  public int nextItemIndex
-  {
-    get { index++; return index; }
-  }
   public GameObject inventoryPanel;
   public GameObject inventoryUpgradePanel;
   void Awake()
@@ -24,8 +19,16 @@ public class Inventory : MonoBehaviour
   }
   void Start()
   {
-    this.itemList.Add(new BasicCollar(nextItemIndex));
-    this.itemList.Add(new BasicSeed(nextItemIndex));
+    this.itemList.Add(new BasicCollar());
+    this.itemList.Add(new Collar());
+    this.itemList.Add(new Collar());
+    this.itemList.Add(new BasicSeed());
+    this.itemList.Add(new BasicSeed());
+    this.itemList.Add(new BasicSeed());
+    this.itemList.Add(new BasicCollar());
+
+    this.itemList.Add(new BasicCollar());
+
   }
   void Update()
   {

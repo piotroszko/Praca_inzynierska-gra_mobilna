@@ -103,30 +103,123 @@ public class UpgradeInfoManager : MonoBehaviour
     if (item is IItemWeapon)
     {
       IItemWeapon weapon = item as IItemWeapon;
-      SetStat(option1s1, "Obrażenia:", weapon.damage.ToString(), "Szybkość ataku:", weapon.attackSpeed.ToString());
-      SetStat(option2s1, "Obrażenia:", weapon.damage.ToString(), "Szybkość ataku:", weapon.attackSpeed.ToString());
-      SetStat(option1s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, weapon.damage, true, true),
-      "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, weapon.attackSpeed, true, false));
+      if (weapon.upgradeInfo.boughtTypeItem >= weapon.upgradeInfo.upgradesTypeItem.Count)
+      {
+        option1.transform.Find("SelectItem").GetComponent<Button>().interactable = false;
+      }
+      else
+      {
+        option1.transform.Find("SelectItem").GetComponent<Button>().interactable = true;
+      }
+      float dmgTmp = weapon.damage + (weapon.upgradeInfo.sumTypeItem(true) * weapon.damage);
+      float spdTmp = weapon.attackSpeed + (weapon.upgradeInfo.sumTypeItem(false) * weapon.attackSpeed);
+      float dmg = dmgTmp + (weapon.upgradeInfo.sumTypeMoney(true) * dmgTmp);
+      float spd = spdTmp + (weapon.upgradeInfo.sumTypeMoney(false) * spdTmp);
+      SetStat(option1s1, "Obrażenia:", dmg.ToString(), "Szybkość ataku:", spd.ToString());
+      SetStat(option2s1, "Obrażenia:", dmg.ToString(), "Szybkość ataku:", spd.ToString());
+      if (weapon.upgradeInfo.upgradesTypeItem.Count() > weapon.upgradeInfo.boughtTypeItem)
+        SetStat(option1s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, dmg, true, true),
+        "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, spd, true, false));
+      else
+        SetStat(option1s2, "Obrażenia:", "-",
+        "Szybkość ataku:", "-");
 
-      SetStat(option2s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, weapon.damage, false, true),
-      "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, weapon.attackSpeed, false, false));
+      if (weapon.upgradeInfo.upgradesTypeMoney.Count() > weapon.upgradeInfo.boughtTypeMoney)
+        SetStat(option2s2, "Obrażenia:", CalculateUpgrade(weapon.upgradeInfo, dmg, false, true),
+        "Szybkość ataku:", CalculateUpgrade(weapon.upgradeInfo, spd, false, false));
+      else
+        SetStat(option2s2, "Obrażenia:", "-",
+        "Szybkość ataku:", "-");
       SetMoneyCost(weapon.upgradeInfo, option2);
 
     }
     else if (item is IItemArmor)
     {
       IItemArmor armor = item as IItemArmor;
-      SetStat(option1s1, "Obrona:", armor.defense.ToString(), "Szybkość poruszania:", armor.movementSpeed.ToString());
-      SetStat(option2s1, "Obrona:", armor.defense.ToString(), "Szybkość poruszania:", armor.movementSpeed.ToString());
-      SetStat(option1s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, armor.defense, true, true),
-      "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, armor.movementSpeed, true, false));
+      if (armor.upgradeInfo.boughtTypeItem >= armor.upgradeInfo.upgradesTypeItem.Count)
+      {
+        option1.transform.Find("SelectItem").GetComponent<Button>().interactable = false;
+      }
+      else
+      {
+        option1.transform.Find("SelectItem").GetComponent<Button>().interactable = true;
+      }
+      float defTmp = armor.defense + (armor.upgradeInfo.sumTypeItem(true) * armor.defense);
+      float spdTmp = armor.movementSpeed + (armor.upgradeInfo.sumTypeItem(false) * armor.movementSpeed);
+      float def = defTmp + (armor.upgradeInfo.sumTypeMoney(true) * defTmp);
+      float spd = spdTmp + (armor.upgradeInfo.sumTypeMoney(false) * spdTmp);
+      SetStat(option1s1, "Obrona:", def.ToString(), "Szybkość poruszania:", spd.ToString());
+      SetStat(option2s1, "Obrona:", def.ToString(), "Szybkość poruszania:", spd.ToString());
 
-      SetStat(option2s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, armor.defense, false, true),
-      "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, armor.movementSpeed, false, false));
+      if (armor.upgradeInfo.upgradesTypeItem.Count() > armor.upgradeInfo.boughtTypeItem)
+        SetStat(option1s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, def, true, true),
+        "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, spd, true, false));
+      else
+        SetStat(option1s2, "Obrona:", "-",
+        "Szybkość poruszania:", "-");
+
+      if (armor.upgradeInfo.upgradesTypeMoney.Count() > armor.upgradeInfo.boughtTypeMoney)
+      {
+        SetStat(option2s2, "Obrona:", CalculateUpgrade(armor.upgradeInfo, def, false, true),
+        "Szybkość poruszania:", CalculateUpgrade(armor.upgradeInfo, spd, false, false));
+      }
+      else
+        SetStat(option2s2, "Obrona:", "-",
+        "Szybkość poruszania:", "-");
       SetMoneyCost(armor.upgradeInfo, option2);
     }
     this.gameObject.transform.Find("ItemName").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
 
+  }
+  public void UpgradeByItem()
+  {
+    if (this.currentItem != null && this.itemInUpgrade != null)
+    {
+      GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().itemList.Remove(this.itemInUpgrade);
+      this.itemInUpgrade = null;
+      if (this.currentItem is IItemArmor)
+      {
+        IItemArmor armor = this.currentItem as IItemArmor;
+        armor.upgradeInfo.boughtTypeItem++;
+      }
+      else if (this.currentItem is IItemWeapon)
+      {
+        IItemWeapon weapon = this.currentItem as IItemWeapon;
+        weapon.upgradeInfo.boughtTypeItem++;
+      }
+      this.currentItem.itemTier++;
+      SetItemInfo(this.currentItem);
+      GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().RefreshUpgradeInventory();
+    }
+  }
+  public void UpgradeByMoney()
+  {
+    GameObject PlayerManager = GameObject.FindWithTag("PlayerManager");
+    CharacterValues statsPlayManager = PlayerManager.GetComponent<CharacterValues>();
+
+    if (this.currentItem is IItemArmor)
+    {
+      IItemArmor armor = this.currentItem as IItemArmor;
+      if (statsPlayManager.money >=
+          armor.upgradeInfo.upgradesTypeMoney[armor.upgradeInfo.boughtTypeMoney].upgradeCost)
+      {
+        statsPlayManager.money -= armor.upgradeInfo.upgradesTypeMoney[armor.upgradeInfo.boughtTypeMoney].upgradeCost;
+        armor.upgradeInfo.boughtTypeMoney++;
+      }
+    }
+    else if (this.currentItem is IItemWeapon)
+    {
+      IItemWeapon weapon = this.currentItem as IItemWeapon;
+      if (statsPlayManager.money >=
+          weapon.upgradeInfo.upgradesTypeMoney[weapon.upgradeInfo.boughtTypeMoney].upgradeCost)
+      {
+        statsPlayManager.money -= weapon.upgradeInfo.upgradesTypeMoney[weapon.upgradeInfo.boughtTypeMoney].upgradeCost;
+        weapon.upgradeInfo.boughtTypeMoney++;
+      }
+    }
+    this.currentItem.itemLevel++;
+    SetItemInfo(this.currentItem);
+    GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().RefreshUpgradeInventory();
   }
   void SetMoneyCost(UpgradeInfo upInfo, GameObject select2)
   {
@@ -144,6 +237,12 @@ public class UpgradeInfoManager : MonoBehaviour
         select2.transform.Find("UpgradeBtn2").GetComponent<Button>().interactable = false;
       }
     }
+    else
+    {
+      select2.transform.Find("UpgradeBtn2").GetComponent<Button>().interactable = false;
+      select2.transform.Find("ValueCost").GetComponent<UnityEngine.UI.Text>().text = "";
+    }
+
 
   }
   string CalculateUpgrade(UpgradeInfo upInfo, float currentV, bool itemUpgrade, bool firstStat)
@@ -154,7 +253,6 @@ public class UpgradeInfoManager : MonoBehaviour
       if (firstStat)
       {
         upgradeValue = upInfo.upgradesTypeItem[upInfo.boughtTypeItem].upgradeToStat1;
-
       }
       else
       {

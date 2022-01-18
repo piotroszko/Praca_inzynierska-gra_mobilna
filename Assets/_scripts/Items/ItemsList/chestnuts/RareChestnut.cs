@@ -55,37 +55,31 @@ public class RareChestnut : IItem, IItemWeapon
   {
     return false;
   }
+  private int _itemTier = 0;
   public int itemTier
   {
     get
     {
-      return 0;
+      return _itemTier;
     }
-    set { }
+    set
+    {
+      this._itemTier = value;
+    }
   }
+  private int _itemLevel = 1;
   public int itemLevel
   {
     get
     {
-      return 1;
+      return this._itemLevel;
     }
     set
     {
-      itemLevel = value;
+      _itemLevel = value;
     }
   }
-  private int index = 2;
-  public int itemIndex
-  {
-    get
-    {
-      return index;
-    }
-    set
-    {
-      index = value;
-    }
-  }
+
   public int itemRarity
   {
     get

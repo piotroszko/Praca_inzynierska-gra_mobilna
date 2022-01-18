@@ -69,14 +69,18 @@ public class ItemInfoManager : MonoBehaviour
     string statDesc = "";
     if (item is IItemWeapon)
     {
-      Debug.Log("Broń");
       IItemWeapon weapon = item as IItemWeapon;
       statDesc = "Obrażenia: " + weapon.damage.ToString() + System.Environment.NewLine + "Szybkość ataku: " + weapon.attackSpeed.ToString() + System.Environment.NewLine + System.Environment.NewLine;
     }
     if (item is IItemArmor)
     {
       IItemArmor armor = item as IItemArmor;
-      statDesc = "Obrona: " + armor.defense.ToString() + System.Environment.NewLine + "Szybkość poruszania " + armor.movementSpeed.ToString() + System.Environment.NewLine + System.Environment.NewLine;
+      float defTmp = armor.defense + (armor.upgradeInfo.sumTypeItem(true) * armor.defense);
+      float spdTmp = armor.movementSpeed + (armor.upgradeInfo.sumTypeItem(false) * armor.movementSpeed);
+      float def = defTmp + (armor.upgradeInfo.sumTypeMoney(true) * defTmp);
+      float spd = spdTmp + (armor.upgradeInfo.sumTypeMoney(false) * spdTmp);
+
+      statDesc = "Obrona: " + def.ToString() + System.Environment.NewLine + "Szybkość poruszania " + spd.ToString() + System.Environment.NewLine + System.Environment.NewLine;
     }
     this.gameObject.transform.Find("ItemTitle").GetComponent<UnityEngine.UI.Text>().text = item.itemName;
     this.gameObject.transform.Find("ItemTags").GetComponent<UnityEngine.UI.Text>().text = type + " - " + rarity + " - " + item.secondItemType;

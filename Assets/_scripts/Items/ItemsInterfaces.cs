@@ -8,7 +8,6 @@ public interface IItem
   int itemTier { get; set; }
   int itemLevel { get; set; }
   int itemRarity { get; set; }
-  int itemIndex { get; set; }
   int itemIconID { get; set; }
 
   string itemName { get; }
@@ -52,16 +51,17 @@ public class UpgradeInfo
     {
       for (int i = 0; i < this.boughtTypeItem; i++)
       {
-        sum = sum + upgradesTypeItem[i].upgradeToStat1 / 100;
+        sum = sum + upgradesTypeItem[i].upgradeToStat1 / 100f;
       }
     }
     else
     {
       for (int i = 0; i < this.boughtTypeItem; i++)
       {
-        sum = sum + upgradesTypeItem[i].upgradeToStat2 / 100;
+        sum = sum + upgradesTypeItem[i].upgradeToStat2 / 100f;
       }
     }
+
     return sum;
   }
   public float sumTypeMoney(bool forStat1)
@@ -69,16 +69,16 @@ public class UpgradeInfo
     float sum = 0f;
     if (forStat1)
     {
-      for (int i = 0; i < this.boughtTypeItem; i++)
+      for (int i = 0; i < this.boughtTypeMoney; i++)
       {
-        sum = sum + upgradesTypeMoney[i].upgradeToStat1 / 100;
+        sum = sum + upgradesTypeMoney[i].upgradeToStat1 / 100f;
       }
     }
     else
     {
-      for (int i = 0; i < this.boughtTypeItem; i++)
+      for (int i = 0; i < this.boughtTypeMoney; i++)
       {
-        sum = sum + upgradesTypeMoney[i].upgradeToStat2 / 100;
+        sum = sum + upgradesTypeMoney[i].upgradeToStat2 / 100f;
       }
     }
     return sum;
