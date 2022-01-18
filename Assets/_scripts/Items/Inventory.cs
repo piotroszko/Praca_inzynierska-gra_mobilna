@@ -13,9 +13,62 @@ public class Inventory : MonoBehaviour
 
   public GameObject inventoryPanel;
   public GameObject inventoryUpgradePanel;
+
+  public IItemArmor equippedCollar;
+  public IItemArmor equippedCoat;
+  public IItemWeapon equippedWeapon;
   void Awake()
   {
     DontDestroyOnLoad(this.gameObject);
+  }
+  public void Equipe(IItem item)
+  {
+    if (item is IItemWeapon)
+    {
+      IItemWeapon weapon = (IItemWeapon)item;
+      if (this.equippedWeapon == weapon)
+        this.equippedWeapon = null;
+      else
+        this.equippedWeapon = weapon;
+    }
+    else if (item is IItemArmor)
+    {
+      IItemArmor armor = item as IItemArmor;
+      if (item.itemType == "Collar")
+      {
+        if (this.equippedCollar == armor)
+          this.equippedCollar = null;
+        else
+          this.equippedCollar = armor;
+      }
+      else if (item.itemType == "Coat")
+      {
+        if (this.equippedCoat == armor)
+          this.equippedCoat = null;
+        else
+          this.equippedCoat = armor;
+      }
+    }
+  }
+  public void DeleteItem(IItem item)
+  {
+    EquipeManager eq = GameObject.FindWithTag("Equiped").GetComponent<EquipeManager>();
+    if (item == this.equippedCoat)
+    {
+      this.equippedCoat = null;
+      eq.ClearCoat();
+    }
+    else if (item == this.equippedCollar)
+    {
+      this.equippedCollar = null;
+      eq.ClearCollar();
+    }
+    else if (item == this.equippedCoat)
+    {
+      this.equippedCoat = null;
+      eq.ClearCoat();
+    }
+    this.itemList.Remove(item);
   }
   void Start()
   {
