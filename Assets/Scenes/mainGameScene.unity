@@ -11893,6 +11893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 342201284535983312, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9d1066f3e2fd02542901365f77bf9a58, type: 2}
     - target: {fileID: 342201284535983314, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
       propertyPath: m_Name
       value: squirrel
@@ -16313,7 +16317,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -5, y: -7, z: 0}
-  m_Size: {x: 25, y: 7, z: 1}
+  m_Size: {x: 25, y: 8, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -16404,8 +16408,14 @@ CompositeCollider2D:
         Y: -50161292
     - - X: 80161288
         Y: -29838710
-      - X: 39838708
+      - X: 50161392
         Y: -29838710
+      - X: 50161392
+        Y: -30161331
+      - X: 50161333
+        Y: -30161390
+      - X: 39838708
+        Y: -30161390
       - X: 39838708
         Y: -39838708
       - X: -50161292
@@ -16424,7 +16434,9 @@ CompositeCollider2D:
       - {x: 13.983901, y: -5.0161295}
     - - {x: 8.016099, y: -5.0161295}
       - {x: 8.016099, y: -2.983871}
-      - {x: 3.9838707, y: -2.9839005}
+      - {x: 5.016139, y: -2.9839005}
+      - {x: 5.016104, y: -3.016139}
+      - {x: 3.9838707, y: -3.0161684}
       - {x: 3.9838417, y: -3.9838707}
       - {x: -5.0161295, y: -3.9839}
       - {x: -5.0161, y: -5.0161295}
