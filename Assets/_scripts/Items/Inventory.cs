@@ -74,11 +74,9 @@ public class Inventory : MonoBehaviour
   {
     this.itemList.Add(new BasicCollar());
     this.itemList.Add(new Collar());
-    this.itemList.Add(new Collar());
+    this.itemList.Add(new LegendaryCollar());
     this.itemList.Add(new BasicSeed());
-    this.itemList.Add(new BasicSeed());
-    this.itemList.Add(new BasicSeed());
-    this.itemList.Add(new BasicCollar());
+    this.itemList.Add(new RareCoat());
 
     this.itemList.Add(new BasicCollar());
 
