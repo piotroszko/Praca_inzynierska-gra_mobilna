@@ -31,6 +31,12 @@ public class ItemInfoManager : MonoBehaviour
       this.gameObject.transform.Find("ItemImage").GetComponent<Image>().sprite =
       this.iconScript.defaultIcon;
     }
+    Inventory inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
+    if (inv.equippedWeapon == item || inv.equippedCoat == item || inv.equippedCollar == item)
+      this.gameObject.transform.Find("ButtonEquipe/Text").GetComponent<UnityEngine.UI.Text>().text = "Zdejmij";
+    else
+      this.gameObject.transform.Find("ButtonEquipe/Text").GetComponent<UnityEngine.UI.Text>().text = "Załóż";
+
     string rarity = "";
     switch (item.itemRarity)
     {
@@ -107,11 +113,23 @@ public class ItemInfoManager : MonoBehaviour
     this.gameObject.transform.Find("SellText").gameObject.SetActive(false);
     this.cItem = null;
   }
+  public void changeEquipe()
+  {
+    GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().Equipe(this.cItem);
+    GameObject.FindWithTag("Equiped").GetComponent<EquipeManager>().Equipe(this.cItem);
+    GameObject.FindWithTag("Equiped").GetComponent<EquipeManager>().Refresh();
+    SetItemInfo(this.cItem);
+  }
+  void RefreshEquipe()
+  {
+    Inventory inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
+
+  }
   public void SellItem()
   {
     GameObject pm = GameObject.FindWithTag("PlayerManager");
     int itemValue = GetItemSellValue(this.cItem);
-    pm.GetComponent<Inventory>().itemList.Remove(this.cItem);
+    pm.GetComponent<Inventory>().DeleteItem(this.cItem);
     ClearInfo();
     pm.GetComponent<CharacterValues>().money += itemValue;
     pm.GetComponent<Inventory>().RefreshInventory();

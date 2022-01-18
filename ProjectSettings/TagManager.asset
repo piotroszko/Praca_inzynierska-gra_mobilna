@@ -18,6 +18,7 @@ TagManager:
   - UpgradePopupItem
   - UpgradePopup
   - MoneyValueText
+  - Equiped
   layers:
   - Default
   - TransparentFX

@@ -175,7 +175,7 @@ public class UpgradeInfoManager : MonoBehaviour
   {
     if (this.currentItem != null && this.itemInUpgrade != null)
     {
-      GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().itemList.Remove(this.itemInUpgrade);
+      GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().DeleteItem(this.itemInUpgrade);
       this.itemInUpgrade = null;
       if (this.currentItem is IItemArmor)
       {
