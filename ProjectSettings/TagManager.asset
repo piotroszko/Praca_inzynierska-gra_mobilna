@@ -55,6 +55,15 @@ TagManager:
   - name: Background
     uniqueID: 3498445171
     locked: 0
+  - name: Traps
+    uniqueID: 1796630399
+    locked: 0
+  - name: Platforms
+    uniqueID: 595430873
+    locked: 0
+  - name: Player
+    uniqueID: 4278270089
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
