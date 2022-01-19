@@ -19,6 +19,7 @@ TagManager:
   - UpgradePopup
   - MoneyValueText
   - Equiped
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
