@@ -26,17 +26,18 @@ public class CollisionDetetctor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health.currentHealth == 0)
+        if (health.currentHealth <= 0)
         {
             SceneManager.LoadScene(currentSceneIndex);
         }
     }
     void OnCollisionEnter2D(Collision2D hit)
     {
-        if (hit.gameObject.tag == "Spikes")
+        if (hit.gameObject.tag == "Spikes" && Time.time > timeAllowNextCollision)
         {
             health.Damage(50);
             rb.AddForce(Vector2.up * gravityValue * force * -0.75f, ForceMode2D.Impulse);
+            timeAllowNextCollision = Time.time + .1f;
         }
         if (hit.gameObject.tag == "JumpPad" && Time.time > timeAllowNextCollision)
         {
@@ -44,5 +45,17 @@ public class CollisionDetetctor : MonoBehaviour
             timeAllowNextCollision = Time.time + .1f;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "BelowSpawner")
+        {
+            SceneManager.LoadScene(currentSceneIndex);
+        }
+        
+        
+    }
+    
+    
     
 }
