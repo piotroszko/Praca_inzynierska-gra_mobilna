@@ -30,9 +30,9 @@ public class StatisticsManager : MonoBehaviour
   }
   private string numbersToThousands(int value)
   {
-    if (value > 999)
+    if (value > 1000)
     {
-      return (value / 1000).ToString("0.0") + " tyś";
+      return (value / 1000f).ToString("0.0") + " tyś";
     }
     else
     {

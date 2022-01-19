@@ -89,6 +89,11 @@ public class Inventory : MonoBehaviour
       this.RefreshUpgradeInventory();
     }
   }
+  public void AddItem(IItem item)
+  {
+    this.itemList.Add(item);
+    gameObject.GetComponent<StatisticsValues>().statsItems++;
+  }
   public void RefreshInventory()
   {
     if (this.inventoryPanel.activeSelf)

@@ -7,6 +7,7 @@ using System.Linq;
 public class UpgradeInfoManager : MonoBehaviour
 {
   ItemsIcons iconScript;
+  GameObject pm;
   IItem currentItem;
   IItem itemInUpgrade;
   public GameObject popup;
@@ -38,7 +39,7 @@ public class UpgradeInfoManager : MonoBehaviour
   {
     this.popup.SetActive(true);
     if (currentItem != null)
-      this.popup.GetComponent<UpgradePopup>().SetItems(GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().itemList.Where(x => x.itemName == this.currentItem.itemName && x != this.currentItem).ToList());
+      this.popup.GetComponent<UpgradePopup>().SetItems(this.pm.GetComponent<Inventory>().itemList.Where(x => x.itemName == this.currentItem.itemName && x != this.currentItem).ToList());
   }
   public void SetItemInfo(IItem item)
   {
@@ -175,7 +176,7 @@ public class UpgradeInfoManager : MonoBehaviour
   {
     if (this.currentItem != null && this.itemInUpgrade != null)
     {
-      GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().DeleteItem(this.itemInUpgrade);
+      this.pm.GetComponent<Inventory>().DeleteItem(this.itemInUpgrade);
       this.itemInUpgrade = null;
       if (this.currentItem is IItemArmor)
       {
@@ -189,13 +190,14 @@ public class UpgradeInfoManager : MonoBehaviour
       }
       this.currentItem.itemTier++;
       SetItemInfo(this.currentItem);
-      GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().RefreshUpgradeInventory();
+
+      this.pm.GetComponent<Inventory>().RefreshUpgradeInventory();
+      this.pm.GetComponent<StatisticsValues>().statsUpgrades++;
     }
   }
   public void UpgradeByMoney()
   {
-    GameObject PlayerManager = GameObject.FindWithTag("PlayerManager");
-    CharacterValues statsPlayManager = PlayerManager.GetComponent<CharacterValues>();
+    CharacterValues statsPlayManager = this.pm.GetComponent<CharacterValues>();
 
     if (this.currentItem is IItemArmor)
     {
@@ -219,15 +221,15 @@ public class UpgradeInfoManager : MonoBehaviour
     }
     this.currentItem.itemLevel++;
     SetItemInfo(this.currentItem);
-    GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().RefreshUpgradeInventory();
+    this.pm.GetComponent<StatisticsValues>().statsUpgrades++;
+    this.pm.GetComponent<Inventory>().RefreshUpgradeInventory();
   }
   void SetMoneyCost(UpgradeInfo upInfo, GameObject select2)
   {
     if (upInfo.boughtTypeMoney < upInfo.upgradesTypeMoney.Count)
     {
       select2.transform.Find("ValueCost").GetComponent<UnityEngine.UI.Text>().text = upInfo.upgradesTypeMoney[upInfo.boughtTypeMoney].upgradeCost.ToString();
-      GameObject PlayerManager = GameObject.FindWithTag("PlayerManager");
-      CharacterValues statsPlayManager = PlayerManager.GetComponent<CharacterValues>();
+      CharacterValues statsPlayManager = this.pm.GetComponent<CharacterValues>();
       if (statsPlayManager.money >= upInfo.upgradesTypeMoney[upInfo.boughtTypeMoney].upgradeCost)
       {
         select2.transform.Find("UpgradeBtn2").GetComponent<Button>().interactable = true;
@@ -285,5 +287,6 @@ public class UpgradeInfoManager : MonoBehaviour
   private void findPlayerManager()
   {
     this.iconScript = GameObject.FindWithTag("PlayerManager").GetComponent<ItemsIcons>();
+    this.pm = GameObject.FindWithTag("PlayerManager").gameObject;
   }
 }
