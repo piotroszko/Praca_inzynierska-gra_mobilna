@@ -13,10 +13,13 @@ public class CharacterValues : MonoBehaviour
     get { return _money; }
     set
     {
+      if ((value - _money) > 0)
+        gameObject.GetComponent<StatisticsValues>().statsGold += value - _money;
       _money = value;
       GameObject text = GameObject.FindWithTag("MoneyValueText");
       if (text.activeSelf)
         text.GetComponent<UnityEngine.UI.Text>().text = _money.ToString();
+
     }
   }
 
