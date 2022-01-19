@@ -61,7 +61,7 @@ public class MovementController : MonoBehaviour
       isOnGround = false;
       Debug.Log(isOnGround);
       rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-      timeAllowNextJump = Time.time + 1f;
+      timeAllowNextJump = Time.time + .5f;
 
     }
   }
