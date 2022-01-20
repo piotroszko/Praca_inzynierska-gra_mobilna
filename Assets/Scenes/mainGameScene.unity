@@ -19981,6 +19981,19 @@ MonoBehaviour:
   force: 1
   forceForJumpPad: 1
   health: {fileID: 205936252}
+--- !u!114 &1941542963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941542961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd57a15d291981419bc194d538cd1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6166595838579572503, guid: 2e8495371a70c0442a170c9089bb800b, type: 3}
 --- !u!1 &1949819544
 GameObject:
   m_ObjectHideFlags: 0
