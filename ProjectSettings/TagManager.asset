@@ -30,9 +30,9 @@ TagManager:
   - Water
   - UI
   - Popup
-  - 
-  - 
-  - 
+  - Enemy
+  - Ground
+  - SomeAction
   - 
   - 
   - 
