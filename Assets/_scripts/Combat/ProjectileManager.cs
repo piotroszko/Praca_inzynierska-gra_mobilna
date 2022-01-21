@@ -27,4 +27,20 @@ public class ProjectileManager : MonoBehaviour
     else
       transform.Translate((transform.right * speed * Time.deltaTime));
   }
+  private void OnCollisionEnter2D(Collision2D other)
+  {
+    if (other.gameObject.tag == "Enemy")
+    {
+      other.gameObject.GetComponent<EnemyManager>().health -= 25;
+      Destroy(gameObject);
+    }
+  }
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.gameObject.tag == "Ground")
+    {
+      Destroy(gameObject);
+    }
+
+  }
 }

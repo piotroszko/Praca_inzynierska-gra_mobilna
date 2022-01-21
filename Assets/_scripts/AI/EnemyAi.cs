@@ -6,146 +6,146 @@ using UnityEngine.Assertions.Must;
 
 public class EnemyAi : MonoBehaviour
 {
-    // modifiers to speed, distances to obsticles and rigidbody
-    public float speed;
-    public float distance, wallDistance;
+  // modifiers to speed, distances to obsticles and rigidbody
+  public float speed;
+  public float distance, wallDistance;
 
-    public Rigidbody2D rb;
+  public Rigidbody2D rb;
 
-    //enemy start moving left
-    private bool movingLeft = true;
+  //enemy start moving left
+  private bool movingLeft = true;
 
-    //Layer and checking for raycasts (empty objects)
-    [SerializeField] Transform wallCheck;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] Transform playerCheck;
+  //Layer and checking for raycasts (empty objects)
+  [SerializeField] Transform wallCheck;
+  [SerializeField] Transform groundCheck;
+  [SerializeField] Transform playerCheck;
 
-    //player Transform
-    public Transform player;
+  //player Transform
+  public Transform player;
 
-    //distance that enemy will chase our player
-    [SerializeField] float agroRange;
+  //distance that enemy will chase our player
+  [SerializeField] float agroRange;
 
-    RaycastHit2D hit, wallHit;
-    
+  RaycastHit2D hit, wallHit;
 
-    private void Update()
+
+  private void Update()
+  {
+    //Patroling
+
+    hit = Physics2D.Raycast(groundCheck.position, Vector2.down, distance, LayerMask.GetMask("Ground"));
+    wallHit = Physics2D.Raycast(wallCheck.position, Vector2.left, wallDistance, LayerMask.GetMask("Ground"));
+
+    if (!hit.collider || wallHit.collider)
     {
-        //Patroling
+      if (movingLeft)
+      {
+        transform.eulerAngles = new Vector3(0, -180, 0);
+        movingLeft = false;
+      }
+      else
+      {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        movingLeft = true;
+      }
 
-        hit = Physics2D.Raycast(groundCheck.position, Vector2.down, distance, LayerMask.GetMask("Ground"));
-        wallHit = Physics2D.Raycast(wallCheck.position, Vector2.left, wallDistance, LayerMask.GetMask("Ground"));
-
-        if (!hit.collider || wallHit.collider)
-        {
-            if (movingLeft)
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingLeft = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingLeft = true;
-            }
-            
-        }
-
-        if (CanSeePlayer(agroRange))
-            AttackPlayer();
-            
     }
 
-    //here script for attack
-    private void AttackPlayer()
+    if (CanSeePlayer(agroRange))
+      AttackPlayer();
+
+  }
+
+  //here script for attack
+  private void AttackPlayer()
+  {
+    //Debug.Log("DoingAttack");
+  }
+
+  private void FixedUpdate()
+  {
+    Moving();
+  }
+
+  private void Moving()
+  {
+    if (movingLeft)
     {
-        Debug.Log("DoingAttack");
+      rb.velocity = new Vector2(-speed, rb.velocity.y);
+    }
+    else
+    {
+      rb.velocity = new Vector2(speed, rb.velocity.y);
+    }
+  }
+
+  private void ChasePlayer()
+  {
+    if (transform.position.x < player.position.x)
+    {
+      movingLeft = false;
+      transform.eulerAngles = new Vector3(0, -180, 0);
+    }
+    else
+    {
+      transform.eulerAngles = new Vector3(0, 0, 0);
+      movingLeft = true;
+    }
+  }
+
+
+  //for attacking
+  bool CanSeePlayer(float distance)
+  {
+
+    //cast in good
+    float castDistance = distance;
+
+    if (!movingLeft)
+      castDistance = -castDistance;
+
+    //Debbuging you line to see how long and if it works
+    bool temp = false;
+    Vector2 endPos = playerCheck.position + Vector3.left * castDistance;
+
+    RaycastHit2D hit2D = Physics2D.Linecast(playerCheck.position, endPos, LayerMask.GetMask("SomeAction"));
+
+
+    if (hit2D.collider)
+    {
+      if (hit2D.collider.gameObject.CompareTag("Player"))
+      {
+        Debug.DrawLine(playerCheck.position, hit2D.point, Color.yellow);
+        temp = true;
+      }
+      else
+        temp = false;
+
+    }
+    else
+    {
+      Debug.DrawLine(playerCheck.position, playerCheck.position, Color.blue);
     }
 
-    private void FixedUpdate()
+    return temp;
+  }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.CompareTag("Player"))
     {
-        Moving();
+      if (transform.position.x < player.position.x)
+      {
+        transform.eulerAngles = new Vector3(0, -180, 0);
+        movingLeft = false;
+      }
+
+      else
+      {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        movingLeft = true;
+      }
     }
 
-    private void Moving()
-    {
-        if (movingLeft)
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-    }
-
-    private void ChasePlayer()
-    {
-        if (transform.position.x < player.position.x)
-        {
-            movingLeft = false;
-            transform.eulerAngles = new Vector3(0, -180, 0);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            movingLeft = true;
-        }
-    }
-
-
-    //for attacking
-    bool CanSeePlayer(float distance)
-    {
-        
-        //cast in good
-        float castDistance = distance;
-
-        if (!movingLeft)
-            castDistance = -castDistance;
-   
-        //Debbuging you line to see how long and if it works
-        bool temp = false;
-        Vector2 endPos = playerCheck.position + Vector3.left * castDistance;
-        
-        RaycastHit2D hit2D = Physics2D.Linecast(playerCheck.position, endPos, LayerMask.GetMask("SomeAction"));
-        
-        
-        if (hit2D.collider)
-        {
-            if (hit2D.collider.gameObject.CompareTag("Player"))
-            {
-                Debug.DrawLine(playerCheck.position, hit2D.point, Color.yellow);
-                temp = true;
-            }
-            else
-                temp = false;
-            
-        }
-        else
-        {
-            Debug.DrawLine(playerCheck.position, playerCheck.position, Color.blue);
-        }
-        
-        return temp;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (transform.position.x < player.position.x)
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingLeft = false;
-            }
-                
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingLeft = true;
-            }
-        }
-  
-    }
+  }
 }

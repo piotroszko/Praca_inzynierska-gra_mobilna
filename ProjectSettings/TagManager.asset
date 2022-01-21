@@ -22,6 +22,7 @@ TagManager:
   - MovingPlatform
   - JumpPad
   - BelowSpawner
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Enemy
   - Ground
   - SomeAction
-  - 
+  - Projectiles
   - 
   - 
   - 
