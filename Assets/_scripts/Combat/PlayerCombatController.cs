@@ -7,44 +7,58 @@ public class PlayerCombatController : MonoBehaviour
   public GameObject projectilePrefab;
   public Sprite projectileSprite;
 
-  public float speed = 1;
+  public float speed = 1f;
   float lastThrowDate;
 
-  private GameObject pm;
+  private Inventory inv;
+  private treeUpgrades tree;
+  private CharacterValues characterValues;
+
   void Start()
   {
     lastThrowDate = Time.time;
-    this.pm = GameObject.FindWithTag("PlayerManager").gameObject;
+    GameObject pm = GameObject.FindWithTag("PlayerManager").gameObject;
+    this.inv = pm.GetComponent<Inventory>();
+    this.tree = pm.GetComponent<treeUpgrades>();
+    this.characterValues = pm.GetComponent<CharacterValues>();
   }
   public void DamagePlayer(int value)
   {
     float damage = value;
-    if (pm.GetComponent<treeUpgrades>().nodesOwned.Exists(x => x == 2))
+    if (this.tree.nodesOwned.Exists(x => x == 2))
       damage = value * 0.8f;
-    damage = (100f / (100f + pm.GetComponent<CharacterValues>().pointsDefense)) * damage;
-    Inventory inv = pm.GetComponent<Inventory>();
+    damage = (100f / (100f + this.characterValues.pointsDefense)) * damage;
     float def1 = 0f;
-    if (inv.equippedCollar != null)
+    if (this.inv.equippedCollar != null)
     {
-      float defTmp1 = inv.equippedCollar.defense + (inv.equippedCollar.upgradeInfo.sumTypeItem(true) * inv.equippedCollar.defense);
-      def1 = defTmp1 + (inv.equippedCollar.upgradeInfo.sumTypeMoney(true) * defTmp1);
+      float defTmp1 = this.inv.equippedCollar.defense + (this.inv.equippedCollar.upgradeInfo.sumTypeItem(true) * this.inv.equippedCollar.defense);
+      def1 = defTmp1 + (this.inv.equippedCollar.upgradeInfo.sumTypeMoney(true) * defTmp1);
     }
     float def2 = 0f;
-    if (inv.equippedCoat != null)
+    if (this.inv.equippedCoat != null)
     {
-      float defTmp2 = inv.equippedCoat.defense + (inv.equippedCoat.upgradeInfo.sumTypeItem(true) * inv.equippedCoat.defense);
-      def2 = defTmp2 + (inv.equippedCoat.upgradeInfo.sumTypeMoney(true) * defTmp2);
+      float defTmp2 = this.inv.equippedCoat.defense + (this.inv.equippedCoat.upgradeInfo.sumTypeItem(true) * this.inv.equippedCoat.defense);
+      def2 = defTmp2 + (this.inv.equippedCoat.upgradeInfo.sumTypeMoney(true) * defTmp2);
     }
     damage = (100f / (100f + def1 + def2)) * damage;
 
     gameObject.GetComponent<Health>().Damage(damage);
   }
-
+  public float CalculateAttackSpeed()
+  {
+    float invSpeed = this.speed;
+    if (this.tree.nodesOwned.Exists(x => x == 4))
+      invSpeed = this.speed * 0.8f;
+    invSpeed = (50f / (50f + this.characterValues.pointsSpeed)) * invSpeed;
+    if (this.inv.equippedWeapon != null)
+      invSpeed = (5f / (5f + this.inv.equippedWeapon.attackSpeed)) * invSpeed;
+    return invSpeed;
+  }
   void Update()
   {
     if (Input.GetButtonDown("Fire1"))
     {
-      if ((Time.time - lastThrowDate > speed / 2))
+      if ((Time.time - lastThrowDate > CalculateAttackSpeed() / 2))
       {
         lastThrowDate = Time.time;
         if ((transform.localRotation.eulerAngles.y == 180))

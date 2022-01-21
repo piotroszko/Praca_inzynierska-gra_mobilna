@@ -20944,7 +20944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6166595838579572503, guid: 2e8495371a70c0442a170c9089bb800b, type: 3}
   projectileSprite: {fileID: 0}
-  speed: 1
+  speed: 1.2
 --- !u!1 &1949819544
 GameObject:
   m_ObjectHideFlags: 0
