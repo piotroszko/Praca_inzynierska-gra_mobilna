@@ -50,9 +50,29 @@ public class PlayerCombatController : MonoBehaviour
     if (this.tree.nodesOwned.Exists(x => x == 4))
       invSpeed = this.speed * 0.8f;
     invSpeed = (50f / (50f + this.characterValues.pointsSpeed)) * invSpeed;
+    float spd = 0;
     if (this.inv.equippedWeapon != null)
-      invSpeed = (5f / (5f + this.inv.equippedWeapon.attackSpeed)) * invSpeed;
+    {
+      float spdTmp = this.inv.equippedWeapon.attackSpeed + (this.inv.equippedWeapon.upgradeInfo.sumTypeItem(false) * this.inv.equippedWeapon.attackSpeed);
+      spd = spdTmp + (this.inv.equippedWeapon.upgradeInfo.sumTypeMoney(false) * spdTmp);
+    }
+    invSpeed = (5f / (5f + spd)) * invSpeed;
     return invSpeed;
+  }
+  public float CalculateDamage()
+  {
+    float damage = 18f;
+    if (this.tree.nodesOwned.Exists(x => x == 1))
+      damage = damage * 1.2f;
+    damage = ((50f + this.characterValues.pointsStrength) / 50f) * damage;
+    float dmg = 0f;
+    if (this.inv.equippedWeapon != null)
+    {
+      float dmgTmp = this.inv.equippedWeapon.damage + (this.inv.equippedWeapon.upgradeInfo.sumTypeItem(true) * this.inv.equippedWeapon.damage);
+      dmg = dmgTmp + (this.inv.equippedWeapon.upgradeInfo.sumTypeMoney(true) * dmgTmp);
+    }
+    damage = ((100f + dmg) / 100f) * damage;
+    return damage;
   }
   void Update()
   {
@@ -61,16 +81,17 @@ public class PlayerCombatController : MonoBehaviour
       if ((Time.time - lastThrowDate > CalculateAttackSpeed() / 2))
       {
         lastThrowDate = Time.time;
+
         if ((transform.localRotation.eulerAngles.y == 180))
         {
           GameObject projectile = Instantiate(projectilePrefab, GetComponent<Rigidbody2D>().transform.position, Quaternion.Euler(0, 0, -90), transform);
-          projectile.GetComponent<ProjectileManager>().Setup(projectileSprite);
+          projectile.GetComponent<ProjectileManager>().Setup(projectileSprite, 20f, CalculateDamage());
           projectile.transform.parent = null;
         }
         else
         {
           GameObject projectile = Instantiate(projectilePrefab, GetComponent<Rigidbody2D>().transform.position, Quaternion.Euler(0, 0, 90), transform);
-          projectile.GetComponent<ProjectileManager>().Setup(projectileSprite);
+          projectile.GetComponent<ProjectileManager>().Setup(projectileSprite, 20f, CalculateDamage());
           projectile.transform.parent = null;
         }
       }

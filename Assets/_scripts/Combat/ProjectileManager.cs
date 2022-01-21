@@ -5,10 +5,12 @@ using UnityEngine;
 public class ProjectileManager : MonoBehaviour
 {
   float speed;
+  float damage;
   bool right = false;
-  public void Setup(Sprite projectileSprite = null, float speed = 20)
+  public void Setup(Sprite projectileSprite = null, float speed = 20f, float damage = 18f)
   {
     this.speed = speed;
+    this.damage = damage;
     if (projectileSprite)
       gameObject.GetComponent<SpriteRenderer>().sprite = projectileSprite;
   }
@@ -31,7 +33,7 @@ public class ProjectileManager : MonoBehaviour
   {
     if (other.gameObject.tag == "Enemy")
     {
-      other.gameObject.GetComponent<EnemyManager>().health -= 25;
+      other.gameObject.GetComponent<EnemyManager>().health -= this.damage;
       Destroy(gameObject);
     }
   }

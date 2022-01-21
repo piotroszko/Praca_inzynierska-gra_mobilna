@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-  private int _health = 100;
-  public int health
+  private float _health = 100;
+  public float health
   {
     get { return _health; }
     set
