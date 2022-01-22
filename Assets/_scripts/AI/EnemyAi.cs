@@ -124,7 +124,7 @@ public class EnemyAi : MonoBehaviour
     }
     else
     {
-      Debug.DrawLine(playerCheck.position, playerCheck.position, Color.blue);
+      Debug.DrawLine(playerCheck.position, endPos, Color.blue);
     }
 
     return temp;
