@@ -37,6 +37,23 @@ public class NodeView : MonoBehaviour
     {
       this.treeView.unlockNode(this.nodeID);
       this.isAvailableToUnlock = false;
+      if((6 <= this.nodeID) && (this.nodeID <= 9)) 
+      {
+        switch (this.nodeID) {
+          case 6:
+            GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().pointsStrength += 5;
+            break;
+          case 7:
+            GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().pointsDefense += 5;
+            break;
+          case 8:
+            GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().pointsHealth += 5;
+            break;
+          case 9:
+            GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().pointsSpeed += 5;
+            break;
+        }
+      }
       checkButton();
     }
   }
