@@ -6,11 +6,11 @@ public class RareSeed : IItem, IItemWeapon
 {
   class PossibleValues
   {
-    public float minDamage = 6;
-    public float maxDamage = 9;
+    public float minDamage = 5;
+    public float maxDamage = 8;
 
-    public float minAttackSpeed = 3;
-    public float maxAttackSpeed = 5;
+    public float minAttackSpeed = 4;
+    public float maxAttackSpeed = 6;
   }
   public RareSeed(float damageFactor = 0.5f, float attackSpeedFactor = 0.5f)
   {
@@ -20,9 +20,18 @@ public class RareSeed : IItem, IItemWeapon
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 20, 30));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 40));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 50));
+    upgradeItem.Add(new ItemUpgrade(0, 40, 60));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(1000, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(1200, 20, 30));
+    upgradeMoney.Add(new ItemUpgrade(1400, 30, 40));
+    upgradeMoney.Add(new ItemUpgrade(1600, 30, 50));
+    upgradeMoney.Add(new ItemUpgrade(1800, 30, 60));
+    upgradeMoney.Add(new ItemUpgrade(2000, 40, 70));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;

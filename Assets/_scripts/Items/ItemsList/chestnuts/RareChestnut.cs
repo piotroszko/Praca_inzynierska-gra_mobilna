@@ -6,11 +6,11 @@ public class RareChestnut : IItem, IItemWeapon
 {
   class PossibleValues
   {
-    public float minDamage = 6;
-    public float maxDamage = 9;
+    public float minDamage = 10;
+    public float maxDamage = 15;
 
     public float minAttackSpeed = 3;
-    public float maxAttackSpeed = 5;
+    public float maxAttackSpeed = 4;
   }
   public RareChestnut(float damageFactor = 0.5f, float attackSpeedFactor = 0.5f)
   {
@@ -20,9 +20,18 @@ public class RareChestnut : IItem, IItemWeapon
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 40, 30));
+    upgradeItem.Add(new ItemUpgrade(0, 50, 30));
+    upgradeItem.Add(new ItemUpgrade(0, 60, 40));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(1000, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(1200, 30, 20));
+    upgradeMoney.Add(new ItemUpgrade(1400, 40, 30));
+    upgradeMoney.Add(new ItemUpgrade(1600, 50, 30));
+    upgradeMoney.Add(new ItemUpgrade(1800, 60, 30));
+    upgradeMoney.Add(new ItemUpgrade(2000, 70, 40));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;

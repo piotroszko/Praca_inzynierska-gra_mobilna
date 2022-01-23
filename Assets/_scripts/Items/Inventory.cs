@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=System.Random;
+using System;
 
 public class Inventory : MonoBehaviour
 {
@@ -72,13 +74,6 @@ public class Inventory : MonoBehaviour
   }
   void Start()
   {
-    this.itemList.Add(new BasicCollar());
-    this.itemList.Add(new Collar());
-    this.itemList.Add(new LegendaryCollar());
-    this.itemList.Add(new BasicSeed());
-    this.itemList.Add(new RareCoat());
-
-    this.itemList.Add(new BasicCollar());
 
   }
   void Update()
@@ -93,6 +88,81 @@ public class Inventory : MonoBehaviour
   {
     this.itemList.Add(item);
     gameObject.GetComponent<StatisticsValues>().statsItems++;
+  }
+  public void AddItemFromDrop(float jFactor, float dFactor)
+  {
+    float jumpFactor = (float)Math.Round(jFactor, 2);
+    float distanceFactor = (float)Math.Round(dFactor, 2);
+    Random rnd = new Random();
+    if(rnd.Next(1, 100) > 70) 
+    {
+      int itemRarity = rnd.Next(1, 100);
+      if(itemRarity < 50) 
+      {
+        int itemType = rnd.Next(1, 100);  
+        if((itemRarity >= 1) && (itemRarity < 25)) {
+          this.itemList.Add(new BasicCollar(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+
+        } else if ((itemRarity >= 25) && (itemRarity < 50)) {
+          this.itemList.Add(new BasicCoat(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+
+        } else if ( (itemRarity >= 50) && (itemRarity < 75)) {
+          this.itemList.Add(new BasicChestnut(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+
+        } else if ( (itemRarity >= 75) && (itemRarity < 100)) {
+          this.itemList.Add(new BasicSeed(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        }
+      } else if( (itemRarity >= 50) && (itemRarity < 75)) {
+        int itemType = rnd.Next(1, 100);  
+        if( (itemRarity >= 1) && (itemRarity < 25)) {
+          this.itemList.Add(new Collar(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 25) && (itemRarity < 50)) {
+          this.itemList.Add(new Coat(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 50) && (itemRarity < 75)) {
+          this.itemList.Add(new Chestnut(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 75) && (itemRarity < 100)) {
+          this.itemList.Add(new Seed(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        }
+      } else if ((itemRarity >= 75) && (itemRarity < 90)) {
+        int itemType = rnd.Next(1, 100);  
+        if( (itemRarity >= 1) && (itemRarity < 25)) {
+          this.itemList.Add(new RareCollar(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 25) && (itemRarity < 50)) {
+          this.itemList.Add(new RareCoat(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 50) && (itemRarity < 75)) {
+          this.itemList.Add(new RareChestnut(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 75) && (itemRarity < 100)) {
+          this.itemList.Add(new RareSeed(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        }
+      }else if ((itemRarity >= 90) && (itemRarity < 100)) {
+        int itemType = rnd.Next(1, 100);  
+        if( (itemRarity >= 1) && (itemRarity < 25)) {
+          this.itemList.Add(new LegendaryCollar(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 25) && (itemRarity < 50)) {
+          this.itemList.Add(new LegendaryCoat(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 50) && (itemRarity < 75)) {
+          this.itemList.Add(new LegendaryChestnut(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        } else if ( (itemRarity >= 75) && (itemRarity < 100)) {
+          this.itemList.Add(new LegendarySeed(jumpFactor, distanceFactor));
+          gameObject.GetComponent<StatisticsValues>().statsItems++;
+        }
+      }
+    }
   }
   public void RefreshInventory()
   {

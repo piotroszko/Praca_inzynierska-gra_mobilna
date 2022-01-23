@@ -62,7 +62,7 @@ public class MovementController : MonoBehaviour
       Debug.Log(isOnGround);
       rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
       timeAllowNextJump = Time.time + .5f;
-
+      gameObject.GetComponent<PlayerCombatController>().amountOfJumpsFromLastKill ++;
     }
   }
 

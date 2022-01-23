@@ -12,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     {
       _health = value; if (_health <= 0)
       {
+        float distance = Vector2.Distance(transform.position, GameObject.FindWithTag("Player").transform.position);
+        GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance);
         Destroy(gameObject);
       }
     }

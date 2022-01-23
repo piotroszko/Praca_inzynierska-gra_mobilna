@@ -7,10 +7,10 @@ public class BasicSeed : IItem, IItemWeapon
   class PossibleValues
   {
     public float minDamage = 3;
-    public float maxDamage = 3;
+    public float maxDamage = 6;
 
     public float minAttackSpeed = 1;
-    public float maxAttackSpeed = 1;
+    public float maxAttackSpeed = 3;
   }
   public BasicSeed(float damageFactor = 0.5f, float attackSpeedFactor = 0.5f)
   {
@@ -22,7 +22,7 @@ public class BasicSeed : IItem, IItemWeapon
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(100, 20, 20));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;

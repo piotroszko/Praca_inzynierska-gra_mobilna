@@ -6,11 +6,11 @@ public class Chestnut : IItem, IItemWeapon
 {
   class PossibleValues
   {
-    public float minDamage = 5;
-    public float maxDamage = 5;
+    public float minDamage = 7;
+    public float maxDamage = 10;
 
     public float minAttackSpeed = 2;
-    public float maxAttackSpeed = 2;
+    public float maxAttackSpeed = 3;
   }
   public Chestnut(float damageFactor = 0.5f, float attackSpeedFactor = 0.5f)
   {
@@ -20,9 +20,14 @@ public class Chestnut : IItem, IItemWeapon
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 40, 20));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(250, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(300, 30, 20));
+    upgradeMoney.Add(new ItemUpgrade(350, 40, 20));
+    upgradeMoney.Add(new ItemUpgrade(400, 50, 20));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;

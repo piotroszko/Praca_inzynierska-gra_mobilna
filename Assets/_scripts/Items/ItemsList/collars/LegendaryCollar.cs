@@ -6,11 +6,11 @@ public class LegendaryCollar : IItem, IItemArmor
 {
   class PossibleValues
   {
-    public float minDefense = 9;
+    public float minDefense = 10;
     public float maxDefense = 15;
 
-    public float minMovementSpeed = 5;
-    public float maxMovementSpeed = 10;
+    public float minMovementSpeed = 10;
+    public float maxMovementSpeed = 15;
   }
   public LegendaryCollar(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
   {
@@ -20,9 +20,29 @@ public class LegendaryCollar : IItem, IItemArmor
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 20, 30));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 40));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 50));
+    upgradeItem.Add(new ItemUpgrade(0, 40, 60));
+    upgradeItem.Add(new ItemUpgrade(0, 20, 70));
+    upgradeItem.Add(new ItemUpgrade(0, 20, 80));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 90));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 100));
+    upgradeItem.Add(new ItemUpgrade(0, 40, 100));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(3000, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(3400, 20, 30));
+    upgradeMoney.Add(new ItemUpgrade(3800, 30, 40));
+    upgradeMoney.Add(new ItemUpgrade(4200, 30, 50));
+    upgradeMoney.Add(new ItemUpgrade(4600, 30, 60));
+    upgradeMoney.Add(new ItemUpgrade(5000, 40, 70));
+    upgradeMoney.Add(new ItemUpgrade(6000, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(7000, 20, 30));
+    upgradeMoney.Add(new ItemUpgrade(8000, 30, 40));
+    upgradeMoney.Add(new ItemUpgrade(9000, 30, 50));
+    upgradeMoney.Add(new ItemUpgrade(10000, 30, 60));
+    upgradeMoney.Add(new ItemUpgrade(12000, 40, 70));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;

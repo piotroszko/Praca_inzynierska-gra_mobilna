@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerCombatController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerCombatController : MonoBehaviour
   private treeUpgrades tree;
   private CharacterValues characterValues;
 
+  public float amountOfJumpsFromLastKill;
   void Start()
   {
     lastThrowDate = Time.time;
@@ -21,6 +23,21 @@ public class PlayerCombatController : MonoBehaviour
     this.inv = pm.GetComponent<Inventory>();
     this.tree = pm.GetComponent<treeUpgrades>();
     this.characterValues = pm.GetComponent<CharacterValues>();
+  }
+  public void KilledEnemy(float distanceFromKill) 
+  {
+    float jumpFactor = 0f;
+    if(amountOfJumpsFromLastKill < 2)
+     jumpFactor = 0f;
+    if((amountOfJumpsFromLastKill > 2) && (amountOfJumpsFromLastKill < 10))
+     jumpFactor = 0.5f;
+    if((amountOfJumpsFromLastKill > 10))
+     jumpFactor = 1.0f;
+    float distanceFactor = 1.0f;
+    if(distanceFromKill < 10f)
+      distanceFactor = 0f + ((1.0f - 0f) / (10f - 0f)) * (distanceFromKill - 0f);
+    this.inv.AddItemFromDrop(jumpFactor, distanceFactor);
+    this.amountOfJumpsFromLastKill = 0;
   }
   public void DamagePlayer(int value)
   {

@@ -9,8 +9,8 @@ public class BasicCoat : IItem, IItemArmor
     public float minDefense = 9;
     public float maxDefense = 15;
 
-    public float minMovementSpeed = 5;
-    public float maxMovementSpeed = 10;
+    public float minMovementSpeed = 1;
+    public float maxMovementSpeed = 1;
   }
   public BasicCoat(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
   {
@@ -22,7 +22,7 @@ public class BasicCoat : IItem, IItemArmor
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(100, 20, 20));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;

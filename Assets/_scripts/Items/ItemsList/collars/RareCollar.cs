@@ -6,10 +6,10 @@ public class RareCollar : IItem, IItemArmor
 {
   class PossibleValues
   {
-    public float minDefense = 9;
-    public float maxDefense = 15;
+    public float minDefense = 7;
+    public float maxDefense = 10;
 
-    public float minMovementSpeed = 5;
+    public float minMovementSpeed = 7;
     public float maxMovementSpeed = 10;
   }
   public RareCollar(float defenseFactor = 0.5f, float movementSpeedFactor = 0.5f)
@@ -20,9 +20,18 @@ public class RareCollar : IItem, IItemArmor
 
     List<ItemUpgrade> upgradeItem = new List<ItemUpgrade>();
     upgradeItem.Add(new ItemUpgrade(0, 20, 20));
+    upgradeItem.Add(new ItemUpgrade(0, 20, 30));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 40));
+    upgradeItem.Add(new ItemUpgrade(0, 30, 50));
+    upgradeItem.Add(new ItemUpgrade(0, 40, 60));
 
     List<ItemUpgrade> upgradeMoney = new List<ItemUpgrade>();
-    upgradeMoney.Add(new ItemUpgrade(10, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(1000, 20, 20));
+    upgradeMoney.Add(new ItemUpgrade(1200, 20, 30));
+    upgradeMoney.Add(new ItemUpgrade(1400, 30, 40));
+    upgradeMoney.Add(new ItemUpgrade(1600, 30, 50));
+    upgradeMoney.Add(new ItemUpgrade(1800, 30, 60));
+    upgradeMoney.Add(new ItemUpgrade(2000, 40, 70));
 
     UpgradeInfo uInfo = new UpgradeInfo(upgradeItem, upgradeMoney);
     this.upgradeInfo = uInfo;
