@@ -18,6 +18,7 @@ public class MovementController : MonoBehaviour
     const float groundCheckRadius = 0.2f;
     public bool doubleJump;
     private int jumpValue = 0;
+    public bool climbing;
 
     public void Awake()
     {
