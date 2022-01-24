@@ -52,6 +52,24 @@ public class NodeView : MonoBehaviour
           case 9:
             GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().pointsSpeed += 5;
             break;
+          case 15:
+            GameObject.FindWithTag("Player").GetComponent<MovementController>().doubleJump = true;
+            break;
+          case 10:
+            GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().betterDmgDefValues = true;
+            break;
+          case 11:
+            GameObject.FindWithTag("Player").GetComponent<CollisionDetetctor>().halfDamage = true;
+            break;
+          case 12:
+            GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>().betterSpeedValues = true;
+            break;
+          case 13:
+            GameObject.FindWithTag("Player").GetComponent<Health>().longerDuration = true;
+            break;
+          case 14:
+            GameObject.FindWithTag("Player").GetComponent<MovementController>().climbing = true;
+            break;
         }
       }
       checkButton();

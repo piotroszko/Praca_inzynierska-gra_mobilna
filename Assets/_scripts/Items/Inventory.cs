@@ -19,6 +19,9 @@ public class Inventory : MonoBehaviour
   public IItemArmor equippedCollar;
   public IItemArmor equippedCoat;
   public IItemWeapon equippedWeapon;
+
+  public bool betterSpeedValues = false;
+  public bool betterDmgDefValues = false;
   void Awake()
   {
     DontDestroyOnLoad(this.gameObject);
@@ -92,7 +95,16 @@ public class Inventory : MonoBehaviour
   public void AddItemFromDrop(float jFactor, float dFactor)
   {
     float jumpFactor = (float)Math.Round(jFactor, 2);
+    if(this.betterDmgDefValues == true && jumpFactor < 0.5f)
+      jumpFactor = jumpFactor * 2f;
+    else if (this.betterDmgDefValues == true && jumpFactor >= 0.5f)
+      jumpFactor = 1.0f;
+
     float distanceFactor = (float)Math.Round(dFactor, 2);
+    if(this.betterSpeedValues == true && distanceFactor < 0.5f)
+      distanceFactor = distanceFactor * 2f;
+    else if (this.betterSpeedValues == true && distanceFactor >= 0.5f)
+      distanceFactor = 1.0f;
     Random rnd = new Random();
     if(rnd.Next(1, 100) > 70) 
     {
