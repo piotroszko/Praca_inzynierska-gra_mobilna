@@ -14,8 +14,10 @@ public class CollisionDetetctor : MonoBehaviour
     private float timeAllowNextCollision = 0f;
     public Health health;
     private int currentSceneIndex;
-    
-    
+    public bool halfDamage;
+    private const int halfDamageNumber = 2;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,15 @@ public class CollisionDetetctor : MonoBehaviour
     {
         if (hit.gameObject.tag == "Spikes" && Time.time > timeAllowNextCollision)
         {
-            health.Damage(50);
+            if (halfDamage)
+            {
+                health.Damage(50/halfDamageNumber);
+            }
+            else
+            {
+                health.Damage(50);
+            }
+            
             rb.AddForce(Vector2.up * gravityValue * force * -0.75f, ForceMode2D.Impulse);
             timeAllowNextCollision = Time.time + .1f;
         }
