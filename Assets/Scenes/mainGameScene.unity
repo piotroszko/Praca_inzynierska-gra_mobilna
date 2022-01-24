@@ -5442,7 +5442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.19, y: -1.5810003, z: -20}
+  m_LocalPosition: {x: -14.19, y: -1.5010002, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1105027303}
@@ -9613,7 +9613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3642800422770853483, guid: f8661cfc215625644b6f536eef031246, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4300002
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 3642800422770853483, guid: f8661cfc215625644b6f536eef031246, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12207,7 +12207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3642800422770853483, guid: f8661cfc215625644b6f536eef031246, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5810003
+      value: -1.5010002
       objectReference: {fileID: 0}
     - target: {fileID: 3642800422770853483, guid: f8661cfc215625644b6f536eef031246, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13203,6 +13203,14 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 342201284535983313, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
+      propertyPath: groundCheckObject
+      value: 
+      objectReference: {fileID: 1165963245}
+    - target: {fileID: 342201284535983313, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 342201284535983314, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
       propertyPath: m_Name
       value: squirrel
@@ -13221,7 +13229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 342201284535983317, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.17
+      value: -3.09
       objectReference: {fileID: 0}
     - target: {fileID: 342201284535983317, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13517,7 +13525,7 @@ GameObject:
   - component: {fileID: 1122517793}
   - component: {fileID: 1122517792}
   - component: {fileID: 1122517791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MovingPlatform (1)
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -13982,6 +13990,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94a61ac1cf64954a9b084979ca09ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1165963244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165963245}
+  m_Layer: 9
+  m_Name: GroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1165963245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165963244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.027, y: -0.697, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1499281842}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197293105
 GameObject:
   m_ObjectHideFlags: 0
@@ -16276,7 +16314,7 @@ GameObject:
   - component: {fileID: 1441377633}
   - component: {fileID: 1441377632}
   - component: {fileID: 1441377636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MovingPlatform
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -21904,6 +21942,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6166595838579572503, guid: 2e8495371a70c0442a170c9089bb800b, type: 3}
   projectileSprite: {fileID: 0}
   speed: 1.2
+  amountOfJumpsFromLastKill: 0
 --- !u!1 &1949819544
 GameObject:
   m_ObjectHideFlags: 0
