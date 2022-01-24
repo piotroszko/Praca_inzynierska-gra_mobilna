@@ -10,19 +10,29 @@ public class CollisionDetetctor : MonoBehaviour
     [SerializeField] float force = 1.0f;
     private float gravityValue = -9.81f;
     private Rigidbody2D rb;
+
     [SerializeField] float forceForJumpPad = 1.0f;
+
+    //prevent multipleCollisions at once
     private float timeAllowNextCollision = 0f;
+
+    //get health
     public Health health;
+
     private int currentSceneIndex;
+
+    //damage half for tree upgrades
     public bool halfDamage;
     private const int halfDamageNumber = 2;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void Awake()
+    {
     }
 
     // Update is called once per frame
@@ -33,29 +43,38 @@ public class CollisionDetetctor : MonoBehaviour
             SceneManager.LoadScene(currentSceneIndex);
         }
     }
+
     void OnCollisionEnter2D(Collision2D hit)
     {
         if (hit.gameObject.tag == "Spikes" && Time.time > timeAllowNextCollision)
         {
-            if (halfDamage)
-            {
-                health.Damage(50/halfDamageNumber);
-            }
-            else
-            {
-                health.Damage(50);
-            }
-            
+            TakeDamage();
             rb.AddForce(Vector2.up * gravityValue * force * -0.75f, ForceMode2D.Impulse);
             timeAllowNextCollision = Time.time + .1f;
         }
+
+        if (hit.gameObject.tag == "Saw" && Time.time > timeAllowNextCollision)
+        {
+            TakeDamage();
+            timeAllowNextCollision = Time.time + .1f;
+        }
+
         if (hit.gameObject.tag == "JumpPad" && Time.time > timeAllowNextCollision)
         {
             rb.AddForce(Vector2.up * gravityValue * forceForJumpPad * -0.75f, ForceMode2D.Impulse);
             timeAllowNextCollision = Time.time + .1f;
         }
     }
-    
+
+    public void TakeDamage()
+    {
+        if (halfDamage)
+            health.Damage(50 / halfDamageNumber);
+        else
+        {
+            health.Damage(50);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -63,10 +82,5 @@ public class CollisionDetetctor : MonoBehaviour
         {
             SceneManager.LoadScene(currentSceneIndex);
         }
-        
-        
     }
-    
-    
-    
 }

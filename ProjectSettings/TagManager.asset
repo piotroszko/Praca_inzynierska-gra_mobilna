@@ -23,6 +23,7 @@ TagManager:
   - JumpPad
   - BelowSpawner
   - Enemy
+  - Saw
   layers:
   - Default
   - TransparentFX

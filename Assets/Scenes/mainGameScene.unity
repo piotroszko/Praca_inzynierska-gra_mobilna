@@ -6031,7 +6031,7 @@ GameObject:
   - component: {fileID: 564609320}
   - component: {fileID: 564609319}
   - component: {fileID: 564609318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Traps
   m_TagString: Spikes
   m_Icon: {fileID: 0}
@@ -6146,6 +6146,16 @@ Tilemap:
   m_GameObject: {fileID: 564609316}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -6, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 44, y: -3, z: 0}
     second:
       serializedVersion: 2
@@ -6210,7 +6220,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 2bec7b6ac9b07754194c41baa727a9f1, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 58975996318a1ee4a9ca636b10eca74c, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6223,7 +6233,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: f2e0766470c48634fb7b2e5da3d1d167, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: 609004835cf44f846b6d455cdb7101b5, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6234,7 +6244,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data:
       e00: 1
       e01: 0
@@ -6253,7 +6263,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -13283,6 +13293,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 3936647}
+    - target: {fileID: 7440941507911735951, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
+      propertyPath: iFramesDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440941507911735951, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
+      propertyPath: numberOfFlashes
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b005e3529d90d44a52cff101ca9c5c, type: 3}
 --- !u!1 &1115948307
@@ -20966,9 +20984,9 @@ GameObject:
   - component: {fileID: 1796220603}
   - component: {fileID: 1796220605}
   - component: {fileID: 1796220606}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Saws
-  m_TagString: Untagged
+  m_TagString: Saw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21927,6 +21945,7 @@ MonoBehaviour:
   force: 1
   forceForJumpPad: 1
   health: {fileID: 205936252}
+  halfDamage: 1
 --- !u!114 &1941542963
 MonoBehaviour:
   m_ObjectHideFlags: 0
