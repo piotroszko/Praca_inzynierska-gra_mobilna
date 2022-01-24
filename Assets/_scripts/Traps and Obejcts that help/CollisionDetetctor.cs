@@ -24,11 +24,16 @@ public class CollisionDetetctor : MonoBehaviour
     //damage half for tree upgrades
     public bool halfDamage;
     private const int halfDamageNumber = 2;
+    
+    //for spawning
+    private GameController gameController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        gameController = GameObject.FindWithTag("GC").GetComponent<GameController>();
+        transform.position = gameController.checkpoint;
     }
 
     private void Awake()
@@ -40,7 +45,7 @@ public class CollisionDetetctor : MonoBehaviour
     {
         if (health.currentHealth <= 0)
         {
-            SceneManager.LoadScene(currentSceneIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -80,7 +85,7 @@ public class CollisionDetetctor : MonoBehaviour
     {
         if (other.gameObject.tag == "BelowSpawner")
         {
-            SceneManager.LoadScene(currentSceneIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

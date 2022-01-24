@@ -24,6 +24,7 @@ TagManager:
   - BelowSpawner
   - Enemy
   - Saw
+  - GC
   layers:
   - Default
   - TransparentFX
