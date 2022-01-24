@@ -16,12 +16,15 @@ public class EquipeManager : MonoBehaviour
     switch (slot)
     {
       case "weapon":
+        if(this.weapon != null)
         GameObject.FindWithTag("ItemInfo").GetComponent<ItemInfoManager>().SetItemInfo(this.weapon);
         break;
       case "coat":
+        if(this.coat != null)
         GameObject.FindWithTag("ItemInfo").GetComponent<ItemInfoManager>().SetItemInfo(this.coat);
         break;
       case "collar":
+        if(this.collar != null)
         GameObject.FindWithTag("ItemInfo").GetComponent<ItemInfoManager>().SetItemInfo(this.collar);
         break;
     }
