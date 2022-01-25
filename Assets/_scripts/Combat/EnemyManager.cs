@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-  private float _health = 100;
+  public float maxHealth = 100f;
+  private float _health = 1f;
   public float health
   {
     get { return _health; }
@@ -13,7 +14,7 @@ public class EnemyManager : MonoBehaviour
       _health = value; if (_health <= 0)
       {
         float distance = Vector2.Distance(transform.position, GameObject.FindWithTag("Player").transform.position);
-        GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance);
+        GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance, maxHealth);
         Destroy(gameObject);
       }
     }
@@ -21,7 +22,7 @@ public class EnemyManager : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-
+    _health = maxHealth;
   }
 
   // Update is called once per frame

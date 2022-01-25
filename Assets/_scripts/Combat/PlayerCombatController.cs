@@ -24,7 +24,7 @@ public class PlayerCombatController : MonoBehaviour
     this.tree = pm.GetComponent<treeUpgrades>();
     this.characterValues = pm.GetComponent<CharacterValues>();
   }
-  public void KilledEnemy(float distanceFromKill) 
+  public void KilledEnemy(float distanceFromKill, float maxHealth) 
   {
     float jumpFactor = 0f;
     if(amountOfJumpsFromLastKill < 2)
@@ -38,6 +38,7 @@ public class PlayerCombatController : MonoBehaviour
       distanceFactor = 0f + ((1.0f - 0f) / (10f - 0f)) * (distanceFromKill - 0f);
     this.inv.AddItemFromDrop(jumpFactor, distanceFactor);
     this.amountOfJumpsFromLastKill = 0;
+    this.characterValues.experience += maxHealth;
   }
   public void DamagePlayer(int value)
   {

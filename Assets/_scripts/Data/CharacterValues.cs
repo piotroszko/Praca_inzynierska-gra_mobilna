@@ -5,7 +5,18 @@ using UnityEngine;
 public class CharacterValues : MonoBehaviour
 {
   public int level = 1;
-  public int experience = 0;
+  private float _experience = 0;
+  public float  experience { 
+    get {return _experience;}
+    set { 
+      _experience = value;
+    if(_experience > level * 200) {
+      _experience = 0;
+      level ++;
+      aviablePoints += 3;
+    }
+    }
+  }
 
   public bool additionalMoney = false;
 
