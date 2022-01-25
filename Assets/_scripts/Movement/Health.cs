@@ -5,7 +5,26 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 200;
+    private float _maxHealth = 200;
+    
+    public float maxHealth { 
+        get {
+            return _maxHealth + additionalHealth; 
+        }
+        set { 
+            _maxHealth = value; 
+        }
+     }
+     private float _additionalHealth = 0;
+
+    public float additionalHealth { 
+        get { return _additionalHealth; }
+        set { 
+            _additionalHealth = value;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+    }
+
     public float currentHealth;
     public HealthBar healthBar;
 

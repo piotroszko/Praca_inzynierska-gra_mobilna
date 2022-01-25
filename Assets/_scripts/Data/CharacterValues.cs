@@ -7,15 +7,22 @@ public class CharacterValues : MonoBehaviour
   public int level = 1;
   public int experience = 0;
 
+  public bool additionalMoney = false;
+
   public int _money = 100;
   public int money
   {
     get { return _money; }
     set
     {
-      if ((value - _money) > 0)
+      int addMoney = 0;
+      if ((value - _money) > 0){
         gameObject.GetComponent<StatisticsValues>().statsGold += value - _money;
-      _money = value;
+        if(additionalMoney)
+          addMoney = (value - _money) / 2;
+      }
+      _money = value + addMoney;
+      
       GameObject text = GameObject.FindWithTag("MoneyValueText");
       if (text.activeSelf)
         text.GetComponent<UnityEngine.UI.Text>().text = _money.ToString();
@@ -23,7 +30,14 @@ public class CharacterValues : MonoBehaviour
     }
   }
 
-  public int pointsHealth = 0;
+  private int _pointsHealth = 0;
+  public int pointsHealth { get {
+    return _pointsHealth;
+    } 
+  set {
+    _pointsHealth = value;
+    GameObject.FindWithTag("Player").GetComponent<Health>().additionalHealth = _pointsHealth;
+  } }
   public int pointsDefense = 0;
   public int pointsSpeed = 0;
   public int pointsStrength = 0;

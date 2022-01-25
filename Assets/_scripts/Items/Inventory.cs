@@ -77,7 +77,7 @@ public class Inventory : MonoBehaviour
   }
   void Start()
   {
-
+    this.itemList.Add(new BasicCollar());
   }
   void Update()
   {

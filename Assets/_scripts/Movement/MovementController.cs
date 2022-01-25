@@ -9,8 +9,13 @@ public class MovementController : MonoBehaviour
     private Vector2 move;
     private Rigidbody2D rb;
     private Animator anim;
-
     private StatisticsValues stats;
+
+    public bool betterJump = false;
+    public bool betterMovement = false;
+
+    private Inventory inv;
+    private CharacterValues chValues;
 
     //for ground checking
     public Transform groundCheckObject;
@@ -29,12 +34,37 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         stats = GameObject.FindWithTag("PlayerManager").GetComponent<StatisticsValues>();
+        chValues = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>();
+        inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
+    }
+    float CalculatMovementSpeed() {
+        IItemArmor eqCollar = inv.equippedCollar;
+        IItemArmor eqCoat = inv.equippedCoat;
+        float movement = 0f;
+        float spd1 = 0f;
+        if (eqCollar != null)
+        {
+        float spdTmp1 = eqCollar.movementSpeed + (eqCollar.upgradeInfo.sumTypeItem(false) * eqCollar.movementSpeed);
+        spd1 = spdTmp1 + (eqCollar.upgradeInfo.sumTypeMoney(false) * spdTmp1);
+        }
+        float spd2 = 0f;
+        if (eqCoat != null)
+        {
+        float spdTmp2 = eqCoat.movementSpeed + (eqCoat.upgradeInfo.sumTypeItem(false) * eqCoat.movementSpeed);
+        spd2 = spdTmp2 + (eqCoat.upgradeInfo.sumTypeMoney(false) * spdTmp2);
+        }
+        movement += spd1 + spd2;
+        
+        if(this.betterMovement)
+            movement += speed * 0.2f;
+        movement += chValues.pointsSpeed / 10f;
+        return movement;
     }
 
     private void FixedUpdate()
     {
         //Giving velocity + dont need y
-        rb.velocity = new Vector2(move.x * speed * Time.deltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(move.x * (speed + CalculatMovementSpeed() ) * Time.deltaTime, rb.velocity.y);
         GroundCheck();
     }
 
