@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
   public bool betterDmgDefValues = false;
   void Awake()
   {
-    DontDestroyOnLoad(this.gameObject);
+  
   }
   public void Equipe(IItem item)
   {

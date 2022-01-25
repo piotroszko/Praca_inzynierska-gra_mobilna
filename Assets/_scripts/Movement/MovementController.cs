@@ -33,6 +33,7 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         stats = GameObject.FindWithTag("PlayerManager").GetComponent<StatisticsValues>();
         chValues = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>();
         inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();

@@ -22,12 +22,17 @@ public class EnemyAi : MonoBehaviour
 
   //player Transform
   public Transform player;
-
   //distance that enemy will chase our player
   [SerializeField] float agroRange;
 
   RaycastHit2D hit, wallHit;
 
+  private GameObject test;
+  private void Start()
+  {
+    test = GameObject.FindGameObjectWithTag("Player");
+    player = test.transform;
+  }
 
   private void Update()
   {

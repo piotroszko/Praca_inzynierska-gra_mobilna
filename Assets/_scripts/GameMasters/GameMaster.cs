@@ -1,13 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameMaster : MonoBehaviour
 {
-
-    private static GameController instance;
-    public Vector2 checkpoint;
+    // Start is called before the first frame update
+    private static GameMaster instance;
 
     private void Awake()
     {
@@ -19,7 +17,7 @@ public class GameController : MonoBehaviour
         else{
             Destroy(gameObject);
         }
-}
+    }
 
     void Start()
     {

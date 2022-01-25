@@ -24,7 +24,8 @@ TagManager:
   - BelowSpawner
   - Enemy
   - Saw
-  - GC
+  - StartPos
+  - Waypoint
   layers:
   - Default
   - TransparentFX

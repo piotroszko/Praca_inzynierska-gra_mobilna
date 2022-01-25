@@ -25,15 +25,16 @@ public class CollisionDetetctor : MonoBehaviour
     public bool halfDamage;
     private const int halfDamageNumber = 2;
     
-    //for spawning
-    private GameController gameController;
+    //for waypoints
+
+    private Vector3 waypointPositionSpawn;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        gameController = GameObject.FindWithTag("GC").GetComponent<GameController>();
-        transform.position = gameController.checkpoint;
+        waypointPositionSpawn = transform.position;
     }
 
     private void Awake()
@@ -85,7 +86,9 @@ public class CollisionDetetctor : MonoBehaviour
     {
         if (other.gameObject.tag == "BelowSpawner")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            transform.position = waypointPositionSpawn;
         }
+        else if (other.tag == "Waypoint")
+            waypointPositionSpawn = transform.position;
     }
 }
