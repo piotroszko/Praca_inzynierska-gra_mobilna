@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+  public bool isRanged = false;
   public float maxHealth = 100f;
   private float _health = 1f;
+
+  [SerializeField] GameObject projectilePrefab;
+  [SerializeField] Sprite projectileSprite;
+  [SerializeField] int damage = 18;
   public float health
   {
     get { return _health; }
@@ -17,6 +22,16 @@ public class EnemyManager : MonoBehaviour
         GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance, maxHealth);
         Destroy(gameObject);
       }
+    }
+  }
+  public void Attack() 
+  {
+    if(isRanged) 
+    {
+      GameObject projectile = Instantiate(projectilePrefab, GetComponent<Rigidbody2D>().transform.position, transform.rotation , transform);
+      projectile.GetComponent<EnemyProjectileManager>().Setup(projectileSprite, 10f);
+    } else {
+      GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().DamagePlayer(this.damage);
     }
   }
   // Start is called before the first frame update

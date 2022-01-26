@@ -24,6 +24,9 @@ public class EnemyAi : MonoBehaviour
   public Transform player;
   //distance that enemy will chase our player
   [SerializeField] float agroRange;
+  [SerializeField] float attackSpeed;
+  float lastAttackDate;
+  
 
   RaycastHit2D hit, wallHit;
 
@@ -65,6 +68,10 @@ public class EnemyAi : MonoBehaviour
   private void AttackPlayer()
   {
     //Debug.Log("DoingAttack");
+    if((Time.time - lastAttackDate > attackSpeed)) {
+      lastAttackDate = Time.time;
+      GetComponent<EnemyManager>().Attack();
+    }
   }
 
   private void FixedUpdate()

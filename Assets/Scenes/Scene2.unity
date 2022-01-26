@@ -1414,6 +1414,7 @@ MonoBehaviour:
   playerCheck: {fileID: 919194499}
   player: {fileID: 0}
   agroRange: 10
+  attackSpeed: 2
 --- !u!61 &521628007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1452,7 +1453,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e3dce14c600384286c5839d142b8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   maxHealth: 100
+  projectilePrefab: {fileID: 0}
+  projectileSprite: {fileID: 0}
 --- !u!1 &557010748
 GameObject:
   m_ObjectHideFlags: 0
