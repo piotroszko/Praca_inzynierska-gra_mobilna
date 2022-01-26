@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartPos : MonoBehaviour
 {
-    private GameObject[] players;
+    public GameObject[] players;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
