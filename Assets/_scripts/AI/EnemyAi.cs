@@ -137,20 +137,38 @@ public class EnemyAi : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.CompareTag("Player"))
+    if (other.CompareTag("Player") && !CanSeePlayer(agroRange))
     {
       if (transform.position.x < player.position.x)
       {
-        transform.eulerAngles = new Vector3(0, -180, 0);
-        movingLeft = false;
+        StartCoroutine(myDelay());
+        
       }
 
-      else
+      else if(!CanSeePlayer(agroRange))
       {
-        transform.eulerAngles = new Vector3(0, 0, 0);
-        movingLeft = true;
+        StartCoroutine(myDelay2());
+        
+        
       }
     }
 
   }
+
+  IEnumerator myDelay()
+  {
+    yield return new WaitForSeconds(.5f);
+    transform.eulerAngles = new Vector3(0, -180, 0);
+    movingLeft = false;
+    
+  }
+  
+  IEnumerator myDelay2()
+  {
+    yield return new WaitForSeconds(.5f);
+    transform.eulerAngles = new Vector3(0, 0, 0);
+    movingLeft = true;
+    
+  }
+  
 }
