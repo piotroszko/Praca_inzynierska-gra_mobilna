@@ -92,6 +92,7 @@ public class MovementController : MonoBehaviour
                 this.stats.statsJumps++;
                 rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 gameObject.GetComponent<PlayerCombatController>().amountOfJumpsFromLastKill++;
+                anim.Play("Jump");
                 if (doubleJump) jumpValue = 1;
             }
             else if (jumpValue == 1)
@@ -101,6 +102,7 @@ public class MovementController : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 jumpValue = 0;
                 gameObject.GetComponent<PlayerCombatController>().amountOfJumpsFromLastKill++;
+                anim.Play("Jump");
             }
         }
     }
@@ -127,6 +129,7 @@ public class MovementController : MonoBehaviour
         if (colliders.Length > 0)
         {
             isOnGround = true;
+            anim.SetBool("jump", false);
         }
     }
 

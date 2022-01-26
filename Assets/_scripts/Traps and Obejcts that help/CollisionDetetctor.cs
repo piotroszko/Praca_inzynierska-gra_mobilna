@@ -10,6 +10,8 @@ public class CollisionDetetctor : MonoBehaviour
     [SerializeField] float force = 1.0f;
     private float gravityValue = -9.81f;
     private Rigidbody2D rb;
+    private Animator anim;
+    
 
     [SerializeField] float forceForJumpPad = 1.0f;
 
@@ -35,6 +37,7 @@ public class CollisionDetetctor : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         waypointPositionSpawn = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -69,6 +72,7 @@ public class CollisionDetetctor : MonoBehaviour
         {
             rb.AddForce(Vector2.up * gravityValue * forceForJumpPad * -0.75f, ForceMode2D.Impulse);
             timeAllowNextCollision = Time.time + .1f;
+            anim.Play("Jump");
         }
     }
 
