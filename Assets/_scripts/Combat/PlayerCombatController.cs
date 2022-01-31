@@ -94,9 +94,13 @@ public class PlayerCombatController : MonoBehaviour
   }
   void Update()
   {
-    if (Input.GetButtonDown("Fire1"))
-    {
-      if ((Time.time - lastThrowDate > CalculateAttackSpeed() / 2))
+    // if (Input.GetButtonDown("Fire1"))
+    // {
+    //   this.Shot();
+    // }
+  }
+  public void Shot() {
+    if ((Time.time - lastThrowDate > CalculateAttackSpeed() / 2))
       {
         lastThrowDate = Time.time;
 
@@ -113,6 +117,5 @@ public class PlayerCombatController : MonoBehaviour
           projectile.transform.parent = null;
         }
       }
-    }
   }
 }

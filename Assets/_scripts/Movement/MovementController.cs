@@ -25,10 +25,22 @@ public class MovementController : MonoBehaviour
     private int jumpValue = 0;
     public bool climbing;
 
+    private bool isMobile = false;
+    public FixedJoystick joystick;
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        if (SystemInfo.deviceType == DeviceType.Desktop)
+        {
+            isMobile = false;
+            Debug.Log("Desktop");
+        }
+        else if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            isMobile = true;
+            Debug.Log("Mobile");
+        }
     }
 
     void Start()
@@ -73,8 +85,10 @@ public class MovementController : MonoBehaviour
     void Update()
     {
         //Getting inputs
+        if(!isMobile)
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+        else
+        move = joystick.Direction;
         Flip();
         Jump();
         RunningAnimation();
@@ -84,7 +98,8 @@ public class MovementController : MonoBehaviour
     //Jumping
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        
+        if (Input.GetButtonDown("Jump") || joystick.Direction.y > 0.5)
         {
             if (isOnGround)
             {
@@ -110,11 +125,11 @@ public class MovementController : MonoBehaviour
     //Method for flipping
     void Flip()
     {
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (Input.GetAxisRaw("Horizontal") < 0 || joystick.Direction.x < 0)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
+        else if (Input.GetAxisRaw("Horizontal") > 0 || joystick.Direction.x > 0)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
@@ -135,7 +150,7 @@ public class MovementController : MonoBehaviour
 
     void RunningAnimation()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 || joystick.Direction.x != 0)
         {
             anim.SetBool("run", true);
         }
