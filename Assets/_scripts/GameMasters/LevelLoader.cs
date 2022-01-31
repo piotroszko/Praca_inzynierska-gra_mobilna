@@ -24,7 +24,7 @@ public class LevelLoader : MonoBehaviour
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
-            nextSceneIndex = 0;
+            nextSceneIndex = 1;
         }
 
         SceneManager.LoadScene(nextSceneIndex);
