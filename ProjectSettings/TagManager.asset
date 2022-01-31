@@ -26,6 +26,7 @@ TagManager:
   - Saw
   - StartPos
   - Waypoint
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - SomeAction
   - Projectiles
   - ProjectilesEnemy
-  - 
+  - Trap
   - 
   - 
   - 
