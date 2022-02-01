@@ -22,6 +22,7 @@ public class FlowerBossManager : MonoBehaviour
     private Vector2 startPosition;
     private float lastShotTime;
     private Animator anim;
+    public ParticleSystem particles;
     int indexToMoveTo = 0;
     // Start is called before the first frame update
     void Start()
@@ -44,8 +45,14 @@ public class FlowerBossManager : MonoBehaviour
         this.MoveToIndex();
         if(flowerHead.transform.position.y == attackYValues[indexToMoveTo]) {
             isMoving = false;
+            if(this.particles.isPlaying) {
+                this.particles.Stop();
+            }
         } else {
             isMoving = true;
+            if(this.particles.isStopped) {
+                this.particles.Play();
+            }
         }
         Shot();
     }
