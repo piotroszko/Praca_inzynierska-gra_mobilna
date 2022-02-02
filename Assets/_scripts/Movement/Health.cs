@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     private float _maxHealth = 200;
     
+    private AudioSource audioHit;
     public float maxHealth { 
         get {
             return _maxHealth + additionalHealth; 
@@ -45,6 +46,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        audioHit = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -59,6 +61,7 @@ public class Health : MonoBehaviour
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
             StartCoroutine(Immortality());
+            audioHit.Play();
         }
     }
 
