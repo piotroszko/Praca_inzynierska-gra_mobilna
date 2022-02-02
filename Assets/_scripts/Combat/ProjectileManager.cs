@@ -42,18 +42,26 @@ public class ProjectileManager : MonoBehaviour
   }
   private void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" )
+    if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" || other.gameObject.tag == "Spikes")
     {
       CreateHitSound(groundHit);
+      Destroy(this.gameObject);
+    } else if ( other.gameObject.tag == "SwordBoss") {
+      other.gameObject.GetComponent<SwordBossHealth>().Hit((int)this.damage);
+      CreateHitSound(enemyHit);
       Destroy(this.gameObject);
     }
 
   }
   private void OnTriggerStay2D(Collider2D other)
   {
-    if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" )
+    if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" || other.gameObject.tag == "Spikes")
     {
       CreateHitSound(groundHit);
+      Destroy(this.gameObject);
+    } else if ( other.gameObject.tag == "SwordBoss") {
+      other.gameObject.GetComponent<SwordBossHealth>().Hit((int)this.damage);
+      CreateHitSound(enemyHit);
       Destroy(this.gameObject);
     }
   }

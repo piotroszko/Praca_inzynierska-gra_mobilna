@@ -20,7 +20,7 @@ public class LevelLoader : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
+        int nextSceneIndex = currentSceneIndex + 2; //do zmiany pozniej
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
