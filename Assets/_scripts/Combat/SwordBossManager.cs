@@ -54,7 +54,7 @@ public class SwordBossManager : MonoBehaviour
     }
     void Update()
     {
-        if(!berserkMode && !shotingMode){
+        if(!berserkMode && !shotingMode && bossObject != null){
             AttackPlatform();
             if(Time.time - timeToAttack > 8f && !isOnLeftSide) {
                 if(healthMax/3 > health) {
@@ -78,7 +78,7 @@ public class SwordBossManager : MonoBehaviour
                     isOnLeftSide = false;
                 }
             }
-        } else if (berserkMode && !shotingMode) {
+        } else if (berserkMode && !shotingMode && bossObject != null) {
             AttackPlatform();
             if(Time.time - timeToAttack > 4.7f && !isOnLeftSide) {
                 ResetAtack();
@@ -94,7 +94,7 @@ public class SwordBossManager : MonoBehaviour
                 timeToAttack = Time.time;
                 isOnLeftSide = false;
             }
-        } else if (shotingMode) {
+        } else if (shotingMode && bossObject != null) {
             if(!isOnLeftSide && !setupShotingMode) {
                 bossObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 setupShotingMode = true;
