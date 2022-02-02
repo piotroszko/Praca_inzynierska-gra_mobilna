@@ -20348,7 +20348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -30500,8 +30500,8 @@ MonoBehaviour:
   groundCheck: {fileID: 1397860231}
   playerCheck: {fileID: 1260011423}
   player: {fileID: 0}
-  agroRange: 10
-  attackSpeed: 0
+  agroRange: 2
+  attackSpeed: 2
 --- !u!114 &1957961068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30858,7 +30858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -30898,7 +30898,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: test1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1990964117

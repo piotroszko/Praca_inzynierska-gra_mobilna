@@ -15,7 +15,6 @@ public class InGameUIManager : MonoBehaviour
   {
     this.InGameMenuCanvas.SetActive(false);
     this.MenuCanvas.SetActive(true);
-
   }
 
   // Update is called once per frame
