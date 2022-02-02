@@ -12,6 +12,7 @@ public class NodeView : MonoBehaviour
   public int nodeID = 0;
   [HideInInspector]
   public bool isAvailableToUnlock = false;
+  public GameObject dashButton;
   public void setView(string title, string desc, int ID, bool isAvailable)
   {
     this.title.GetComponent<UnityEngine.UI.Text>().text = title;
@@ -72,7 +73,7 @@ public class NodeView : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<Health>().longerDuration = true;
             break;
           case 14:
-            GameObject.FindWithTag("Player").GetComponent<MovementController>().climbing = true;
+            dashButton.SetActive(true);
             break;
         }
       checkButton();

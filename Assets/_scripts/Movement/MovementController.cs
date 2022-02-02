@@ -94,6 +94,9 @@ public class MovementController : MonoBehaviour
         RunningAnimation();
         RecordDistance();
     }
+    public void Dash(){
+        
+    }
 
     //Jumping
     void Jump()
