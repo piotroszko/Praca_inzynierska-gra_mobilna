@@ -17,7 +17,7 @@ public class EnemyProjectileManager : MonoBehaviour
   }
   void Start()
   {
-    Object.Destroy(gameObject, 1.2f);
+    Object.Destroy(gameObject, 2f);
 
   }
 

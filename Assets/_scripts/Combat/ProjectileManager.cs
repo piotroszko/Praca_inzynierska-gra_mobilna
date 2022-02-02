@@ -7,6 +7,8 @@ public class ProjectileManager : MonoBehaviour
   float speed;
   float damage;
   bool right = false;
+  public AudioClip groundHit;
+  public AudioClip enemyHit;
   public void Setup(Sprite projectileSprite = null, float speed = 20f, float damage = 18f)
   {
     this.speed = speed;
@@ -34,15 +36,36 @@ public class ProjectileManager : MonoBehaviour
     if (other.gameObject.tag == "Enemy")
     {
       other.gameObject.GetComponent<EnemyManager>().health -= this.damage;
-      Destroy(gameObject);
+      CreateHitSound(enemyHit);
+      Destroy(this.gameObject);
     }
   }
   private void OnTriggerEnter2D(Collider2D other)
   {
     if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" )
     {
-      Destroy(gameObject);
+      CreateHitSound(groundHit);
+      Destroy(this.gameObject);
     }
 
+  }
+  private void OnTriggerStay2D(Collider2D other)
+  {
+    if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" )
+    {
+      CreateHitSound(groundHit);
+      Destroy(this.gameObject);
+    }
+  }
+  private void CreateHitSound(AudioClip audioClip) //dodany wlasna metode gdyz playclipatpoint nie działa poprawnie w tym przypadku
+  {
+    AudioSource.PlayClipAtPoint(audioClip, transform.position);
+    GameObject newObj = new GameObject("HitSound");
+    AudioSource audioSource = newObj.AddComponent<AudioSource>();
+    audioSource.clip = audioClip;
+    audioSource.volume = 0.01f;
+    Instantiate(newObj, transform);
+    audioSource.Play();
+    Destroy(newObj, audioClip.length + 0.1f);
   }
 }
