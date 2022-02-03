@@ -15416,6 +15416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfac13c73acd8a45a8668f1abf066b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replayTimes: 0
   level: 30
   additionalMoney: 0
   _money: 100
@@ -15817,9 +15818,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRanged: 0
-  maxHealth: 100
+  basicHealth: 100
   projectilePrefab: {fileID: 0}
   projectileSprite: {fileID: 0}
+  basicDamage: 18
   damage: 18
 --- !u!61 &847866757
 BoxCollider2D:
@@ -16185,6 +16187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69df88e8fb9534248adc8fa0e8d9402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicDamage: 20
   attackYValues:
   - -3.15
   - -1.5
@@ -16211,9 +16214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRanged: 0
-  maxHealth: 100
+  basicHealth: 100
   projectilePrefab: {fileID: 0}
   projectileSprite: {fileID: 0}
+  basicDamage: 18
   damage: 18
 --- !u!212 &874990988
 SpriteRenderer:
@@ -20045,9 +20049,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRanged: 0
-  maxHealth: 100
+  basicHealth: 100
   projectilePrefab: {fileID: 0}
   projectileSprite: {fileID: 0}
+  basicDamage: 18
   damage: 18
 --- !u!61 &1160784135
 BoxCollider2D:
@@ -20893,7 +20898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281982481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.56, y: -3.22, z: -1.3747842}
+  m_LocalPosition: {x: -10.01, y: -3.39, z: -1.3747842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -30739,9 +30744,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRanged: 0
-  maxHealth: 100
+  basicHealth: 100
   projectilePrefab: {fileID: 0}
   projectileSprite: {fileID: 0}
+  basicDamage: 18
   damage: 18
 --- !u!61 &1957961065
 BoxCollider2D:

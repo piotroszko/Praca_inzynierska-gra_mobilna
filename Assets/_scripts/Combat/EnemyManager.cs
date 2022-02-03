@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
   public bool isRanged = false;
-  public float maxHealth = 100f;
+
+  public float basicHealth = 100f;
+  private float maxHealth = 1f;
   private float _health = 1f;
 
   [SerializeField] GameObject projectilePrefab;
   [SerializeField] Sprite projectileSprite;
-  [SerializeField] int damage = 18;
+  [SerializeField] public int basicDamage = 18;
+  public int damage = 1;
   public float health
   {
     get { return _health; }
@@ -37,9 +40,14 @@ public class EnemyManager : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    _health = maxHealth;
   }
 
+  void OnEnable(){
+    int replay = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().replayTimes;
+    maxHealth = basicHealth + ( basicHealth/2 * replay);
+    _health = maxHealth;
+    damage = basicDamage + (10 * replay);
+  }
   // Update is called once per frame
   void Update()
   {

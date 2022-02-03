@@ -5,6 +5,8 @@ using Random=System.Random;
 
 public class FlowerBossManager : MonoBehaviour
 {
+    private int damage = 1;
+    public int basicDamage = 20;
     [SerializeField] List<float> attackYValues = new List<float>();
     public GameObject flowerHead;
     public GameObject projectilePrefab;
@@ -31,6 +33,9 @@ public class FlowerBossManager : MonoBehaviour
         this.anim = flowerHead.GetComponent<Animator>();
     }
     void OnEnable() {
+        int replay = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().replayTimes;
+        damage = basicDamage + ( 10 * replay );
+
         flowerHead.transform.position = new Vector2(flowerHead.transform.position.x, attackYValues[1]);
         startTime = Time.time;
         lastShotTime = Time.time;
@@ -90,7 +95,7 @@ public class FlowerBossManager : MonoBehaviour
     }
     void ShotProjectile() {
         GameObject projectile = Instantiate(projectilePrefab, shotPoint.transform.position, shotPoint.transform.rotation);
-        projectile.GetComponent<EnemyProjectileManager>().Setup(projectileSprite, 10f);
+        projectile.GetComponent<EnemyProjectileManager>().Setup(projectileSprite, 10f, damage);
     }
     void MoveToIndex() {
         float distCovered = (Time.time - startTime) * headMoveSpeed;

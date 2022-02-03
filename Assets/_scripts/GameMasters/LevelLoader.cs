@@ -24,6 +24,7 @@ public class LevelLoader : MonoBehaviour
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
+            GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().replayTimes ++;
             nextSceneIndex = 1;
         }
 

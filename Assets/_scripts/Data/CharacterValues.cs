@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CharacterValues : MonoBehaviour
 {
+  public int replayTimes = 1;
   public int level = 1;
   private float _experience = 0;
   public float  experience { 
     get {return _experience;}
     set { 
       _experience = value;
-    if(_experience > level * 200) {
+    if(_experience > level * 400) {
       _experience = 0;
       level ++;
       aviablePoints += 3;

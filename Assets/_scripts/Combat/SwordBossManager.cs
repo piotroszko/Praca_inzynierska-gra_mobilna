@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SwordBossManager : MonoBehaviour
 {
+    public float basicHealth = 4000f;
+    [HideInInspector]
     public float healthMax = 1000f;
+    [HideInInspector]
     public float health = 1000f;
-    public int damage = 20;
+    public int basicDamage = 20;
+    private int damage = 1;
     public GameObject bossObject;
     public GameObject leftEdgePoint;
     public GameObject rightEdgePoint;
@@ -42,6 +46,12 @@ public class SwordBossManager : MonoBehaviour
         this.anim = bossObject.GetComponent<Animator>();
     }
     void OnEnable(){
+        int replay = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>().replayTimes;
+        damage = basicDamage + ( 10 * replay);
+
+        healthMax = basicHealth + (800 * replay);
+        health = healthMax;
+
         player = GameObject.FindWithTag("Player");
         GameObject.Find("DamageBack").GetComponent<BossDamageZone>().damage = (int) (damage * 0.7);
         GameObject.Find("DamageFront").GetComponent<BossDamageZone>().damage = damage;
@@ -49,6 +59,8 @@ public class SwordBossManager : MonoBehaviour
     public void BossHit(float damage){
         health -= damage;
         if(health < 0) {
+            float distance = Vector2.Distance(bossObject.transform.position, GameObject.FindWithTag("Player").transform.position);
+            GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance, healthMax);
             Destroy(bossObject);
         }
     }
