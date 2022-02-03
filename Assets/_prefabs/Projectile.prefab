@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundHit: {fileID: 8300000, guid: fc79122d3dcf9e04c935420285ac4b56, type: 3}
   enemyHit: {fileID: 8300000, guid: 52d6b744c648c9f41890f30722bcf1ca, type: 3}
+  mixer: {fileID: 24300002, guid: 3adb833ecd2f4544c863202774ed763f, type: 2}
 --- !u!61 &7828512617066167152
 BoxCollider2D:
   m_ObjectHideFlags: 0

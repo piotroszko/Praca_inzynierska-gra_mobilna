@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ProjectileManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ProjectileManager : MonoBehaviour
   bool right = false;
   public AudioClip groundHit;
   public AudioClip enemyHit;
+  public AudioMixerGroup mixer;
   public void Setup(Sprite projectileSprite = null, float speed = 20f, float damage = 18f)
   {
     this.speed = speed;
@@ -71,6 +73,7 @@ public class ProjectileManager : MonoBehaviour
     GameObject newObj = new GameObject("HitSound");
     AudioSource audioSource = newObj.AddComponent<AudioSource>();
     audioSource.clip = audioClip;
+    audioSource.outputAudioMixerGroup = mixer;
     audioSource.volume = 0.01f;
     Instantiate(newObj, transform);
     audioSource.Play();
