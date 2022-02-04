@@ -38,6 +38,7 @@ public class MovementController : MonoBehaviour
     private float lastDashDate;
     public AudioSource dashSound;
 
+    public ParticleSystem dashParticle;
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -113,6 +114,7 @@ public class MovementController : MonoBehaviour
     public void Dash()
     {
         if(Time.time - lastDashDate > 2f){
+            dashParticle.Play();
             dashSound.Play();
             lastDashDate = Time.time;
             StartCoroutine(DashInumerator());
