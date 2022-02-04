@@ -26,6 +26,7 @@ public class EnemyAi : MonoBehaviour
   [SerializeField] float agroRange;
   [SerializeField] float attackSpeed;
   float lastAttackDate;
+  private Animator anim;
   
 
   RaycastHit2D hit, wallHit;
@@ -35,6 +36,7 @@ public class EnemyAi : MonoBehaviour
   {
     test = GameObject.FindGameObjectWithTag("Player");
     player = test.transform;
+    anim = GetComponent<Animator>();
   }
 
   private void Update()
@@ -70,7 +72,10 @@ public class EnemyAi : MonoBehaviour
     //Debug.Log("DoingAttack");
     if((Time.time - lastAttackDate > attackSpeed)) {
       lastAttackDate = Time.time;
+      anim.Play("warrior");
       GetComponent<EnemyManager>().Attack();
+      
+      
     }
   }
 

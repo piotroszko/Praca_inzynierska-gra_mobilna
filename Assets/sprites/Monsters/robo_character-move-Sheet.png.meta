@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: d0a4f55401c3c5f4aad578568bab8193
+guid: c985f271aeb855c4294e1a93eb6d8aa1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7732464884685803502
-    second: robo_character-Sheet_0
+      213: -7345584186999065082
+    second: robo_character-move-Sheet_0
   - first:
-      213: -2623212741173523406
-    second: robo_character-Sheet_1
+      213: -2083368545078440195
+    second: robo_character-move-Sheet_1
   - first:
-      213: 1585935960859980381
-    second: robo_character-Sheet_2
+      213: -8424757587612716206
+    second: robo_character-move-Sheet_2
   - first:
-      213: 6799304071866658377
-    second: robo_character-Sheet_3
+      213: -6908101649358369730
+    second: robo_character-move-Sheet_3
+  - first:
+      213: -5281358164401391162
+    second: robo_character-move-Sheet_4
+  - first:
+      213: -4032917978753234684
+    second: robo_character-move-Sheet_5
+  - first:
+      213: -5370444672465207278
+    second: robo_character-move-Sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robo_character-Sheet_0
+      name: robo_character-move-Sheet_0
       rect:
         serializedVersion: 2
         x: 1
@@ -135,77 +144,140 @@ TextureImporter:
         width: 31
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 210fe1ed724c0b490800000000000000
-      internalID: -7732464884685803502
+      spriteID: 606b13ab91e3f0a90800000000000000
+      internalID: -7345584186999065082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: robo_character-Sheet_1
+      name: robo_character-move-Sheet_1
       rect:
         serializedVersion: 2
-        x: 42
+        x: 39
         y: 0
-        width: 28
+        width: 31
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23cc21809e9789bd0800000000000000
-      internalID: -2623212741173523406
+      spriteID: dfe806ea8536613e0800000000000000
+      internalID: -2083368545078440195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: robo_character-Sheet_2
+      name: robo_character-move-Sheet_2
       rect:
         serializedVersion: 2
-        x: 81
+        x: 77
         y: 0
-        width: 27
+        width: 31
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d52b39f8a50620610800000000000000
-      internalID: 1585935960859980381
+      spriteID: 253319f3c9f351b80800000000000000
+      internalID: -8424757587612716206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: robo_character-Sheet_3
+      name: robo_character-move-Sheet_3
       rect:
         serializedVersion: 2
-        x: 117
+        x: 115
         y: 0
-        width: 29
+        width: 31
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94eaa73770bfb5e50800000000000000
-      internalID: 6799304071866658377
+      spriteID: e3c44bd862e7120a0800000000000000
+      internalID: -6908101649358369730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo_character-move-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9fe373bb8d4b6b0800000000000000
+      internalID: -5281358164401391162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo_character-move-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 0
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409802437723808c0800000000000000
+      internalID: -4032917978753234684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo_character-move-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21082d336095875b0800000000000000
+      internalID: -5370444672465207278
       vertices: []
       indices: 
       edges: []
