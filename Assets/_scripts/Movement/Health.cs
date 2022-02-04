@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 {
     private float _maxHealth = 200;
     
-    private AudioSource audioHit;
+    public AudioSource audioHit;
     public float maxHealth { 
         get {
             return _maxHealth + additionalHealth; 
@@ -46,7 +46,6 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        audioHit = GetComponent<AudioSource>();
     }
 
     void Update()

@@ -36,6 +36,7 @@ public class MovementController : MonoBehaviour
     public float dashTime;
     private float baseSpeed;
     private float lastDashDate;
+    public AudioSource dashSound;
 
     public void Awake()
     {
@@ -112,6 +113,7 @@ public class MovementController : MonoBehaviour
     public void Dash()
     {
         if(Time.time - lastDashDate > 2f){
+            dashSound.Play();
             lastDashDate = Time.time;
             StartCoroutine(DashInumerator());
         }
