@@ -26,6 +26,9 @@ public class FlowerBossManager : MonoBehaviour
     private Animator anim;
     public ParticleSystem particles;
     int indexToMoveTo = 0;
+
+    public AudioSource movingSound;
+    public AudioSource attackSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,15 +51,17 @@ public class FlowerBossManager : MonoBehaviour
     {
         ChangeSection();
         this.MoveToIndex();
-        if(flowerHead.transform.position.y == attackYValues[indexToMoveTo]) {
+        if((flowerHead.transform.position.y + 0.1f > attackYValues[indexToMoveTo]) && (flowerHead.transform.position.y - 0.1f < attackYValues[indexToMoveTo])) {
             isMoving = false;
             if(this.particles.isPlaying) {
                 this.particles.Stop();
+                movingSound.Stop();
             }
         } else {
             isMoving = true;
             if(this.particles.isStopped) {
                 this.particles.Play();
+                movingSound.Play();
             }
         }
         Shot();
@@ -88,6 +93,7 @@ public class FlowerBossManager : MonoBehaviour
     }
     void Shot(){
         if(Time.time - lastShotTime > attackSpeed && !isMoving) {
+            attackSound.Play();
             this.anim.Play("Attack");
             lastShotTime = Time.time;
             Invoke("ShotProjectile", 0.15F);
