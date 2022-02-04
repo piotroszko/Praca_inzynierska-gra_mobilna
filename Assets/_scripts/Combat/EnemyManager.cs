@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
   [SerializeField] GameObject projectilePrefab;
   [SerializeField] Sprite projectileSprite;
   [SerializeField] public int basicDamage = 18;
+  [SerializeField] public AudioSource attackSound;
   public int damage = 1;
   public float health
   {
@@ -35,6 +36,9 @@ public class EnemyManager : MonoBehaviour
       projectile.GetComponent<EnemyProjectileManager>().Setup(projectileSprite, 10f);
     } else {
       GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().DamagePlayer(this.damage);
+    }
+    if(attackSound != null) {
+      attackSound.Play();
     }
   }
   // Start is called before the first frame update
