@@ -35,6 +35,7 @@ public class MovementController : MonoBehaviour
     public float powerOfDash;
     public float dashTime;
     private float baseSpeed;
+    private float lastDashDate;
 
     public void Awake()
     {
@@ -59,7 +60,7 @@ public class MovementController : MonoBehaviour
         chValues = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>();
         inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
         baseSpeed = speed;
-
+        lastDashDate = Time.time;
     }
     float CalculatMovementSpeed() {
         IItemArmor eqCollar = inv.equippedCollar;
@@ -110,7 +111,10 @@ public class MovementController : MonoBehaviour
 
     public void Dash()
     {
-        StartCoroutine(DashInumerator());
+        if(Time.time - lastDashDate > 2f){
+            lastDashDate = Time.time;
+            StartCoroutine(DashInumerator());
+        }
     }
     public IEnumerator DashInumerator()
     {

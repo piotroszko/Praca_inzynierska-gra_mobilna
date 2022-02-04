@@ -27755,12 +27755,20 @@ PrefabInstance:
       value: squirrel
       objectReference: {fileID: 0}
     - target: {fileID: 7361514263369931270, guid: 1b05785c641427e4bbbaf4bb9b5e657e, type: 3}
+      propertyPath: dashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361514263369931270, guid: 1b05785c641427e4bbbaf4bb9b5e657e, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1962476270}
     - target: {fileID: 7361514263369931270, guid: 1b05785c641427e4bbbaf4bb9b5e657e, type: 3}
       propertyPath: jumpPower
       value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361514263369931270, guid: 1b05785c641427e4bbbaf4bb9b5e657e, type: 3}
+      propertyPath: powerOfDash
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b05785c641427e4bbbaf4bb9b5e657e, type: 3}
