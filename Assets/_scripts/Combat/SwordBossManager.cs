@@ -32,7 +32,7 @@ public class SwordBossManager : MonoBehaviour
 
 
     bool berserkMode = false; //jesli gracz jest na ziemi
-    bool shotingMode = false; // jesli boss ma ponizej 1/3 hp
+    bool shotingMode = true; // jesli boss ma ponizej 1/3 hp
     bool setupShotingMode = false;
     float shotingModeAttackSpeed = 3f;
 
@@ -40,7 +40,9 @@ public class SwordBossManager : MonoBehaviour
     public GameObject bossProjectile;
     public GameObject projectilePoint;
 
-
+    public AudioSource swingAudio;
+    public AudioSource movingAudio;
+    public AudioSource orbAudio;
     void Start()
     {
         this.anim = bossObject.GetComponent<Animator>();
@@ -118,6 +120,7 @@ public class SwordBossManager : MonoBehaviour
             }
             if(Time.time - timeToAttack > shotingModeAttackSpeed) {
                 timeToAttack = Time.time;
+                orbAudio.Play();
                 anim.Play("Attack");
                 GameObject projectile = Instantiate(bossProjectile, projectilePoint.transform.position, projectilePoint.transform.rotation);
                 projectile.GetComponent<SwordBossProjectile>().Setup(damage);
@@ -138,6 +141,7 @@ public class SwordBossManager : MonoBehaviour
             }
             if (Time.time - timeToAttack > 2.9f && animAttack == false) {
                 animAttack = true;
+                swingAudio.Play();
                 anim.Play("Attack");
             }
         }
@@ -165,6 +169,7 @@ public class SwordBossManager : MonoBehaviour
     }
     void MoveTo(GameObject destination) 
     {
+        movingAudio.Play();
         endPosition = destination.transform.position;
         startTime = Time.time;
         startPosition = bossObject.transform.position;
