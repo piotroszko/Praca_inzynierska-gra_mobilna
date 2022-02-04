@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class MovementController : MonoBehaviour
 {
@@ -27,6 +28,14 @@ public class MovementController : MonoBehaviour
 
     private bool isMobile = false;
     public FixedJoystick joystick;
+    
+    //dashing
+
+    private bool isDashing;
+    public float powerOfDash;
+    public float dashTime;
+    private float baseSpeed;
+
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +58,8 @@ public class MovementController : MonoBehaviour
         stats = GameObject.FindWithTag("PlayerManager").GetComponent<StatisticsValues>();
         chValues = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>();
         inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
+        baseSpeed = speed;
+
     }
     float CalculatMovementSpeed() {
         IItemArmor eqCollar = inv.equippedCollar;
@@ -77,7 +88,9 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         //Giving velocity + dont need y
+
         rb.velocity = new Vector2(move.x * (speed + CalculatMovementSpeed() ) * Time.deltaTime, rb.velocity.y);
+        
         GroundCheck();
     }
 
@@ -94,7 +107,17 @@ public class MovementController : MonoBehaviour
         RunningAnimation();
         RecordDistance();
     }
-    public void Dash(){
+
+    public void Dash()
+    {
+        StartCoroutine(DashInumerator());
+    }
+    public IEnumerator DashInumerator()
+    {
+
+        speed *= powerOfDash;
+        yield return new WaitForSeconds(dashTime);
+        speed = baseSpeed + CalculatMovementSpeed();
         
     }
 
@@ -131,6 +154,7 @@ public class MovementController : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0 || joystick.Direction.x < 0)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
+  
         }
         else if (Input.GetAxisRaw("Horizontal") > 0 || joystick.Direction.x > 0)
         {
