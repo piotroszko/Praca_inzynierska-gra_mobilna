@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-
+using UnityEngine.UI;
+using TMPro;
 public class ProjectileManager : MonoBehaviour
 {
   float speed;
@@ -38,7 +39,7 @@ public class ProjectileManager : MonoBehaviour
     if (other.gameObject.tag == "Enemy")
     {
       other.gameObject.GetComponent<EnemyManager>().health -= this.damage;
-      CreateHitSound(enemyHit);
+      CreateHitSound(enemyHit, other.gameObject);
       Destroy(this.gameObject);
     }
   }
@@ -50,33 +51,34 @@ public class ProjectileManager : MonoBehaviour
       Destroy(this.gameObject);
     } else if ( other.gameObject.tag == "SwordBoss") {
       other.gameObject.GetComponent<SwordBossHealth>().Hit((int)this.damage);
-      CreateHitSound(enemyHit);
+      CreateHitSound(enemyHit, other.gameObject);
       Destroy(this.gameObject);
     }
 
   }
-  private void OnTriggerStay2D(Collider2D other)
+  private void CreateHitSound(AudioClip audioClip, GameObject other=null) //dodany wlasna metode gdyz playclipatpoint nie działa poprawnie w tym przypadku
   {
-    if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Trap" || other.gameObject.tag == "Spikes")
-    {
-      CreateHitSound(groundHit);
-      Destroy(this.gameObject);
-    } else if ( other.gameObject.tag == "SwordBoss") {
-      other.gameObject.GetComponent<SwordBossHealth>().Hit((int)this.damage);
-      CreateHitSound(enemyHit);
-      Destroy(this.gameObject);
-    }
-  }
-  private void CreateHitSound(AudioClip audioClip) //dodany wlasna metode gdyz playclipatpoint nie działa poprawnie w tym przypadku
-  {
-    AudioSource.PlayClipAtPoint(audioClip, transform.position);
+    //AudioSource.PlayClipAtPoint(audioClip, transform.position);
+
+    GameObject inti;
     GameObject newObj = new GameObject("HitSound");
-    AudioSource audioSource = newObj.AddComponent<AudioSource>();
+    if(other != null){
+      inti = Instantiate(newObj, other.transform.localPosition, Quaternion.Euler(0, 0, 0));
+      TextMeshPro text = inti.AddComponent<TextMeshPro>();
+      text.SetText("-"+damage.ToString("F1"));
+      text.fontSize = 3f;
+      text.color = new Color32(97, 17, 17, 200);
+      inti.GetComponent<RectTransform>().sizeDelta = new Vector2(2f, 1.5f);
+      inti.transform.position = other.transform.position;
+    } else {
+      inti = Instantiate(newObj, transform);
+    }
+    AudioSource audioSource = inti.AddComponent<AudioSource>();
     audioSource.clip = audioClip;
     audioSource.outputAudioMixerGroup = mixer;
     audioSource.volume = 0.01f;
-    Instantiate(newObj, transform);
     audioSource.Play();
-    Destroy(newObj, audioClip.length + 0.1f);
+    Destroy(newObj);
+    Destroy(inti, audioClip.length + 0.2f);
   }
 }

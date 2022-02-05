@@ -92,7 +92,6 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         //Giving velocity + dont need y
-
         rb.velocity = new Vector2(move.x * (speed + CalculatMovementSpeed() ) * Time.deltaTime, rb.velocity.y);
         
         GroundCheck();
@@ -126,7 +125,7 @@ public class MovementController : MonoBehaviour
 
         speed *= powerOfDash;
         yield return new WaitForSeconds(dashTime);
-        speed = baseSpeed + CalculatMovementSpeed();
+        speed = baseSpeed;
         
     }
 
