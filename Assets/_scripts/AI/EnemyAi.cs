@@ -34,14 +34,17 @@ public class EnemyAi : MonoBehaviour
   private GameObject test;
   private void Start()
   {
-    test = GameObject.FindGameObjectWithTag("Player");
-    player = test.transform;
-    anim = GetComponent<Animator>();
+    
   }
 
   private void Update()
   {
     //Patroling
+    if(test == null)
+    test = GameObject.FindGameObjectWithTag("Player");
+    if(test != null)
+    player = test.transform;
+    anim = GetComponent<Animator>();
 
     hit = Physics2D.Raycast(groundCheck.position, Vector2.down, distance, LayerMask.GetMask("Ground"));
     wallHit = Physics2D.Raycast(wallCheck.position, Vector2.left, wallDistance, LayerMask.GetMask("Ground"));

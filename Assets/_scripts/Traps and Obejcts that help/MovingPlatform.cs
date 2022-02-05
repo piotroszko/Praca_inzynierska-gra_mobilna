@@ -66,6 +66,7 @@ public class MovingPlatform : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.transform.parent = null;
+            DontDestroyOnLoad(other.gameObject);
         }
     }
 
