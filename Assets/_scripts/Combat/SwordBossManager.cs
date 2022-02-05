@@ -32,7 +32,7 @@ public class SwordBossManager : MonoBehaviour
 
 
     bool berserkMode = false; //jesli gracz jest na ziemi
-    bool shotingMode = true; // jesli boss ma ponizej 1/3 hp
+    bool shotingMode = false; // jesli boss ma ponizej 1/3 hp
     bool setupShotingMode = false;
     float shotingModeAttackSpeed = 3f;
 
