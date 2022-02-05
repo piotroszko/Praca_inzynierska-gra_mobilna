@@ -39,6 +39,7 @@ public class MovementController : MonoBehaviour
     public AudioSource dashSound;
 
     public ParticleSystem dashParticle;
+    public ParticleSystem jumpParticle;
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -142,6 +143,7 @@ public class MovementController : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 gameObject.GetComponent<PlayerCombatController>().amountOfJumpsFromLastKill++;
                 anim.Play("Jump");
+                jumpParticle.Play();
                 if (doubleJump) jumpValue = 1;
             }
             else if (jumpValue == 1)
@@ -152,6 +154,7 @@ public class MovementController : MonoBehaviour
                 jumpValue = 0;
                 gameObject.GetComponent<PlayerCombatController>().amountOfJumpsFromLastKill++;
                 anim.Play("Jump");
+                jumpParticle.Play();
             }
         }
     }
