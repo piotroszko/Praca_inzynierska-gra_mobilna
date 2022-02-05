@@ -198,7 +198,7 @@ MonoBehaviour:
   groundCheck: {fileID: 3735664542089811229}
   playerCheck: {fileID: 3735664541642259472}
   player: {fileID: 0}
-  agroRange: 2
+  agroRange: 0.33
   attackSpeed: 2
 --- !u!61 &3735664541250707190
 BoxCollider2D:
