@@ -45,6 +45,7 @@ public class CollisionDetetctor : MonoBehaviour
     {
         if (health.currentHealth <= 0)
         {
+            health.currentHealth = health.maxHealth;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

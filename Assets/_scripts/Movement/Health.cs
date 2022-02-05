@@ -50,7 +50,10 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        
+        if (currentHealth != healthBar.slider.value)
+        {
+            healthBar.slider.value = currentHealth;
+        }
     }
 
     public void Damage(float damage)
