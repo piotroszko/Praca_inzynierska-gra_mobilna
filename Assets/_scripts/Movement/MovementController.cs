@@ -42,6 +42,7 @@ public class MovementController : MonoBehaviour
     public ParticleSystem jumpParticle;
     public void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         if (SystemInfo.deviceType == DeviceType.Desktop)
@@ -58,7 +59,6 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         stats = GameObject.FindWithTag("PlayerManager").GetComponent<StatisticsValues>();
         chValues = GameObject.FindWithTag("PlayerManager").GetComponent<CharacterValues>();
         inv = GameObject.FindWithTag("PlayerManager").GetComponent<Inventory>();
