@@ -43,6 +43,7 @@ public class SwordBossManager : MonoBehaviour
     public AudioSource swingAudio;
     public AudioSource movingAudio;
     public AudioSource orbAudio;
+    public BossHealth healthBar;
     void Start()
     {
         this.anim = bossObject.GetComponent<Animator>();
@@ -60,6 +61,9 @@ public class SwordBossManager : MonoBehaviour
     }
     public void BossHit(float damage){
         health -= damage;
+        if(healthBar != null) {
+            healthBar.SetHealth(health/healthMax);
+        }
         if(health < 0) {
             float distance = Vector2.Distance(bossObject.transform.position, GameObject.FindWithTag("Player").transform.position);
             GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance, healthMax);

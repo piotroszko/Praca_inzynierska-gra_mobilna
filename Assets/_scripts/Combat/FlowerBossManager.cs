@@ -29,6 +29,7 @@ public class FlowerBossManager : MonoBehaviour
 
     public AudioSource movingSound;
     public AudioSource attackSound;
+
     // Start is called before the first frame update
     void Start()
     {

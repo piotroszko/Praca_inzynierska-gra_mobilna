@@ -15,12 +15,17 @@ public class EnemyManager : MonoBehaviour
   [SerializeField] public int basicDamage = 18;
   [SerializeField] public AudioSource attackSound;
   public int damage = 1;
+  public BossHealth healthBar;
   public float health
   {
     get { return _health; }
     set
     {
-      _health = value; if (_health <= 0)
+      _health = value; 
+      if(healthBar != null) {
+        healthBar.SetHealth( _health/maxHealth);
+      }
+      if (_health <= 0)
       {
         float distance = Vector2.Distance(transform.position, GameObject.FindWithTag("Player").transform.position);
         GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance, maxHealth);
