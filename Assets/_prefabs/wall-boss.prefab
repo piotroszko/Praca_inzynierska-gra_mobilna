@@ -385,10 +385,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicDamage: 20
   attackYValues:
-  - -3.15
+  - -2.4
   - -1.5
-  - 0
-  - 1.5
+  - -0.5
+  - 1
   flowerHead: {fileID: 5607634105340281886}
   projectilePrefab: {fileID: 6166595838579572503, guid: bbc3cbef1d916f146bf7ee2a45ad420f, type: 3}
   projectileSprite: {fileID: 21300000, guid: 22ce466d3792269429218a0fe50384d8, type: 3}

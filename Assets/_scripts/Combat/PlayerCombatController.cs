@@ -26,6 +26,10 @@ public class PlayerCombatController : MonoBehaviour
   }
   public void KilledEnemy(float distanceFromKill, float maxHealth) 
   {
+    Health hp = GetComponent<Health>();
+    if(hp.currentHealth + 10 <= hp.maxHealth) {
+      hp.currentHealth += 10;
+    }
     float jumpFactor = 0f;
     if(amountOfJumpsFromLastKill < 2)
      jumpFactor = 0f;
