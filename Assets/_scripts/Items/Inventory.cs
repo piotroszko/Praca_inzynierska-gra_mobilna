@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
   public IItemArmor equippedCollar;
   public IItemArmor equippedCoat;
   public IItemWeapon equippedWeapon;
+  public EquipeManager eq;
 
   public bool betterSpeedValues = false;
   public bool betterDmgDefValues = false;
@@ -57,7 +58,6 @@ public class Inventory : MonoBehaviour
   }
   public void DeleteItem(IItem item)
   {
-    EquipeManager eq = GameObject.FindWithTag("Equiped").GetComponent<EquipeManager>();
     if (item == this.equippedCoat)
     {
       this.equippedCoat = null;
@@ -77,7 +77,6 @@ public class Inventory : MonoBehaviour
   }
   void Start()
   {
-    this.itemList.Add(new BasicCollar());
   }
   void Update()
   {
