@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRanged: 0
-  basicHealth: 100
+  basicHealth: 4000
   projectilePrefab: {fileID: 0}
   projectileSprite: {fileID: 0}
   basicDamage: 18

@@ -44,6 +44,8 @@ public class SwordBossManager : MonoBehaviour
     public AudioSource movingAudio;
     public AudioSource orbAudio;
     public BossHealth healthBar;
+    public GameObject portal;
+
     void Start()
     {
         this.anim = bossObject.GetComponent<Animator>();
@@ -68,6 +70,7 @@ public class SwordBossManager : MonoBehaviour
             float distance = Vector2.Distance(bossObject.transform.position, GameObject.FindWithTag("Player").transform.position);
             GameObject.FindWithTag("Player").GetComponent<PlayerCombatController>().KilledEnemy(distance, healthMax);
             Destroy(bossObject);
+            portal.SetActive(true);
         }
     }
     void Update()
