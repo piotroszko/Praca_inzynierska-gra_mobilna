@@ -5726,7 +5726,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.54
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5750,7 +5750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.59, y: -1.3910003, z: -20}
+  m_LocalPosition: {x: -12.59, y: -1.2400001, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1105027303}
@@ -10602,9 +10602,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replayTimes: 0
-  level: 30
+  level: 1
   additionalMoney: 0
-  _money: 100
+  _money: 0
   pointsDefense: 0
   pointsSpeed: 0
   pointsStrength: 0
@@ -24176,7 +24176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1899712466
 RectTransform:
   m_ObjectHideFlags: 0
