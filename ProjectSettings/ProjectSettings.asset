@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Projekt_inzynierski_gra_mobilna
+  productName: Przygody Wiewiorki
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.4156863, g: 0.10980393, b: 0.21960786, a: 1}
